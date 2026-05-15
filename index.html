@@ -3,1091 +3,1269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 世界盃 AI 預測</title>
+  <title>2026 世界盃 AI 預測 | FUTURE FOOTBALL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #D4AF37;
-      --gold-light: #F4D03F;
-      --dark: #0a0a12;
-      --dark2: #12121f;
-      --card: #1a1a2e;
-      --green: #1db954;
-      --text: #e0e0e0;
-      --muted: #888;
+      --bg-dark: #030308;
+      --bg-card: rgba(10, 10, 25, 0.85);
+      --cyan: #00F5FF;
+      --cyan-dim: #00a8b3;
+      --magenta: #FF00E5;
+      --magenta-dim: #a300a0;
+      --gold: #FFD700;
+      --green: #00FF88;
+      --text: #e8e8ff;
+      --muted: #8888aa;
+      --border: rgba(0, 245, 255, 0.2);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--dark);
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--bg-dark);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Modal */
+    /* ─── PARTICLE CANVAS ─── */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ─── HEX GRID OVERLAY ─── */
+    .hex-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70' viewBox='0 0 60 70'%3E%3Cpath d='M30 5 L55 20 L55 50 L30 65 L5 50 L5 20 Z' fill='none' stroke='%2300F5FF' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 60px 70px;
+    }
+
+    /* ─── WRAPPER ─── */
+    .wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,245,255,0.12) 0%, rgba(255,0,229,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+      padding: 6px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(0,245,255,0.3), inset 0 0 20px rgba(0,245,255,0.05);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      letter-spacing: 6px;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan) 50%, var(--magenta) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(0,245,255,0.5));
+    }
+
+    .hero-sub {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--muted);
+      letter-spacing: 8px;
+      margin-top: 10px;
+    }
+
+    .hero-date {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      color: var(--magenta);
+      margin-top: 15px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .hero-trophy {
+      font-size: 4rem;
+      margin-top: 30px;
+      filter: drop-shadow(0 0 20px rgba(255,215,0,0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .stat {
+      text-align: center;
+      position: relative;
+    }
+
+    .stat::after {
+      content: '';
+      position: absolute;
+      right: -30px; top: 50%;
+      transform: translateY(-50%);
+      width: 1px; height: 40px;
+      background: var(--border);
+    }
+
+    .stat:last-child::after { display: none; }
+
+    .stat-value {
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* ─── WINNER SECTION ─── */
+    .winner-section {
+      text-align: center;
+      padding: 70px 20px;
+      position: relative;
+    }
+
+    .winner-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .winner-card {
+      display: inline-block;
+      background: var(--bg-card);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 50px 70px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(255,215,0,0.2), 0 0 100px rgba(255,215,0,0.1);
+    }
+
+    .winner-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(255,215,0,0.1) 60deg, transparent 120deg);
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .winner-card > * { position: relative; z-index: 1; }
+
+    .winner-label {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .winner-flag { font-size: 4rem; display: block; margin: 10px 0; }
+    .winner-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(255,215,0,0.5);
+    }
+
+    .winner-score {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .section-header h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      text-shadow: 0 0 20px rgba(0,245,255,0.4);
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin-top: 8px;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+
+    /* ─── GROUPS GRID ─── */
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      padding: 0 30px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .group-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .group-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 30px rgba(0,245,255,0.15);
+    }
+
+    .group-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .group-title::before {
+      content: '';
+      width: 3px; height: 20px;
+      background: linear-gradient(180deg, var(--cyan), var(--magenta));
+      border-radius: 2px;
+    }
+
+    .match-row {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-bottom: 8px;
+      border: 1px solid transparent;
+      gap: 8px;
+    }
+
+    .match-row:last-child { margin-bottom: 0; }
+
+    .match-row:hover {
+      background: rgba(0,245,255,0.08);
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0,245,255,0.1);
+      transform: translateX(4px);
+    }
+
+    .match-date {
+      font-size: 0.7rem;
+      color: var(--muted);
+      min-width: 70px;
+      letter-spacing: 1px;
+    }
+
+    .team-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .team-name.right { text-align: right; }
+
+    .match-score-box {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--green);
+      min-width: 38px;
+      text-align: center;
+      padding: 3px 8px;
+      border: 1px solid rgba(0,255,136,0.3);
+      border-radius: 6px;
+      background: rgba(0,255,136,0.05);
+    }
+
+    /* ─── BRACKET ─── */
+    .bracket-section {
+      padding: 50px 20px;
+      overflow-x: auto;
+    }
+
+    .bracket-section h2 {
+      text-align: center;
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--magenta);
+      text-shadow: 0 0 20px rgba(255,0,229,0.4);
+      margin-bottom: 40px;
+    }
+
+    .bracket {
+      display: grid;
+      grid-template-columns: repeat(8, 160px);
+      gap: 0;
+      min-width: 1100px;
+      max-width: 1200px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .round { display: flex; flex-direction: column; justify-content: space-around; }
+    .round-1 { gap: 16px; }
+    .round-2 { gap: 70px; }
+    .round-3 { gap: 180px; }
+    .round-4 { gap: 0; justify-content: center; }
+
+    .round-label {
+      text-align: center;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--magenta);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,0,229,0.2);
+    }
+
+    .bracket-match {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 2px 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .bracket-match::before {
+      content: '';
+      position: absolute;
+      right: -8px; top: 50%;
+      width: 8px; height: 1px;
+      background: rgba(0,245,255,0.2);
+    }
+
+    .round-4 .bracket-match::before { display: none; }
+
+    .bracket-match:hover {
+      border-color: var(--magenta);
+      box-shadow: 0 0 20px rgba(255,0,229,0.2);
+      transform: scale(1.03);
+    }
+
+    .round-4 .bracket-match {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,0,229,0.1));
+      border-color: var(--gold);
+    }
+
+    .b-team {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 0;
+      font-size: 0.8rem;
+    }
+
+    .b-team.winner { color: var(--cyan); font-weight: 700; }
+    .b-team.loser { color: var(--muted); }
+
+    .b-goals {
+      margin-left: auto;
+      font-family: 'Orbitron', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .b-team.loser .b-goals { color: var(--muted); }
+
+    /* ─── MODAL ─── */
     .modal-overlay {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.9);
       z-index: 1000;
       justify-content: center;
       align-items: center;
       padding: 20px;
+      backdrop-filter: blur(10px);
     }
+
     .modal-overlay.active { display: flex; }
+
     .modal {
-      background: var(--card);
-      border: 2px solid var(--gold);
-      border-radius: 16px;
-      padding: 30px;
-      max-width: 600px;
+      background: linear-gradient(135deg, #0a0a20, #12001a);
+      border: 2px solid var(--cyan);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 680px;
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
       position: relative;
+      box-shadow: 0 0 60px rgba(0,245,255,0.2), 0 0 120px rgba(255,0,229,0.1);
     }
+
+    .modal::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px; right: -1px; bottom: -1px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta), var(--cyan));
+      z-index: -1;
+      opacity: 0.3;
+    }
+
     .modal-close {
       position: absolute;
-      top: 15px; right: 15px;
-      background: none;
-      border: none;
+      top: 16px; right: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
       cursor: pointer;
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
     }
-    .modal-close:hover { color: var(--gold); }
-    .modal h2 {
-      color: var(--gold);
-      margin-bottom: 5px;
+
+    .modal-close:hover {
+      background: rgba(255,0,229,0.2);
+      border-color: var(--magenta);
+      color: #fff;
     }
-    .modal-match-info {
+
+    .modal-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 4px;
+      letter-spacing: 2px;
+    }
+
+    .modal-meta {
+      font-size: 0.85rem;
       color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
     }
-    .modal-section {
-      margin-bottom: 20px;
+
+    /* First Scorer */
+    .first-scorer-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0,255,136,0.08);
+      border: 1px solid rgba(0,255,136,0.3);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
     }
-    .modal-section h3 {
-      color: var(--gold-light);
-      font-size: 1rem;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 5px;
+
+    .first-scorer-icon {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 0 10px rgba(0,255,136,0.5));
     }
+
+    .first-scorer-info .label {
+      font-size: 0.7rem;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .first-scorer-info .name {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .first-scorer-info .team {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Lineup */
+    .lineup-section h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: var(--magenta);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,0,229,0.2);
+    }
+
     .lineup-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
     }
-    .lineup-team h4 {
+
+    .lineup-col h4 {
       font-size: 1rem;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .lineup-list {
-      list-style: none;
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-    .lineup-list li {
-      padding: 3px 0;
-      border-bottom: 1px solid #222;
-    }
-    .lineup-list li:last-child { border-bottom: none; }
-    .first-scorer {
-      background: rgba(29,185,84,0.15);
-      border: 1px solid var(--green);
-      border-radius: 10px;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .first-scorer .emoji { font-size: 2rem; }
-    .first-scorer .info .name { font-weight: 700; color: var(--green); font-size: 1.1rem; }
-    .first-scorer .info .team { color: var(--muted); font-size: 0.85rem; }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(135deg, var(--dark2) 0%, #1a0a2e 100%);
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold), #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
-    }
-    .hero p { color: var(--muted); font-size: 1.1rem; margin-top: 8px; }
-    .subtitle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(212,175,55,0.1);
-      border: 1px solid rgba(212,175,55,0.3);
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: var(--gold-light);
-    }
-
-    /* Stats Bar */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 30px 20px;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-value {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .stat-label {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Winner Section */
-    .winner-section {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(180deg, transparent, rgba(212,175,55,0.05));
-    }
-    .winner-card {
-      display: inline-block;
-      background: var(--card);
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 40px 60px;
-      position: relative;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .trophy { font-size: 5rem; animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    .winner-name { font-size: 2.5rem; font-weight: 800; color: var(--gold-light); margin-top: 10px; }
-    .winner-sub { color: var(--muted); font-size: 0.9rem; margin-top: 5px; }
-    .predicted-score { margin-top: 20px; font-size: 1.5rem; color: var(--text); }
-
-    /* Groups Section */
-    .groups-section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
       font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 30px;
-    }
-    .groups-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .group-card {
-      background: var(--card);
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .group-card h3 {
-      color: var(--gold);
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .match-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid #2a2a3e;
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .match-card:hover {
-      border-color: var(--gold);
-      background: rgba(212,175,55,0.05);
-    }
-    .match-card:last-child { margin-bottom: 0; }
-    .match-datetime {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .match-teams {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-    .match-team {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      flex: 1;
-    }
-    .match-team.right { justify-content: flex-end; }
-    .match-score {
-      font-weight: 700;
-      color: var(--green);
-      font-size: 1rem;
-      min-width: 40px;
-      text-align: center;
-    }
-    .match-status {
-      font-size: 0.7rem;
-      color: var(--gold-light);
-      margin-top: 4px;
-    }
-
-    /* Bracket */
-    .bracket-container {
-      padding: 40px 20px;
-      overflow-x: auto;
-    }
-    .bracket-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 30px;
-    }
-    .bracket {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 0;
-      min-width: 900px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .round { display: flex; flex-direction: column; justify-content: space-around; }
-    .round-1 { gap: 20px; }
-    .round-2 { gap: 80px; }
-    .round-3 { gap: 200px; }
-    .round-4 { gap: 0; justify-content: center; }
-
-    .match {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 8px 12px;
-      margin: 2px 4px;
-      border: 1px solid #333;
-      position: relative;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .match:hover { border-color: var(--gold); transform: scale(1.02); }
-    .match::before {
-      content: '';
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      width: 8px;
-      height: 1px;
-      background: #444;
-    }
-    .round-4 .match::before { display: none; }
-
-    .team {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 0;
-      font-size: 0.85rem;
-    }
-    .team.winner { color: var(--gold-light); font-weight: 600; }
-    .team.loser { color: var(--muted); }
-    .team-flag { font-size: 1rem; }
-    .team-goals {
-      margin-left: auto;
-      font-weight: 700;
-      color: var(--green);
-      font-size: 0.8rem;
-    }
-    .team.loser .team-goals { color: var(--muted); }
-
-    .round-label {
-      text-align: center;
-      color: var(--gold);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: var(--cyan);
       margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #333;
-    }
-
-    /* Team List */
-    .teams-section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .teams-title {
-      text-align: center;
-      font-size: 1.5rem;
-      color: var(--gold);
-      margin-bottom: 30px;
-    }
-    .teams-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    .team-card {
-      background: var(--card);
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 12px 16px;
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-    .team-card .flag { font-size: 1.4rem; }
-    .team-card .info { flex: 1; }
-    .team-card .name { font-weight: 600; font-size: 0.9rem; }
-    .team-card .region { color: var(--muted); font-size: 0.75rem; }
-    .team-card .goals-pred {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--green);
+      gap: 6px;
     }
 
-    /* Footer */
+    .lineup-list { list-style: none; }
+
+    .lineup-list li {
+      font-size: 0.82rem;
+      color: var(--text);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lineup-list li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--cyan);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .lineup-list li:last-child { border-bottom: none; }
+
+    /* ─── FOOTER ─── */
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       color: var(--muted);
       font-size: 0.8rem;
-      border-top: 1px solid #222;
+      border-top: 1px solid var(--border);
       margin-top: 40px;
+      letter-spacing: 2px;
     }
 
-    /* Responsive */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      .stats-bar { gap: 20px; }
+      .stats-bar { gap: 30px; }
       .stat-value { font-size: 2rem; }
       .winner-card { padding: 30px 40px; }
       .winner-name { font-size: 1.8rem; }
       .lineup-grid { grid-template-columns: 1fr; }
+      .groups-grid { padding: 0 16px 40px; }
+      .match-date { display: none; }
     }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
   </style>
 </head>
 <body>
 
-<!-- Modal -->
-<div class="modal-overlay" id="matchModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2 id="modalTitle">比賽詳情</h2>
-    <div class="modal-match-info" id="modalMatchInfo"></div>
-    <div class="first-scorer" id="modalFirstScorer"></div>
-    <div class="modal-section">
-      <h3>估計正選球員</h3>
-      <div class="lineup-grid" id="modalLineup"></div>
+<canvas id="particles"></canvas>
+<div class="hex-overlay"></div>
+
+<div class="wrapper">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">⚽ FIFA WORLD CUP 2026</div>
+    <h1>FUTURE<br>FOOTBALL</h1>
+    <p class="hero-sub">AI PREDICTION</p>
+    <p class="hero-date">📍 USA · CANADA · MEXICO · 2026</p>
+    <div class="hero-trophy">🏆</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-value">176</div>
+      <div class="stat-label">預測總進球</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">32</div>
+      <div class="stat-label">決賽球隊</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">64</div>
+      <div class="stat-label">總比賽場次</div>
     </div>
   </div>
-</div>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>🏆 2026 世界盃</h1>
-  <p>FIFA World Cup · USA · Canada · Mexico</p>
-  <div class="subtitle">
-    <span>🤖</span> AI 預測分析
+  <!-- Winner -->
+  <div class="winner-section">
+    <div class="winner-glow"></div>
+    <div class="winner-card">
+      <div class="winner-label">🏆 AI PREDICTED CHAMPION</div>
+      <span class="winner-flag">🇧🇷</span>
+      <div class="winner-name">BRAZIL</div>
+      <div class="winner-score">FINAL 3-1 vs ARGENTINA</div>
+    </div>
   </div>
-</div>
 
-<!-- Stats -->
-<div class="stats-bar">
-  <div class="stat">
-    <div class="stat-value">176</div>
-    <div class="stat-label">預測總進球</div>
+  <!-- Groups -->
+  <div class="section-header">
+    <h2>小組賽程 · GROUP STAGE</h2>
+    <p>點擊比賽查看球員陣容 & 首名入球</p>
   </div>
-  <div class="stat">
-    <div class="stat-value">32</div>
-    <div class="stat-label">決賽球隊</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value">64</div>
-    <div class="stat-label">總比賽場次</div>
-  </div>
-</div>
 
-<!-- Winner -->
-<div class="winner-section">
-  <div class="winner-card">
-    <div class="trophy">🏆</div>
-    <div class="winner-name">🇧🇷 巴西</div>
-    <div class="winner-sub">AI 預測冠軍</div>
-    <div class="predicted-score">決賽 3-1 擊敗阿根廷</div>
-  </div>
-</div>
-
-<!-- Groups -->
-<div class="groups-section">
-  <h2 class="section-title">小組賽程 & 預測比分 (HKT 香港時間)</h2>
   <div class="groups-grid">
-    
-    <!-- Group A -->
+
+    <!-- GROUP A -->
     <div class="group-card">
-      <h3>🇦🇷 A組</h3>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 加拿大', '6月11日(三) 03:00', '阿根廷', '加拿大', '2-0', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月11日(三) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">加拿大<span>🇨🇦</span></div>
-        </div>
+      <div class="group-title">🇦🇷 GROUP A</div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 加拿大','6月11日(三) 03:00 HKT','阿根廷','加拿大','2-0','美斯 (阿根廷)')">
+        <div class="match-date">6月11日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('墨西哥 vs 卡塔爾', '6月11日(三) 06:00', '墨西哥', '卡塔爾', '2-1', '查維亞 (墨西哥)')">
-        <div class="match-datetime">6月11日(三) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇲🇽</span>墨西哥</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">卡塔爾<span>🇶🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('墨西哥 vs 卡塔爾','6月11日(三) 06:00 HKT','墨西哥','卡塔爾','2-1','查維亞 (墨西哥)')">
+        <div class="match-date">6月11日 06:00</div>
+        <div class="team-name">🇲🇽 墨西哥</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 卡塔爾', '6月15日(日) 03:00', '阿根廷', '卡塔爾', '3-0', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月15日(日) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">卡塔爾<span>🇶🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 卡塔爾','6月15日(日) 03:00 HKT','阿根廷','卡塔爾','3-0','美斯 (阿根廷)')">
+        <div class="match-date">6月15日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('墨西哥 vs 加拿大', '6月15日(日) 06:00', '墨西哥', '加拿大', '1-1', '查維亞 (墨西哥)')">
-        <div class="match-datetime">6月15日(日) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇲🇽</span>墨西哥</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">加拿大<span>🇨🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('墨西哥 vs 加拿大','6月15日(日) 06:00 HKT','墨西哥','加拿大','1-1','查維亞 (墨西哥)')">
+        <div class="match-date">6月15日 06:00</div>
+        <div class="team-name">🇲🇽 墨西哥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 墨西哥', '6月19日(四) 03:00', '阿根廷', '墨西哥', '2-1', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月19日(四) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">墨西哥<span>🇲🇽</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 墨西哥','6月19日(四) 03:00 HKT','阿根廷','墨西哥','2-1','美斯 (阿根廷)')">
+        <div class="match-date">6月19日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('卡塔爾 vs 加拿大', '6月19日(四) 03:00', '卡塔爾', '加拿大', '0-2', '戴維斯 (加拿大)')">
-        <div class="match-datetime">6月19日(四) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇶🇦</span>卡塔爾</div>
-          <div class="match-score">0-2</div>
-          <div class="match-team right">加拿大<span>🇨🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('卡塔爾 vs 加拿大','6月19日(四) 03:00 HKT','卡塔爾','加拿大','0-2','戴維斯 (加拿大)')">
+        <div class="match-date">6月19日 03:00</div>
+        <div class="team-name">🇶🇦 卡塔爾</div>
+        <div class="match-score-box">0-2</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
     </div>
 
-    <!-- Group B -->
+    <!-- GROUP B -->
     <div class="group-card">
-      <h3>🏴󠁧󠁢󠁥󠁮󠁧󠁿 B組</h3>
-      <div class="match-card" onclick="showMatchDetail('英格蘭 vs 伊朗', '6月11日(三) 09:00', '英格蘭', '伊朗', '3-1', '哈利·卡尼 (英格蘭)')">
-        <div class="match-datetime">6月11日(三) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>英格蘭</div>
-          <div class="match-score">3-1</div>
-          <div class="match-team right">伊朗<span>🇮🇷</span></div>
-        </div>
+      <div class="group-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 GROUP B</div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 伊朗','6月11日(三) 09:00 HKT','英格蘭','伊朗','3-1','哈利·卡尼 (英格蘭)')">
+        <div class="match-date">6月11日 09:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
+        <div class="match-score-box">3-1</div>
+        <div class="team-name right">伊朗<span>🇮🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('威爾斯 vs 美國', '6月12日(四) 03:00', '威爾斯', '美國', '1-1', '巴爾 (威爾斯)')">
-        <div class="match-datetime">6月12日(四) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>威爾斯</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">美國<span>🇺🇸</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('威爾斯 vs 美國','6月12日(四) 03:00 HKT','威爾斯','美國','1-1','巴爾 (威爾斯)')">
+        <div class="match-date">6月12日 03:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁷󠁬󠁳󠁿 威爾斯</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">美國<span>🇺🇸</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('英格蘭 vs 美國', '6月16日(一) 03:00', '英格蘭', '美國', '2-0', '哈利·卡尼 (英格蘭)')">
-        <div class="match-datetime">6月16日(一) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>英格蘭</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">美國<span>🇺🇸</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 美國','6月16日(一) 03:00 HKT','英格蘭','美國','2-0','哈利·卡尼 (英格蘭)')">
+        <div class="match-date">6月16日 03:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">美國<span>🇺🇸</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('威爾斯 vs 伊朗', '6月16日(一) 09:00', '威爾斯', '伊朗', '1-0', '巴爾 (威爾斯)')">
-        <div class="match-datetime">6月16日(一) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>威爾斯</div>
-          <div class="match-score">1-0</div>
-          <div class="match-team right">伊朗<span>🇮🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('威爾斯 vs 伊朗','6月16日(一) 09:00 HKT','威爾斯','伊朗','1-0','巴爾 (威爾斯)')">
+        <div class="match-date">6月16日 09:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁷󠁬󠁳󠁿 威爾斯</div>
+        <div class="match-score-box">1-0</div>
+        <div class="team-name right">伊朗<span>🇮🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('英格蘭 vs 威爾斯', '6月20日(五) 03:00', '英格蘭', '威爾斯', '3-0', '霍頓 (英格蘭)')">
-        <div class="match-datetime">6月20日(五) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>英格蘭</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">威爾斯<span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 威爾斯','6月20日(五) 03:00 HKT','英格蘭','威爾斯','3-0','霍頓 (英格蘭)')">
+        <div class="match-date">6月20日 03:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">威爾斯<span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('伊朗 vs 美國', '6月20日(五) 03:00', '伊朗', '美國', '1-2', '普利 (美國)')">
-        <div class="match-datetime">6月20日(五) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇮🇷</span>伊朗</div>
-          <div class="match-score">1-2</div>
-          <div class="match-team right">美國<span>🇺🇸</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('伊朗 vs 美國','6月20日(五) 03:00 HKT','伊朗','美國','1-2','普利 (美國)')">
+        <div class="match-date">6月20日 03:00</div>
+        <div class="team-name">🇮🇷 伊朗</div>
+        <div class="match-score-box">1-2</div>
+        <div class="team-name right">美國<span>🇺🇸</span></div>
       </div>
     </div>
 
-    <!-- Group C -->
+    <!-- GROUP C -->
     <div class="group-card">
-      <h3>🇫🇷 C組</h3>
-      <div class="match-card" onclick="showMatchDetail('法國 vs 沙特阿拉伯', '6月12日(四) 06:00', '法國', '沙特阿拉伯', '4-0', '麥巴比 (法國)')">
-        <div class="match-datetime">6月12日(四) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇫🇷</span>法國</div>
-          <div class="match-score">4-0</div>
-          <div class="match-team right">沙特阿拉伯<span>🇸🇦</span></div>
-        </div>
+      <div class="group-title">🇫🇷 GROUP C</div>
+      <div class="match-row" onclick="showMatch('法國 vs 沙特阿拉伯','6月12日(四) 06:00 HKT','法國','沙特阿拉伯','4-0','麥巴比 (法國)')">
+        <div class="match-date">6月12日 06:00</div>
+        <div class="team-name">🇫🇷 法國</div>
+        <div class="match-score-box">4-0</div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 墨西哥', '6月12日(四) 09:00', '阿根廷', '墨西哥', '2-1', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月12日(四) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">墨西哥<span>🇲🇽</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 墨西哥','6月12日(四) 09:00 HKT','阿根廷','墨西哥','2-1','美斯 (阿根廷)')">
+        <div class="match-date">6月12日 09:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('波蘭 vs 沙特阿拉伯', '6月17日(二) 03:00', '波蘭', '沙特阿拉伯', '2-0', '利雲 (波蘭)')">
-        <div class="match-datetime">6月17日(二) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇵🇱</span>波蘭</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">沙特阿拉伯<span>🇸🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('波蘭 vs 沙特阿拉伯','6月17日(二) 03:00 HKT','波蘭','沙特阿拉伯','2-0','利雲 (波蘭)')">
+        <div class="match-date">6月17日 03:00</div>
+        <div class="team-name">🇵🇱 波蘭</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 波蘭', '6月17日(二) 09:00', '阿根廷', '波蘭', '1-1', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月17日(二) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">波蘭<span>🇵🇱</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 波蘭','6月17日(二) 09:00 HKT','阿根廷','波蘭','1-1','美斯 (阿根廷)')">
+        <div class="match-date">6月17日 09:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">波蘭<span>🇵🇱</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('阿根廷 vs 沙特阿拉伯', '6月21日(六) 03:00', '阿根廷', '沙特阿拉伯', '3-0', '美斯 (阿根廷)')">
-        <div class="match-datetime">6月21日(六) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇦🇷</span>阿根廷</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">沙特阿拉伯<span>🇸🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 沙特阿拉伯','6月21日(六) 03:00 HKT','阿根廷','沙特阿拉伯','3-0','美斯 (阿根廷)')">
+        <div class="match-date">6月21日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('波蘭 vs 墨西哥', '6月21日(六) 03:00', '波蘭', '墨西哥', '1-1', '利雲 (波蘭)')">
-        <div class="match-datetime">6月21日(六) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇵🇱</span>波蘭</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">墨西哥<span>🇲🇽</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('波蘭 vs 墨西哥','6月21日(六) 03:00 HKT','波蘭','墨西哥','1-1','利雲 (波蘭)')">
+        <div class="match-date">6月21日 03:00</div>
+        <div class="team-name">🇵🇱 波蘭</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
       </div>
     </div>
 
-    <!-- Group D -->
+    <!-- GROUP D -->
     <div class="group-card">
-      <h3>🇩🇪 D組</h3>
-      <div class="match-card" onclick="showMatchDetail('德國 vs 日本', '6月12日(四) 12:00', '德國', '日本', '2-1', '夏維斯 (德國)')">
-        <div class="match-datetime">6月12日(四) 12:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇩🇪</span>德國</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">日本<span>🇯🇵</span></div>
-        </div>
+      <div class="group-title">🇩🇪 GROUP D</div>
+      <div class="match-row" onclick="showMatch('德國 vs 日本','6月12日(四) 12:00 HKT','德國','日本','2-1','夏維斯 (德國)')">
+        <div class="match-date">6月12日 12:00</div>
+        <div class="team-name">🇩🇪 德國</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">日本<span>🇯🇵</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('西班牙 vs 哥斯達黎加', '6月13日(五) 03:00', '西班牙', '哥斯達黎加', '4-0', '洛迪 (西班牙)')">
-        <div class="match-datetime">6月13日(五) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇪🇸</span>西班牙</div>
-          <div class="match-score">4-0</div>
-          <div class="match-team right">哥斯達黎加<span>🇨🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('西班牙 vs 哥斯達黎加','6月13日(五) 03:00 HKT','西班牙','哥斯達黎加','4-0','洛迪 (西班牙)')">
+        <div class="match-date">6月13日 03:00</div>
+        <div class="team-name">🇪🇸 西班牙</div>
+        <div class="match-score-box">4-0</div>
+        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('日本 vs 哥斯達黎加', '617日(二) 06:00', '日本', '哥斯達黎加', '2-0', '三笘薰 (日本)')">
-        <div class="match-datetime">6月17日(二) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇯🇵</span>日本</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">哥斯達黎加<span>🇨🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('日本 vs 哥斯達黎加','6月17日(二) 06:00 HKT','日本','哥斯達黎加','2-0','三笘薰 (日本)')">
+        <div class="match-date">6月17日 06:00</div>
+        <div class="team-name">🇯🇵 日本</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('西班牙 vs 德國', '6月18日(三) 03:00', '西班牙', '德國', '1-1', '柏迪 (西班牙)')">
-        <div class="match-datetime">6月18日(三) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇪🇸</span>西班牙</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">德國<span>🇩🇪</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('西班牙 vs 德國','6月18日(三) 03:00 HKT','西班牙','德國','1-1','柏迪 (西班牙)')">
+        <div class="match-date">6月18日 03:00</div>
+        <div class="team-name">🇪🇸 西班牙</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">德國<span>🇩🇪</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('日本 vs 西班牙', '6月22日(日) 03:00', '日本', '西班牙', '1-2', '三笘薰 (日本)')">
-        <div class="match-datetime">6月22日(日) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇯🇵</span>日本</div>
-          <div class="match-score">1-2</div>
-          <div class="match-team right">西班牙<span>🇪🇸</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('日本 vs 西班牙','6月22日(日) 03:00 HKT','日本','西班牙','1-2','三笘薰 (日本)')">
+        <div class="match-date">6月22日 03:00</div>
+        <div class="team-name">🇯🇵 日本</div>
+        <div class="match-score-box">1-2</div>
+        <div class="team-name right">西班牙<span>🇪🇸</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('哥斯達黎加 vs 德國', '6月22日(日) 03:00', '哥斯達黎加', '德國', '1-4', '夏維斯 (德國)')">
-        <div class="match-datetime">6月22日(日) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇨🇷</span>哥斯達黎加</div>
-          <div class="match-score">1-4</div>
-          <div class="match-team right">德國<span>🇩🇪</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('哥斯達黎加 vs 德國','6月22日(日) 03:00 HKT','哥斯達黎加','德國','1-4','夏維斯 (德國)')">
+        <div class="match-date">6月22日 03:00</div>
+        <div class="team-name">🇨🇷 哥斯達黎加</div>
+        <div class="match-score-box">1-4</div>
+        <div class="team-name right">德國<span>🇩🇪</span></div>
       </div>
     </div>
 
-    <!-- Group E -->
+    <!-- GROUP E -->
     <div class="group-card">
-      <h3>🇧🇪 E組</h3>
-      <div class="match-card" onclick="showMatchDetail('比利時 vs 加拿大', '6月13日(五) 06:00', '比利時', '加拿大', '2-0', '迪布尼 (比利時)')">
-        <div class="match-datetime">6月13日(五) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇧🇪</span>比利時</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">加拿大<span>🇨🇦</span></div>
-        </div>
+      <div class="group-title">🇧🇪 GROUP E</div>
+      <div class="match-row" onclick="showMatch('比利時 vs 加拿大','6月13日(五) 06:00 HKT','比利時','加拿大','2-0','迪布尼 (比利時)')">
+        <div class="match-date">6月13日 06:00</div>
+        <div class="team-name">🇧🇪 比利時</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('摩洛哥 vs 克羅地亞', '6月13日(五) 09:00', '摩洛哥', '克羅地亞', '0-0', '基利文歷 (克羅地亞)')">
-        <div class="match-datetime">6月13日(五) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇲🇦</span>摩洛哥</div>
-          <div class="match-score">0-0</div>
-          <div class="match-team right">克羅地亞<span>🇭🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('摩洛哥 vs 克羅地亞','6月13日(五) 09:00 HKT','摩洛哥','克羅地亞','0-0','基利文歷 (克羅地亞)')">
+        <div class="match-date">6月13日 09:00</div>
+        <div class="team-name">🇲🇦 摩洛哥</div>
+        <div class="match-score-box">0-0</div>
+        <div class="team-name right">克羅地亞<span>🇭🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('比利時 vs 摩洛哥', '618日(三) 06:00', '比利時', '摩洛哥', '1-0', '盧卡古 (比利時)')">
-        <div class="match-datetime">6月18日(三) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇧🇪</span>比利時</div>
-          <div class="match-score">1-0</div>
-          <div class="match-team right">摩洛哥<span>🇲🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('比利時 vs 摩洛哥','6月18日(三) 06:00 HKT','比利時','摩洛哥','1-0','盧卡古 (比利時)')">
+        <div class="match-date">6月18日 06:00</div>
+        <div class="team-name">🇧🇪 比利時</div>
+        <div class="match-score-box">1-0</div>
+        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('克羅地亞 vs 加拿大', '6月18日(三) 09:00', '克羅地亞', '加拿大', '3-1', '基利文歷 (克羅地亞)')">
-        <div class="match-datetime">6月18日(三) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇭🇷</span>克羅地亞</div>
-          <div class="match-score">3-1</div>
-          <div class="match-team right">加拿大<span>🇨🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('克羅地亞 vs 加拿大','6月18日(三) 09:00 HKT','克羅地亞','加拿大','3-1','基利文歷 (克羅地亞)')">
+        <div class="match-date">6月18日 09:00</div>
+        <div class="team-name">🇭🇷 克羅地亞</div>
+        <div class="match-score-box">3-1</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('克羅地亞 vs 比利時', '6月23日(一) 03:00', '克羅地亞', '比利時', '2-1', '基利文歷 (克羅地亞)')">
-        <div class="match-datetime">6月23日(一) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇭🇷</span>克羅地亞</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">比利時<span>🇧🇪</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('克羅地亞 vs 比利時','6月23日(一) 03:00 HKT','克羅地亞','比利時','2-1','基利文歷 (克羅地亞)')">
+        <div class="match-date">6月23日 03:00</div>
+        <div class="team-name">🇭🇷 克羅地亞</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">比利時<span>🇧🇪</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('加拿大 vs 摩洛哥', '6月23日(一) 03:00', '加拿大', '摩洛哥', '1-1', '戴維斯 (加拿大)')">
-        <div class="match-datetime">6月23日(一) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇨🇦</span>加拿大</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">摩洛哥<span>🇲🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('加拿大 vs 摩洛哥','6月23日(一) 03:00 HKT','加拿大','摩洛哥','1-1','戴維斯 (加拿大)')">
+        <div class="match-date">6月23日 03:00</div>
+        <div class="team-name">🇨🇦 加拿大</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
       </div>
     </div>
 
-    <!-- Group F -->
+    <!-- GROUP F -->
     <div class="group-card">
-      <h3>🇧🇷 F組</h3>
-      <div class="match-card" onclick="showMatchDetail('巴西 vs 塞爾維亞', '6月13日(五) 12:00', '巴西', '塞爾維亞', '3-0', '尼馬 (巴西)')">
-        <div class="match-datetime">6月13日(五) 12:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇧🇷</span>巴西</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">塞爾維亞<span>🇷🇸</span></div>
-        </div>
+      <div class="group-title">🇧🇷 GROUP F</div>
+      <div class="match-row" onclick="showMatch('巴西 vs 塞爾維亞','6月13日(五) 12:00 HKT','巴西','塞爾維亞','3-0','尼馬 (巴西)')">
+        <div class="match-date">6月13日 12:00</div>
+        <div class="team-name">🇧🇷 巴西</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('瑞士 vs 喀麥隆', '6月14日(六) 03:00', '瑞士', '喀麥隆', '2-1', '安度的 (瑞士)')">
-        <div class="match-datetime">6月14日(六) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇨🇭</span>瑞士</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">喀麥隆<span>🇨🇲</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('瑞士 vs 喀麥隆','6月14日(六) 03:00 HKT','瑞士','喀麥隆','2-1','安度的 (瑞士)')">
+        <div class="match-date">6月14日 03:00</div>
+        <div class="team-name">🇨🇭 瑞士</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">喀麥隆<span>🇨🇲</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('巴西 vs 瑞士', '6月18日(三) 12:00', '巴西', '瑞士', '2-0', '尼馬 (巴西)')">
-        <div class="match-datetime">6月18日(三) 12:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇧🇷</span>巴西</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">瑞士<span>🇨🇭</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('巴西 vs 瑞士','6月18日(三) 12:00 HKT','巴西','瑞士','2-0','尼馬 (巴西)')">
+        <div class="match-date">6月18日 12:00</div>
+        <div class="team-name">🇧🇷 巴西</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">瑞士<span>🇨🇭</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('喀麥隆 vs 塞爾維亞', '6月19日(四) 06:00', '喀麥隆', '塞爾維亞', '1-3', '米特羅維奇 (塞爾維亞)')">
-        <div class="match-datetime">6月19日(四) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇨🇲</span>喀麥隆</div>
-          <div class="match-score">1-3</div>
-          <div class="match-team right">塞爾維亞<span>🇷🇸</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('喀麥隆 vs 塞爾維亞','6月19日(四) 06:00 HKT','喀麥隆','塞爾維亞','1-3','米特羅維奇 (塞爾維亞)')">
+        <div class="match-date">6月19日 06:00</div>
+        <div class="team-name">🇨🇲 喀麥隆</div>
+        <div class="match-score-box">1-3</div>
+        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('喀麥隆 vs 巴西', '6月24日(二) 03:00', '喀麥隆', '巴西', '0-3', '安保路 (巴西)')">
-        <div class="match-datetime">6月24日(二) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇨🇲</span>喀麥隆</div>
-          <div class="match-score">0-3</div>
-          <div class="match-team right">巴西<span>🇧🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('喀麥隆 vs 巴西','6月24日(二) 03:00 HKT','喀麥隆','巴西','0-3','安保路 (巴西)')">
+        <div class="match-date">6月24日 03:00</div>
+        <div class="team-name">🇨🇲 喀麥隆</div>
+        <div class="match-score-box">0-3</div>
+        <div class="team-name right">巴西<span>🇧🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('塞爾維亞 vs 瑞士', '6月24日(二) 03:00', '塞爾維亞', '瑞士', '2-2', '米特羅維奇 (塞爾維亞)')">
-        <div class="match-datetime">6月24日(二) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇷🇸</span>塞爾維亞</div>
-          <div class="match-score">2-2</div>
-          <div class="match-team right">瑞士<span>🇨🇭</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('塞爾維亞 vs 瑞士','6月24日(二) 03:00 HKT','塞爾維亞','瑞士','2-2','米特羅維奇 (塞爾維亞)')">
+        <div class="match-date">6月24日 03:00</div>
+        <div class="team-name">🇷🇸 塞爾維亞</div>
+        <div class="match-score-box">2-2</div>
+        <div class="team-name right">瑞士<span>🇨🇭</span></div>
       </div>
     </div>
 
-    <!-- Group G -->
+    <!-- GROUP G -->
     <div class="group-card">
-      <h3>🇵🇹 G組</h3>
-      <div class="match-card" onclick="showMatchDetail('葡萄牙 vs 加納', '6月14日(六) 06:00', '葡萄牙', '加納', '3-1', 'C朗 (葡萄牙)')">
-        <div class="match-datetime">6月14日(六) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇵🇹</span>葡萄牙</div>
-          <div class="match-score">3-1</div>
-          <div class="match-team right">加納<span>🇬🇭</span></div>
-        </div>
+      <div class="group-title">🇵🇹 GROUP G</div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 加納','6月14日(六) 06:00 HKT','葡萄牙','加納','3-1','C朗 (葡萄牙)')">
+        <div class="match-date">6月14日 06:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="match-score-box">3-1</div>
+        <div class="team-name right">加納<span>🇬🇭</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('烏拉圭 vs 南韓', '6月14日(六) 09:00', '烏拉圭', '南韓', '2-1', '蘇亞雷斯 (烏拉圭)')">
-        <div class="match-datetime">6月14日(六) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇺🇾</span>烏拉圭</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">南韓<span>🇰🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('烏拉圭 vs 南韓','6月14日(六) 09:00 HKT','烏拉圭','南韓','2-1','蘇亞雷斯 (烏拉圭)')">
+        <div class="match-date">6月14日 09:00</div>
+        <div class="team-name">🇺🇾 烏拉圭</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">南韓<span>🇰🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('葡萄牙 vs 烏拉圭', '6月19日(四) 09:00', '葡萄牙', '烏拉圭', '2-2', 'C朗 (葡萄牙)')">
-        <div class="match-datetime">6月19日(四) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇵🇹</span>葡萄牙</div>
-          <div class="match-score">2-2</div>
-          <div class="match-team right">烏拉圭<span>🇺🇾</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 烏拉圭','6月19日(四) 09:00 HKT','葡萄牙','烏拉圭','2-2','C朗 (葡萄牙)')">
+        <div class="match-date">6月19日 09:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="match-score-box">2-2</div>
+        <div class="team-name right">烏拉圭<span>🇺🇾</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('南韓 vs 加納', '6月20日(五) 06:00', '南韓', '加納', '1-0', '孫興憨 (南韓)')">
-        <div class="match-datetime">6月20日(五) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇰🇷</span>南韓</div>
-          <div class="match-score">1-0</div>
-          <div class="match-team right">加納<span>🇬🇭</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('南韓 vs 加納','6月20日(五) 06:00 HKT','南韓','加納','1-0','孫興憨 (南韓)')">
+        <div class="match-date">6月20日 06:00</div>
+        <div class="team-name">🇰🇷 南韓</div>
+        <div class="match-score-box">1-0</div>
+        <div class="team-name right">加納<span>🇬🇭</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('葡萄牙 vs 南韓', '6月24日(二) 09:00', '葡萄牙', '南韓', '2-1', 'C朗 (葡萄牙)')">
-        <div class="match-datetime">6月24日(二) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇵🇹</span>葡萄牙</div>
-          <div class="match-score">2-1</div>
-          <div class="match-team right">南韓<span>🇰🇷</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 南韓','6月24日(二) 09:00 HKT','葡萄牙','南韓','2-1','C朗 (葡萄牙)')">
+        <div class="match-date">6月24日 09:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">南韓<span>🇰🇷</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('加納 vs 烏拉圭', '6月24日(二) 09:00', '加納', '烏拉圭', '0-2', '努涅斯 (烏拉圭)')">
-        <div class="match-datetime">6月24日(二) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇬🇭</span>加納</div>
-          <div class="match-score">0-2</div>
-          <div class="match-team right">烏拉圭<span>🇺🇾</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('加納 vs 烏拉圭','6月24日(二) 09:00 HKT','加納','烏拉圭','0-2','努涅斯 (烏拉圭)')">
+        <div class="match-date">6月24日 09:00</div>
+        <div class="team-name">🇬🇭 加納</div>
+        <div class="match-score-box">0-2</div>
+        <div class="team-name right">烏拉圭<span>🇺🇾</span></div>
       </div>
     </div>
 
-    <!-- Group H -->
+    <!-- GROUP H -->
     <div class="group-card">
-      <h3>🇳🇱 H組</h3>
-      <div class="match-card" onclick="showMatchDetail('荷蘭 vs 塞內加爾', '6月14日(六) 12:00', '荷蘭', '塞內加爾', '2-0', '迪比 (荷蘭)')">
-        <div class="match-datetime">6月14日(六) 12:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇳🇱</span>荷蘭</div>
-          <div class="match-score">2-0</div>
-          <div class="match-team right">塞內加爾<span>🇸🇳</span></div>
-        </div>
+      <div class="group-title">🇳🇱 GROUP H</div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 塞內加爾','6月14日(六) 12:00 HKT','荷蘭','塞內加爾','2-0','迪比 (荷蘭)')">
+        <div class="match-date">6月14日 12:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="match-score-box">2-0</div>
+        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('厄瓜多爾 vs 卡塔爾', '6月15日(日) 09:00', '厄瓜多爾', '卡塔爾', '3-0', '安拿華倫西亞 (厄瓜多爾)')">
-        <div class="match-datetime">6月15日(日) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇪🇨</span>厄瓜多爾</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">卡塔爾<span>🇶🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('厄瓜多爾 vs 卡塔爾','6月15日(日) 09:00 HKT','厄瓜多爾','卡塔爾','3-0','安拿華倫西亞 (厄瓜多爾)')">
+        <div class="match-date">6月15日 09:00</div>
+        <div class="team-name">🇪🇨 厄瓜多爾</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('荷蘭 vs 厄瓜多爾', '6月20日(五) 09:00', '荷蘭', '厄瓜多爾', '1-1', '迪比 (荷蘭)')">
-        <div class="match-datetime">6月20日(五) 09:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇳🇱</span>荷蘭</div>
-          <div class="match-score">1-1</div>
-          <div class="match-team right">厄瓜多爾<span>🇪🇨</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 厄瓜多爾','6月20日(五) 09:00 HKT','荷蘭','厄瓜多爾','1-1','迪比 (荷蘭)')">
+        <div class="match-date">6月20日 09:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('卡塔爾 vs 塞內加爾', '6月21日(六) 06:00', '卡塔爾', '塞內加爾', '1-3', '迪耶 (塞內加爾)')">
-        <div class="match-datetime">6月21日(六) 06:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇶🇦</span>卡塔爾</div>
-          <div class="match-score">1-3</div>
-          <div class="match-team right">塞內加爾<span>🇸🇳</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('卡塔爾 vs 塞內加爾','6月21日(六) 06:00 HKT','卡塔爾','塞內加爾','1-3','迪耶 (塞內加爾)')">
+        <div class="match-date">6月21日 06:00</div>
+        <div class="team-name">🇶🇦 卡塔爾</div>
+        <div class="match-score-box">1-3</div>
+        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('荷蘭 vs 卡塔爾', '6月25日(三) 03:00', '荷蘭', '卡塔爾', '3-0', '迪比 (荷蘭)')">
-        <div class="match-datetime">6月25日(三) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇳🇱</span>荷蘭</div>
-          <div class="match-score">3-0</div>
-          <div class="match-team right">卡塔爾<span>🇶🇦</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 卡塔爾','6月25日(三) 03:00 HKT','荷蘭','卡塔爾','3-0','迪比 (荷蘭)')">
+        <div class="match-date">6月25日 03:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="match-score-box">3-0</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
       </div>
-      <div class="match-card" onclick="showMatchDetail('塞內加爾 vs 厄瓜多爾', '6月25日(三) 03:00', '塞內加爾', '厄瓜多爾', '1-2', '安拿華倫西亞 (厄瓜多爾)')">
-        <div class="match-datetime">6月25日(三) 03:00 HKT</div>
-        <div class="match-teams">
-          <div class="match-team"><span>🇸🇳</span>塞內加爾</div>
-          <div class="match-score">1-2</div>
-          <div class="match-team right">厄瓜多爾<span>🇪🇨</span></div>
-        </div>
+      <div class="match-row" onclick="showMatch('塞內加爾 vs 厄瓜多爾','6月25日(三) 03:00 HKT','塞內加爾','厄瓜多爾','1-2','安拿華倫西亞 (厄瓜多爾)')">
+        <div class="match-date">6月25日 03:00</div>
+        <div class="team-name">🇸🇳 塞內加爾</div>
+        <div class="match-score-box">1-2</div>
+        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
       </div>
     </div>
 
   </div>
-</div>
 
-<!-- Bracket -->
-<div class="bracket-container">
-  <h2 class="bracket-title">淘汰賽對陣 & 預測比分</h2>
-  <div class="bracket">
-    <!-- Round of 16 -->
-    <div class="round round-1">
-      <div class="round-label">16強</div>
-      <div class="match" onclick="showMatchDetail('巴西 vs 日本', '6月27日(五) 03:00', '巴西', '日本', '3-1', '尼馬 (巴西)')">
-        <div class="team winner"><span class="team-flag">🇧🇷</span> 巴西 <span class="team-goals">3</span></div>
-        <div class="team loser"><span class="team-flag">🇯🇵</span> 日本 <span class="team-goals">1</span></div>
+  <!-- Bracket -->
+  <div class="bracket-section">
+    <h2>淘汰賽 · KNOCKOUT STAGE</h2>
+    <div class="bracket">
+      <div class="round round-1">
+        <div class="round-label">16強 · ROUND OF 16</div>
+        <div class="bracket-match" onclick="showMatch('巴西 vs 日本','6月27日(五) 03:00 HKT','巴西','日本','3-1','尼馬 (巴西)')">
+          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">3</span></div>
+          <div class="b-team loser"><span>🇯🇵</span> 日本 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('克羅地亞 vs 摩洛哥','6月27日(五) 06:00 HKT','克羅地亞','摩洛哥','2-1','基利文歷 (克羅地亞)')">
+          <div class="b-team winner"><span>🇭🇷</span> 克羅地亞 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇲🇦</span> 摩洛哥 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('阿根廷 vs 丹麥','6月27日(五) 09:00 HKT','阿根廷','丹麥','2-0','美斯 (阿根廷)')">
+          <div class="b-team winner"><span>🇦🇷</span> 阿根廷 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇩🇰</span> 丹麥 <span class="b-goals">0</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('法國 vs 澳洲','6月28日(六) 03:00 HKT','法國','澳洲','3-1','麥巴比 (法國)')">
+          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">3</span></div>
+          <div class="b-team loser"><span>🇦🇺</span> 澳洲 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('德國 vs 墨西哥','6月28日(六) 06:00 HKT','德國','墨西哥','2-1','夏維斯 (德國)')">
+          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇲🇽</span> 墨西哥 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('葡萄牙 vs 加納','6月28日(六) 09:00 HKT','葡萄牙','加納','4-2','C朗 (葡萄牙)')">
+          <div class="b-team winner"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">4</span></div>
+          <div class="b-team loser"><span>🇬🇭</span> 加納 <span class="b-goals">2</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('英格蘭 vs 塞內加爾','6月29日(日) 03:00 HKT','英格蘭','塞內加爾','2-0','哈利·卡尼 (英格蘭)')">
+          <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇸🇳</span> 塞內加爾 <span class="b-goals">0</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('西班牙 vs 南韓','6月29日(日) 06:00 HKT','西班牙','南韓','3-2','柏迪 (西班牙)')">
+          <div class="b-team winner"><span>🇪🇸</span> 西班牙 <span class="b-goals">3</span></div>
+          <div class="b-team loser"><span>🇰🇷</span> 南韓 <span class="b-goals">2</span></div>
+        </div>
       </div>
-      <div class="match" onclick="showMatchDetail('克羅地亞 vs 摩洛哥', '6月27日(五) 06:00', '克羅地亞', '摩洛哥', '2-1', '基利文歷 (克羅地亞)')">
-        <div class="team winner"><span class="team-flag">🇭🇷</span> 克羅地亞 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇲🇦</span> 摩洛哥 <span class="team-goals">1</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('阿根廷 vs 丹麥', '6月27日(五) 09:00', '阿根廷', '丹麥', '2-0', '美斯 (阿根廷)')">
-        <div class="team winner"><span class="team-flag">🇦🇷</span> 阿根廷 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇩🇰</span> 丹麥 <span class="team-goals">0</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('法國 vs 澳洲', '6月28日(六) 03:00', '法國', '澳洲', '3-1', '麥巴比 (法國)')">
-        <div class="team winner"><span class="team-flag">🇫🇷</span> 法國 <span class="team-goals">3</span></div>
-        <div class="team loser"><span class="team-flag">🇦🇺</span> 澳洲 <span class="team-goals">1</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('德國 vs 墨西哥', '6月28日(六) 06:00', '德國', '墨西哥', '2-1', '夏維斯 (德國)')">
-        <div class="team winner"><span class="team-flag">🇩🇪</span> 德國 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇲🇽</span> 墨西哥 <span class="team-goals">1</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('葡萄牙 vs 加納', '6月28日(六) 09:00', '葡萄牙', '加納', '4-2', 'C朗 (葡萄牙)')">
-        <div class="team winner"><span class="team-flag">🇵🇹</span> 葡萄牙 <span class="team-goals">4</span></div>
-        <div class="team loser"><span class="team-flag">🇬🇭</span> 加納 <span class="team-goals">2</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('英格蘭 vs 塞內加爾', '6月29日(日) 03:00', '英格蘭', '塞內加爾', '2-0', '哈利·卡尼 (英格蘭)')">
-        <div class="team winner"><span class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇸🇳</span> 塞內加爾 <span class="team-goals">0</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('西班牙 vs 南韓', '6月29日(日) 06:00', '西班牙', '南韓', '3-2', '柏迪 (西班牙)')">
-        <div class="team winner"><span class="team-flag">🇪🇸</span> 西班牙 <span class="team-goals">3</span></div>
-        <div class="team loser"><span class="team-flag">🇰🇷</span> 南韓 <span class="team-goals">2</span></div>
-      </div>
-    </div>
 
-    <!-- Quarter Finals -->
-    <div class="round round-2">
-      <div class="round-label">8強</div>
-      <div class="match" onclick="showMatchDetail('巴西 vs 克羅地亞', '6月30日(一) 03:00', '巴西', '克羅地亞', '2-1', '尼馬 (巴西)')">
-        <div class="team winner"><span class="team-flag">🇧🇷</span> 巴西 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇭🇷</span> 克羅地亞 <span class="team-goals">1</span></div>
+      <div class="round round-2">
+        <div class="round-label">8強 · QUARTERS</div>
+        <div class="bracket-match" onclick="showMatch('巴西 vs 克羅地亞','6月30日(一) 03:00 HKT','巴西','克羅地亞','2-1','尼馬 (巴西)')">
+          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇭🇷</span> 克羅地亞 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('阿根廷 vs 法國','6月30日(一) 06:00 HKT','阿根廷','法國','1-0','美斯 (阿根廷)')">
+          <div class="b-team winner"><span>🇦🇷</span> 阿根廷 <span class="b-goals">1</span></div>
+          <div class="b-team loser"><span>🇫🇷</span> 法國 <span class="b-goals">0</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('德國 vs 葡萄牙','7月1日(二) 03:00 HKT','德國','葡萄牙','3-2','夏維斯 (德國)')">
+          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">3</span></div>
+          <div class="b-team loser"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">2</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('英格蘭 vs 西班牙','7月1日(二) 06:00 HKT','英格蘭','西班牙','2-1','哈利·卡尼 (英格蘭)')">
+          <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇪🇸</span> 西班牙 <span class="b-goals">1</span></div>
+        </div>
       </div>
-      <div class="match" onclick="showMatchDetail('阿根廷 vs 法國', '6月30日(一) 06:00', '阿根廷', '法國', '1-0', '美斯 (阿根廷)')">
-        <div class="team winner"><span class="team-flag">🇦🇷</span> 阿根廷 <span class="team-goals">1</span></div>
-        <div class="team loser"><span class="team-flag">🇫🇷</span> 法國 <span class="team-goals">0</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('德國 vs 葡萄牙', '7月1日(二) 03:00', '德國', '葡萄牙', '3-2', '夏維斯 (德國)')">
-        <div class="team winner"><span class="team-flag">🇩🇪</span> 德國 <span class="team-goals">3</span></div>
-        <div class="team loser"><span class="team-flag">🇵🇹</span> 葡萄牙 <span class="team-goals">2</span></div>
-      </div>
-      <div class="match" onclick="showMatchDetail('英格蘭 vs 西班牙', '7月1日(二) 06:00', '英格蘭', '西班牙', '2-1', '哈利·卡尼 (英格蘭)')">
-        <div class="team winner"><span class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇪🇸</span> 西班牙 <span class="team-goals">1</span></div>
-      </div>
-    </div>
 
-    <!-- Semi Finals -->
-    <div class="round round-3">
-      <div class="round-label">4強</div>
-      <div class="match" onclick="showMatchDetail('巴西 vs 阿根廷', '7月5日(六) 03:00', '巴西', '阿根廷', '1-0', '尼馬 (巴西)')">
-        <div class="team winner"><span class="team-flag">🇧🇷</span> 巴西 <span class="team-goals">1</span></div>
-        <div class="team loser"><span class="team-flag">🇦🇷</span> 阿根廷 <span class="team-goals">0</span></div>
+      <div class="round round-3">
+        <div class="round-label">4強 · SEMIS</div>
+        <div class="bracket-match" onclick="showMatch('巴西 vs 阿根廷','7月5日(六) 03:00 HKT','巴西','阿根廷','1-0','尼馬 (巴西)')">
+          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">1</span></div>
+          <div class="b-team loser"><span>🇦🇷</span> 阿根廷 <span class="b-goals">0</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('英格蘭 vs 德國','7月6日(日) 03:00 HKT','英格蘭','德國','2-1','哈利·卡尼 (英格蘭)')">
+          <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇩🇪</span> 德國 <span class="b-goals">1</span></div>
+        </div>
       </div>
-      <div class="match" onclick="showMatchDetail('英格蘭 vs 德國', '7月6日(日) 03:00', '英格蘭', '德國', '2-1', '哈利·卡尼 (英格蘭)')">
-        <div class="team winner"><span class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="team-goals">2</span></div>
-        <div class="team loser"><span class="team-flag">🇩🇪</span> 德國 <span class="team-goals">1</span></div>
-      </div>
-    </div>
 
-    <!-- Final -->
-    <div class="round round-4">
-      <div class="round-label">決賽</div>
-      <div class="match" style="background: linear-gradient(135deg, #2a2a4a, #1a1a2e); border-color: var(--gold);" onclick="showMatchDetail('巴西 vs 英格蘭', '7月19日(六) 03:00', '巴西', '英格蘭', '3-1', '尼馬 (巴西)')">
-        <div class="team winner"><span class="team-flag">🇧🇷</span> 巴西 <span class="team-goals">3</span></div>
-        <div class="team loser"><span class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="team-goals">1</span></div>
+      <div class="round round-4">
+        <div class="round-label">決賽 · FINAL</div>
+        <div class="bracket-match" onclick="showMatch('巴西 vs 英格蘭','7月19日(六) 03:00 HKT','巴西','英格蘭','3-1','尼馬 (巴西)')">
+          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">3</span></div>
+          <div class="b-team loser"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">1</span></div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- Teams Grid -->
-<div class="teams-section">
-  <h2 class="teams-title">32強 & 預測進球</h2>
-  <div class="teams-grid">
-    <div class="team-card"><span class="flag">🇧🇷</span><div class="info"><div class="name">巴西</div><div class="region">南美洲</div></div><div class="goals-pred">18</div></div>
-    <div class="team-card"><span class="flag">🇦🇷</span><div class="info"><div class="name">阿根廷</div><div class="region">南美洲</div></div><div class="goals-pred">14</div></div>
-    <div class="team-card"><span class="flag">🇫🇷</span><div class="info"><div class="name">法國</div><div class="region">歐洲</div></div><div class="goals-pred">13</div></div>
-    <div class="team-card"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div class="info"><div class="name">英格蘭</div><div class="region">歐洲</div></div><div class="goals-pred">12</div></div>
-    <div class="team-card"><span class="flag">🇩🇪</span><div class="info"><div class="name">德國</div><div class="region">歐洲</div></div><div class="goals-pred">11</div></div>
-    <div class="team-card"><span class="flag">🇪🇸</span><div class="info"><div class="name">西班牙</div><div class="region">歐洲</div></div><div class="goals-pred">10</div></div>
-    <div class="team-card"><span class="flag">🇵🇹</span><div class="info"><div class="name">葡萄牙</div><div class="region">歐洲</div></div><div class="goals-pred">9</div></div>
-    <div class="team-card"><span class="flag">🇳🇱</span><div class="info"><div class="name">荷蘭</div><div class="region">歐洲</div></div><div class="goals-pred">8</div></div>
-    <div class="team-card"><span class="flag">🇧🇪</span><div class="info"><div class="name">比利時</div><div class="region">歐洲</div></div><div class="goals-pred">7</div></div>
-    <div class="team-card"><span class="flag">🇮🇹</span><div class="info"><div class="name">意大利</div><div class="region">歐洲</div></div><div class="goals-pred">7</div></div>
-    <div class="team-card"><span class="flag">🇭🇷</span><div class="info"><div class="name">克羅地亞</div><div class="region">歐洲</div></div><div class="goals-pred">6</div></div>
-    <div class="team-card"><span class="flag">🇺🇾</span><div class="info"><div class="name">烏拉圭</div><div class="region">南美洲</div></div><div class="goals-pred">6</div></div>
-    <div class="team-card"><span class="flag">🇲🇦</span><div class="info"><div class="name">摩洛哥</div><div class="region">非洲</div></div><div class="goals-pred">5</div></div>
-    <div class="team-card"><span class="flag">🇨🇴</span><div class="info"><div class="name">哥倫比亞</div><div class="region">南美洲</div></div><div class="goals-pred">5</div></div>
-    <div class="team-card"><span class="flag">🇸🇳</span><div class="info"><div class="name">塞內加爾</div><div class="region">非洲</div></div><div class="goals-pred">4</div></div>
-    <div class="team-card"><span class="flag">🇯🇵</span><div class="info"><div class="name">日本</div><div class="region">亞洲</div></div><div class="goals-pred">4</div></div>
-    <div class="team-card"><span class="flag">🇰🇷</span><div class="info"><div class="name">南韓</div><div class="region">亞洲</div></div><div class="goals-pred">4</div></div>
-    <div class="team-card"><span class="flag">🇺🇸</span><div class="info"><div class="name">美國</div><div class="region">北美洲</div></div><div class="goals-pred">4</div></div>
-    <div class="team-card"><span class="flag">🇲🇽</span><div class="info"><div class="name">墨西哥</div><div class="region">北美洲</div></div><div class="goals-pred">3</div></div>
-    <div class="team-card"><span class="flag">🇮🇷</span><div class="info"><div class="name">伊朗</div><div class="region">亞洲</div></div><div class="goals-pred">3</div></div>
-    <div class="team-card"><span class="flag">🇩🇰</span><div class="info"><div class="name">丹麥</div><div class="region">歐洲</div></div><div class="goals-pred">3</div></div>
-    <div class="team-card"><span class="flag">🇨🇭</span><div class="info"><div class="name">瑞士</div><div class="region">歐洲</div></div><div class="goals-pred">3</div></div>
-    <div class="team-card"><span class="flag">🇵🇱</span><div class="info"><div class="name">波蘭</div><div class="region">歐洲</div></div><div class="goals-pred">3</div></div>
-    <div class="team-card"><span class="flag">🇦🇺</span><div class="info"><div class="name">澳洲</div><div class="region">亞洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇸🇦</span><div class="info"><div class="name">沙特阿拉伯</div><div class="region">亞洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇬🇭</span><div class="info"><div class="name">加納</div><div class="region">非洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇨🇦</span><div class="info"><div class="name">加拿大</div><div class="region">北美洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇨🇱</span><div class="info"><div class="name">智利</div><div class="region">南美洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇳🇬</span><div class="info"><div class="name">尼日利亞</div><div class="region">非洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇪🇬</span><div class="info"><div class="name">埃及</div><div class="region">非洲</div></div><div class="goals-pred">2</div></div>
-    <div class="team-card"><span class="flag">🇶🇦</span><div class="info"><div class="name">卡塔爾</div><div class="region">亞洲</div></div><div class="goals-pred">1</div></div>
-    <div class="team-card"><span class="flag">🇨🇮</span><div class="info"><div class="name">科特迪瓦</div><div class="region">非洲</div></div><div class="goals-pred">1</div></div>
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-meta" id="mMeta"></div>
+    <div class="first-scorer-card" id="mScorer"></div>
+    <div class="lineup-section">
+      <h3>估計正選球員 ESTIMATED LINEUP</h3>
+      <div class="lineup-grid" id="mLineup"></div>
+    </div>
   </div>
 </div>
 
 <footer>
-  ⚽ 2026 世界盃 AI 預測 · 僅供娛樂 · 純屬模擬 · 點擊比賽查看詳細陣容
+  ⚽ 2026 世界盃 AI 預測 · 未來足球風格 · 僅供娛樂 · 純屬模擬
 </footer>
 
 <script>
-// Team lineups database
-const teamLineups = {
-  '阿根廷': ['門將: 馬丁尼斯', '後衛: 莫連奴', '後衛: 奧塔門迪', '後衛: 迪米凱萊斯', '後衛: 泰斯蒂', '中場: 迪馬里亞', '中場: 迪保羅', '中場: 麥卡利斯特', '中場: 柏利素', '前鋒: 美斯', '前鋒: 拿奧達路'],
-  '巴西': ['門將: 艾達臣', '後衛: 丹尼爾', '後衛: 泰簡拿', '後衛: 馬昆霍斯', '後衛: 雲尼修斯', '中場: 卡斯米路', '中場: 法明奴', '中場: 柏基達', '前鋒: 尼馬', '前鋒: 安保路', '前鋒: 洛迪高'],
-  '法國': ['門將: 緬斯', '後衛: 柏華特', '後衛: 烏柏美卡奴', '後衛: 甘拿比', '後衛: 迪奧靴南迪斯', '中場: 簡迪', '中場: 拉比奧特', '中場: 基沙文', '前鋒: 麥巴比', '前鋒: 基奧特', '前鋒: 杜林'],
-  '英格蘭': ['門將: 比克福特', '後衛: 獲加', '後衛: 史東斯', '後衛: 哈利·馬奎爾', '後衛: 路克梳爾', '中場: 迪勤·懷斯', '中場: 菲爾·科頓', '中場: 布卡約·沙卡', '前鋒: 哈利·卡尼', '前鋒: 隊長 (位置待定)', '前鋒: 菲美路'],
-  '德國': ['門將: 達史迪根', '後衛: 基拿科', '後衛: 魯迪格', '後衛: 甘美治', '後衛: 麥斯夏', '中場: 哥列斯卡', '中場: 甘莫爾', '中場: 比比', '前鋒: 夏維斯', '前鋒: 迪姆·阿拿', '前鋒: 湯馬士·梅拿'],
-  '西班牙': ['門將: 施蒙', '後衛: 卡華查', '後衛: 拉樸迪', '後衛: 龍文', '後衛: 加耶', '中場: 洛迪', '中場: 柏迪', '中場: 费南迪斯', '前鋒: 托里斯', '前鋒: 莫拉達', '前鋒: 威廉斯'],
-  '葡萄牙': ['門將: 迪奧高', '後衛: 達洛治', '後衛: 比比', '後衛: 龍文', '後衛: 纽奴·文迪斯', '中場: B施華', '中場: 干斯卡奧', '中場: 般奴·費南迪斯', '前鋒: C朗', '前鋒: 祖奥·菲歷斯', '前鋒: 拉法·施美度'],
-  '日本': ['門將: 施蒙特', '後衛: 冨安健洋', '後衛: 板倉幌', '後衛: 酒井宏樹', '後衛: 長友佑都', '中場: 遠藤航', '中場: 守田英正', '中場: 久保建英', '前鋒: 三笘薰', '前鋒: 上田綺世', '前鋒: 堂安律'],
-  '荷蘭': ['門將: 華布爾', '後衛: 戴利·白蘭特', '後衛: 雲迪克', '後衛: 阿基', '後衛: 泰華利', '中場: 弗朗基·迪莊', '中場: 卡拉臣', '中場: 迪比', '前鋒: 孟菲斯', '前鋒: 韋荷斯特', '前鋒: 佩萊'],
-  '墨西哥': ['門將: 奧查', '後衛: 靴里拉', '後衛: 蒙特斯', '後衛: 阿亞拉', '後衛: 加拉度', '中場: 靴達度', '中場: 侯克', '中場: 艾維拉', '前鋒: 查維亞·靴南迪斯', '前鋒: 羅美奧', '前鋒: 皮內達'],
-  '比利時': ['門將: 古圖斯', '後衛: 卡斯坦尼', '後衛: 華湯根', '後衛: 保雅沙', '後衛: 梅利亞', '中場: 迪布尼', '中場: 韋素', '中場: 杜根夏', '前鋒: 盧卡古', '前鋒: 巴舒亞伊', '前鋒: 多穆尼'],
-  '克羅地亞': ['門將: 利華', '後衛: 祖蘭奴域', '後衛: 維達', '後衛: 羅美奧', '後衛: 彼特洛域', '中場: 摩迪', '中場: 哥華傑', '中場: 碧雲亞', '前鋒: 基利文歷', '前鋒: 佩利錫', '前鋒: 卡拉馬歷'],
-  '加拿大': ['門將: 博伊爾', '後衛: 莊拿芬·奧蘇里奧', '後衛: 維多利亞', '後衛: 科尼利厄斯', '後衛: 甘乃迪', '中場: 戴維斯', '中場: 荷爾', '中場: 尤斯坦', '前鋒: 拉林', '前鋒: 戴維', '前鋒: 烏辛美'],
-  '摩洛哥': ['門將: 邦奴', '後衛: 哈基米', '後衛: 沙謙', '後衛: 迪西', '後衛: 馬菲奧', '中場: 阿姆拉巴特', '中場: 阿馬拉', '中場: 沙比斯', '前鋒: 哈森', '前鋒:: 尼敦', '前鋒: 布法爾'],
-  '威爾斯': ['門將: 軒尼斯', '後衛: 羅拔斯', '後衛: 梅菲', '後衛: 洛基', '後衛: 干拿·威廉斯', '中場: 艾朗·藍斯', '中場: 巴爾', '中場: 拉姆塞', '前鋒: 祖·艾倫', '前鋒: 威廉斯', '前鋒: 摩爾'],
-  '美國': ['門將: 端納', '後衛: 域陀·林', '後衛: 里姆', '後衛: 隆史坦', '後衛: 斯莫巴尼', '中場: 麥肯尼', '中場: 艾迪杜里', '中場: 穆沙特', '前鋒: 佩利', '前鋒: 艾朗遜', '前線: 維阿'],
-  '伊朗': ['門將: 比恩', '後衛: 雷扎伊', '後衛: 普拉利', '後衛: 哈伊薩菲', '後衛: 穆罕默德', '中場: 艾穆哈拉米', '中場: 努拉拉', '中場: 古蘭斯', '前鋒: 泰尼蒙', '前鋒: 阿茲蒙', '前鋒: 安沙里'],
-  '塞爾維亞': ['門將: 米特羅域', '後衛: 帕夫洛夫域', '後衛: 維拉科維奇', '後衛: 米特羅維奇', '後衛: 尼曼夏·古積', '中場: 塔迪奇', '中場: 根度', '中場: 拉度基域', '前鋒: 米特羅維奇', '前鋒: 弗拉霍維奇', '前鋒: 祖杰'],
-  '瑞士': ['門將: 索馬', '後衛: 阿簡治', '後衛: 施華洛域', '後衛: 洛積', '後衛: 列卡度·洛迪古斯', '中場: 沙格拿', '中場: 蘇錫', '中場: 安度的', '前鋒: 恩波洛', '前鋒: 施費洛域', '前鋒: 安保路'],
-  '波蘭': ['門將: 施贊斯尼', '後衛: 肯丘拉', '後衛: 基歷克', '後衛: 戴維·科夫', '後衛: 卡殊', '中場: 施連斯基', '中場: 基度', '中場: 利雲', '前鋒: 米利克', '前鋒: 希沙斯基', '前鋒: 施美於克'],
-  '沙特阿拉伯': ['門將: 艾奧斯', '後衛: 沙赫拉尼', '後衛: 布雷克', '後衛: 哈米斯', '後衛: 阿爾-布拿迪', '中場: 艾爾達范', '中場: 卡奴', '中場: 艾爾-阿提夫', '前鋒: 艾爾-達薩里', '前鋒: 艾爾-舒希利', '前鋒: 比希'],
-  '南韓': ['門將: 金承奎', '後衛: 金英權', '後衛: 權敬原', '後衛: 金玟哉', '後衛: 李記帝', '中場: 黃喜燦', '中場: 鄭又榮', '中場: 白昇浩', '前鋒: 孫興憨', '前鋒: 黃義助', '前鋒: 李在成'],
-  '喀麥隆': ['門將: 奧拿拿', '後衛: 尼高斯', '後衛: 恩加都', '後衛: 卡特萊', '後衛: 巴巴', '中場: 桑治', '中場: 安古沙', '中場: 科波亞', '前鋒: 阿布巴卡爾', '前鋒: 舒波-莫廷', '前鋒: 迪亞'],
-  '哥斯達黎加': ['門將: 拿華斯', '後衛: 杜亞迪', '後衛: 甘保', '後衛: 馬塔利亞', '後衛: 艾斯基拿', '中場: 艾路斯基', '中場: 巴塞迪斯', '中場: 泰姬·法哈', '前鋒: 干沙里斯', '前鋒: 祖爾·甘保', '前鋒: 艾雲'],
-  '厄瓜多爾': ['門將: 加林德斯', '後衛: 柏拉斯', '後衛: 卡斯迪勇', '後衛: 阿拿', '後衛: 埃斯高比', '中場: 摩西斯', '中場: 格隆', '中場: 恩素·美昆', '前鋒: 安拿華倫西亞', '前鋒: 耶臣·屈臣', '前鋒: 菲腊·比頓'],
-  '烏拉圭': ['門將: 梅斯利亞', '後衛: 荷西·占文尼亞', '後衛: 高甸', '後衛: 科茨', '後衛:: 尼斯·蘭迪', '中場: 托雷拉', '中場: 賓坦古', '中場: 迪阿拉斯開', '前鋒: 蘇亞雷斯', '前鋒: 尼馬', '前鋒: 達雲·紐尼斯'],
-  '加納': ['門將: 華臣', '後衛: 迪亞路', '後衛: 巴巴', '後衛: 艾迪耶', '後衛: 泰利基', '中場: 湯美', '中場: 庫杜斯', '中場: 安拔', '前鋒: 威廉斯', '前鋒: 沙希', '前鋒: 耶舒'],
-  '塞內加爾': ['門將: E文迪', '後衛: 沙利夫', '後衛: 迪亞洛', '後衛: 哥洛治', '後衛: 拿耶·文迪', '中場: 戴臣', '中場: 門迪', '中場: 迪耶', '前鋒: 沙迪奧·文尼', '前鋒: 哈美特·戴爾', '前鋒: 保拿爾'],
-  '卡塔爾': ['門將: 施希', '後衛: 艾哈杜斯', '後衛: 艾爾拉维', '後衛: 艾爾-哈治斯', '後衛: 艾殊', '中場: 布迪美', '中場: 哈特姆', '中場: 阿費夫', '前鋒: 阿里', '前鋒: 阿爾-埃爾', '前鋒: 蒙塔爾'],
-  '丹麥': ['門將: 舒梅切爾', '後衛: 科尼利厄斯', '後衛: 基斯特', '後衛: 艾歷臣', '後衛: 馬爾尼', '中場: 迪蘭妮', '中場: 比林比', '中場: 靴堡', '前鋒: 多爾貝', '前鋒: 耶斯拔', '前鋒: 布雲荷'],
-  '哥倫比亞': ['門將: 奧斯皮拿', '後衛: 梅迪亞', '後衛: 桑斯', '後衛: 戴雲遜·山度士', '後衛: 法夫蘭', '中場: 界龍', '中場: 柏拉查', '中場: 卡當尼', '前鋒: 戴臣', '前鋒: 柏萊沙', '前鋒: 朗達'],
+// ─── PARTICLE BACKGROUND ───
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.r = Math.random() * 1.5 + 0.5;
+    this.alpha = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.5 ? '0,245,255' : '255,0,229';
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W) this.vx *= -1;
+    if (this.y < 0 || this.y > H) this.vy *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function animateParticles() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+
+  // Draw connections
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 100) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(0,245,255,${0.08 * (1 - dist / 100)})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// ─── TEAM LINEUPS ───
+const lineups = {
+  '阿根廷':['門將: 馬丁尼斯','後衛: 莫連奴','後衛: 奧塔門迪','後衛: 迪米凱萊斯','後衛: 泰斯蒂','中場: 迪馬里亞','中場: 迪保羅','中場: 麥卡利斯特','中場: 柏利素','前鋒: 美斯','前鋒: 拿奧達路'],
+  '巴西':['門將: 艾達臣','後衛: 丹尼爾','後衛: 泰簡拿','後衛: 馬昆霍斯','後衛: 雲尼修斯','中場: 卡斯米路','中場: 法明奴','中場: 柏基達','前鋒: 尼馬','前鋒: 安保路','前鋒: 洛迪高'],
+  '法國':['門將: 緬斯','後衛: 柏華特','後衛: 烏柏美卡奴','後衛: 甘拿比','後衛: 迪奧靴南迪斯','中場: 簡迪','中場: 拉比奧特','中場: 基沙文','前鋒: 麥巴比','前鋒: 基奧特','前鋒: 杜林'],
+  '英格蘭':['門將: 比克福特','後衛: 獲加','後衛: 史東斯','後衛: 哈利·馬奎爾','後衛: 路克梳爾','中場: 迪勤·懷斯','中場: 菲爾·科頓','中場: 布卡約·沙卡','前鋒: 哈利·卡尼','前鋒: 霍頓','前鋒: 菲美路'],
+  '德國':['門將: 達史迪根','後衛: 基拿科','後衛: 魯迪格','後衛: 甘美治','後衛: 麥斯夏','中場: 哥列斯卡','中場: 甘莫爾','中場: 比比','前鋒: 夏維斯','前鋒: 迪姆·阿拿','前鋒: 湯馬士·梅拿'],
+  '西班牙':['門將: 施蒙','後衛: 卡華查','後衛: 拉樸迪','後衛: 龍文','後衛: 加耶','中場: 洛迪','中場: 柏迪','中場: 费南迪斯','前鋒: 托里斯','前鋒: 莫拉達','前鋒: 威廉斯'],
+  '葡萄牙':['門將: 迪奧高','後衛: 達洛治','後衛: 比比','後衛: 龍文','後衛: 纽奴·文迪斯','中場: B施華','中場: 干斯卡奧','中場: 般奴·費南迪斯','前鋒: C朗','前鋒: 祖奥·菲歷斯','前鋒: 拉法·施美度'],
+  '日本':['門將: 施蒙特','後衛: 冨安健洋','後衛: 板倉幌','後衛: 酒井宏樹','後衛: 長友佑都','中場: 遠藤航','中場: 守田英正','中場: 久保建英','前鋒: 三笘薰','前鋒: 上田綺世','前鋒: 堂安律'],
+  '荷蘭':['門將: 華布爾','後衛: 戴利·白蘭特','後衛: 雲迪克','後衛: 阿基','後衛: 泰華利','中場: 弗朗基·迪莊','中場: 卡拉臣','中場: 迪比','前鋒: 孟菲斯','前鋒: 韋荷斯特','前鋒: 佩萊'],
+  '墨西哥':['門將: 奧查','後衛: 靴里拉','後衛: 蒙特斯','後衛: 阿亞拉','後衛: 加拉度','中場: 靴達度','中場: 侯克','中場: 艾維拉','前鋒: 查維亞·靴南迪斯','前鋒: 羅美奧','前鋒: 皮內達'],
+  '比利時':['門將: 古圖斯','後衛: 卡斯坦尼','後衛: 華湯根','後衛: 保雅沙','後衛: 梅利亞','中場: 迪布尼','中場: 韋素','中場: 杜根夏','前鋒: 盧卡古','前鋒: 巴舒亞伊','前鋒: 多穆尼'],
+  '克羅地亞':['門將: 利華','後衛: 祖蘭奴域','後衛: 維達','後衛: 羅美奧','後衛: 彼特洛域','中場: 摩迪','中場: 哥華傑','中場: 碧雲亞','前鋒: 基利文歷','前鋒: 佩利錫','前鋒: 卡拉馬歷'],
+  '加拿大':['門將: 博伊爾','後衛: 莊拿芬·奧蘇里奧','後衛: 維多利亞','後衛: 科尼利厄斯','後衛: 甘乃迪','中場: 戴維斯','中場: 荷爾','中場: 尤斯坦','前鋒: 拉林','前鋒: 戴維','前鋒: 烏辛美'],
+  '摩洛哥':['門將: 邦奴','後衛: 哈基米','後衛: 沙謙','後衛: 迪西','後衛: 馬菲奧','中場: 阿姆拉巴特','中場: 阿馬拉','中場: 沙比斯','前鋒: 哈森','前鋒: 尼敦','前鋒: 布法爾'],
+  '威爾斯':['門將: 軒尼斯','後衛: 羅拔斯','後衛: 梅菲','後衛: 洛基','後衛: 干拿·威廉斯','中場: 艾朗·藍斯','中場: 巴爾','中場: 拉姆塞','前鋒: 祖·艾倫','前鋒: 威廉斯','前鋒: 摩爾'],
+  '美國':['門將: 端納','後衛: 域陀·林','後衛: 里姆','後衛: 隆史坦','後衛: 斯莫巴尼','中場: 麥肯尼','中場: 艾迪杜里','中場: 穆沙特','前鋒: 佩利','前鋒: 艾朗遜','前鋒: 維阿'],
+  '伊朗':['門將: 比恩','後衛: 雷扎伊','後衛: 普拉利','後衛: 哈伊薩菲','後衛: 穆罕默德','中場: 艾穆哈拉米','中場: 努拉拉','中場: 古蘭斯','前鋒: 泰尼蒙','前鋒: 阿茲蒙','前鋒: 安沙里'],
+  '塞爾維亞':['門將: 米特羅域','後衛: 帕夫洛夫域','後衛: 維拉科維奇','後衛: 米特羅維奇','後衛: 尼曼夏·古積','中場: 塔迪奇','中場: 根度','中場: 拉度基域','前鋒: 米特羅維奇','前鋒: 弗拉霍維奇','前鋒: 祖杰'],
+  '瑞士':['門將: 索馬','後衛: 阿簡治','後衛: 施華洛域','後衛: 洛積','後衛: 列卡度·洛迪古斯','中場: 沙格拿','中場: 蘇錫','中場: 安度的','前鋒: 恩波洛','前鋒: 施費洛域','前鋒: 安保路'],
+  '波蘭':['門將: 施贊斯尼','後衛: 肯丘拉','後衛: 基歷克','後衛: 戴維·科夫','後衛: 卡殊','中場: 施連斯基','中場: 基度','中場: 利雲','前鋒: 米利克','前鋒: 希沙斯基','前鋒: 施美於克'],
+  '沙特阿拉伯':['門將: 艾奧斯','後衛: 沙赫拉尼','後衛: 布雷克','後衛: 哈米斯','後衛: 阿爾-布拿迪','中場: 艾爾達范','中場: 卡奴','中場: 艾爾-阿提夫','前鋒: 艾爾-達薩里','前鋒: 艾爾-舒希利','前鋒: 比希'],
+  '南韓':['門將: 金承奎','後衛: 金英權','後衛: 權敬原','後衛: 金玟哉','後衛: 李記帝','中場: 黃喜燦','中場: 鄭又榮','中場: 白昇浩','前鋒: 孫興憨','前鋒: 黃義助','前鋒: 李在成'],
+  '喀麥隆':['門將: 奧拿拿','後衛: 尼高斯','後衛: 恩加都','後衛: 卡特萊','後衛: 巴巴','中場: 桑治','中場: 安古沙','中場: 科波亞','前鋒: 阿布巴卡爾','前鋒: 舒波-莫廷','前鋒: 迪亞'],
+  '哥斯達黎加':['門將: 拿華斯','後衛: 杜亞迪','後衛: 甘保','後衛: 馬塔利亞','後衛: 艾斯基拿','中場: 艾路斯基','中場: 巴塞迪斯','中場: 泰姬·法哈','前鋒: 干沙里斯','前鋒: 祖爾·甘保','前鋒: 艾雲'],
+  '厄瓜多爾':['門將: 加林德斯','後衛: 柏拉斯','後衛: 卡斯迪勇','後衛: 阿拿','後衛: 埃斯高比','中場: 摩西斯','中場: 格隆','中場: 恩素·美昆','前鋒: 安拿華倫西亞','前鋒: 耶臣·屈臣','前鋒: 菲腊·比頓'],
+  '烏拉圭':['門將: 梅斯利亞','後衛: 荷西·占文尼亞','後衛: 高甸','後衛: 科茨','後衛: 尼斯·蘭迪','中場: 托雷拉','中場: 賓坦古','中場: 迪阿拉斯開','前鋒: 蘇亞雷斯','前鋒: 努涅斯','前鋒: 達雲·紐尼斯'],
+  '加納':['門將: 華臣','後衛: 迪亞路','後衛: 巴巴','後衛: 艾迪耶','後衛: 泰利基','中場: 湯美','中場: 庫杜斯','中場: 安拔','前鋒: 威廉斯','前鋒: 沙希','前鋒: 耶舒'],
+  '塞內加爾':['門將: E文迪','後衛: 沙利夫','後衛: 迪亞洛','後衛: 哥洛治','後衛: 拿耶·文迪','中場: 戴臣','中場: 門迪','中場: 迪耶','前鋒: 沙迪奧·文尼','前鋒: 哈美特·戴爾','前鋒: 保拿爾'],
+  '卡塔爾':['門將: 施希','後衛: 艾哈杜斯','後衛: 艾爾拉维','後衛: 艾爾-哈治斯','後衛: 艾殊','中場: 布迪美','中場: 哈特姆','中場: 阿費夫','前鋒: 阿里','前鋒: 阿爾-埃爾','前鋒: 蒙塔爾'],
+  '丹麥':['門將: 舒梅切爾','後衛: 科尼利厄斯','後衛: 基斯特','後衛: 艾歷臣','後衛: 馬爾尼','中場: 迪蘭妮','中場: 比林比','中場: 靴堡','前鋒: 多爾貝','前鋒: 耶斯拔','前鋒: 布雲荷'],
+  '澳洲':['門將: 賴恩','後衛: 杜格拉斯','後衛: 蘇格爾','後衛: 比伊特','後衛: 卡拉積','中場: 慕士','中場: 積甸拿克','中場: 赫特斯','前鋒: 杜卡斯','前鋒: 麥卡倫','前鋒: 伊禾尼'],
 };
 
-function showMatchDetail(matchTitle, datetime, team1, team2, score, firstScorer) {
-  const modal = document.getElementById('matchModal');
-  document.getElementById('modalTitle').textContent = matchTitle;
-  document.getElementById('modalMatchInfo').textContent = datetime + ' | 預測比分: ' + score;
-  
-  // First scorer
-  const scorerParts = firstScorer.split(' (');
-  const scorerName = scorerParts[0];
-  const scorerTeam = scorerParts[1] ? scorerParts[1].replace(')', '') : team1;
-  document.getElementById('modalFirstScorer').innerHTML = 
-    '<div class="emoji">⚽</div><div class="info"><div class="name">' + scorerName + '</div><div class="team">估計首名入球 (' + scorerTeam + ')</div></div>';
-  
-  // Lineups
-  const lineup1 = teamLineups[team1] || ['估計陣容待定'];
-  const lineup2 = teamLineups[team2] || ['估計陣容待定'];
-  
-  document.getElementById('modalLineup').innerHTML = 
-    '<div class="lineup-team"><h4>' + team1 + '</h4><ul class="lineup-list">' + 
-    lineup1.map(p => '<li>' + p + '</li>').join('') + 
-    '</ul></div><div class="lineup-team"><h4>' + team2 + '</h4><ul class="lineup-list">' + 
-    lineup2.map(p => '<li>' + p + '</li>').join('') + 
+function showMatch(title, datetime, team1, team2, score, firstScorer) {
+  const modal = document.getElementById('modal');
+  document.getElementById('mTitle').textContent = title;
+  document.getElementById('mMeta').textContent = datetime + ' | 預測比分: ' + score;
+
+  const parts = firstScorer.split(' (');
+  const scorer = parts[0];
+  const team = parts[1] ? parts[1].replace(')', '') : team1;
+  document.getElementById('mScorer').innerHTML =
+    '<div class="first-scorer-icon">⚽</div>' +
+    '<div class="first-scorer-info">' +
+      '<div class="label">估計首名入球 FIRST GOAL</div>' +
+      '<div class="name">' + scorer + '</div>' +
+      '<div class="team">' + team + '</div>' +
+    '</div>';
+
+  const l1 = lineups[team1] || ['估計陣容待定'];
+  const l2 = lineups[team2] || ['估計陣容待定'];
+
+  document.getElementById('mLineup').innerHTML =
+    '<div class="lineup-col"><h4>' + team1 + '</h4><ul class="lineup-list">' +
+      l1.map(p => '<li>' + p + '</li>').join('') +
+    '</ul></div>' +
+    '<div class="lineup-col"><h4>' + team2 + '</h4><ul class="lineup-list">' +
+      l2.map(p => '<li>' + p + '</li>').join('') +
     '</ul></div>';
-  
+
   modal.classList.add('active');
 }
 
 function closeModal() {
-  document.getElementById('matchModal').classList.remove('active');
+  document.getElementById('modal').classList.remove('active');
 }
 
-document.getElementById('matchModal').addEventListener('click', function(e) {
+document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 </script>
