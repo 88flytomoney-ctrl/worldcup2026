@@ -381,12 +381,14 @@
 
     .bracket {
       display: grid;
-      grid-template-columns: repeat(8, 160px);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      min-width: 1100px;
       max-width: 1200px;
       margin: 0 auto;
-      justify-content: center;
+    }
+
+    @media (min-width: 1100px) {
+      .bracket { grid-template-columns: repeat(4, 220px); }
     }
 
     .round { display: flex; flex-direction: column; justify-content: space-around; }
@@ -534,7 +536,6 @@
       letter-spacing: 1px;
     }
 
-    /* First Scorer */
     .first-scorer-card {
       display: flex;
       align-items: center;
@@ -571,7 +572,6 @@
       color: var(--muted);
     }
 
-    /* Lineup */
     .lineup-section h3 {
       font-family: 'Orbitron', monospace;
       font-size: 0.8rem;
@@ -621,7 +621,6 @@
 
     .lineup-list li:last-child { border-bottom: none; }
 
-    /* ─── FOOTER ─── */
     footer {
       text-align: center;
       padding: 40px;
@@ -632,7 +631,6 @@
       letter-spacing: 2px;
     }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       .stats-bar { gap: 30px; }
       .stat-value { font-size: 2rem; }
@@ -641,9 +639,9 @@
       .lineup-grid { grid-template-columns: 1fr; }
       .groups-grid { padding: 0 16px 40px; }
       .match-date { display: none; }
+      .bracket { grid-template-columns: repeat(4, 1fr); }
     }
 
-    /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-dark); }
     ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 3px; }
@@ -669,7 +667,7 @@
   <!-- Stats -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-value">176</div>
+      <div class="stat-value">159</div>
       <div class="stat-label">預測總進球</div>
     </div>
     <div class="stat">
@@ -687,9 +685,9 @@
     <div class="winner-glow"></div>
     <div class="winner-card">
       <div class="winner-label">🏆 AI PREDICTED CHAMPION</div>
-      <span class="winner-flag">🇧🇷</span>
-      <div class="winner-name">BRAZIL</div>
-      <div class="winner-score">FINAL 3-1 vs ARGENTINA</div>
+      <span class="winner-flag">🇫🇷</span>
+      <div class="winner-name">法國</div>
+      <div class="winner-score">FINAL 2-1 vs 德國</div>
     </div>
   </div>
 
@@ -703,329 +701,329 @@
 
     <!-- GROUP A -->
     <div class="group-card">
-      <div class="group-title">🇦🇷 GROUP A</div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 加拿大','6月11日(三) 03:00 HKT','阿根廷','加拿大','2-0','美斯 (阿根廷)')">
-        <div class="match-date">6月11日 03:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
-        <div class="match-score-box">2-0</div>
-        <div class="team-name right">加拿大<span>🇨🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('墨西哥 vs 卡塔爾','6月11日(三) 06:00 HKT','墨西哥','卡塔爾','2-1','查維亞 (墨西哥)')">
-        <div class="match-date">6月11日 06:00</div>
-        <div class="team-name">🇲🇽 墨西哥</div>
+      <div class="group-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 GROUP A</div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 丹麥','6月12日(五) 06:00 HKT','英格蘭','丹麥','2-1','霍頓 (英格蘭)')">
+        <div class="match-date">6月12日 06:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
+        <div class="team-name right">丹麥<span>🇩🇰</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 卡塔爾','6月15日(日) 03:00 HKT','阿根廷','卡塔爾','3-0','美斯 (阿根廷)')">
-        <div class="match-date">6月15日 03:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
+      <div class="match-row" onclick="showMatch('塞爾維亞 vs 伊朗','6月12日(五) 09:00 HKT','塞爾維亞','伊朗','2-1','米特羅維奇 (塞爾維亞)')">
+        <div class="match-date">6月12日 09:00</div>
+        <div class="team-name">🇷🇸 塞爾維亞</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">伊朗<span>🇮🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('墨西哥 vs 加拿大','6月15日(日) 06:00 HKT','墨西哥','加拿大','1-1','查維亞 (墨西哥)')">
-        <div class="match-date">6月15日 06:00</div>
-        <div class="team-name">🇲🇽 墨西哥</div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 塞爾維亞','6月17日(三) 06:00 HKT','英格蘭','塞爾維亞','1-1','米特羅維奇 (塞爾維亞)')">
+        <div class="match-date">6月17日 06:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
         <div class="match-score-box">1-1</div>
-        <div class="team-name right">加拿大<span>🇨🇦</span></div>
+        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 墨西哥','6月19日(四) 03:00 HKT','阿根廷','墨西哥','2-1','美斯 (阿根廷)')">
-        <div class="match-date">6月19日 03:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
+      <div class="match-row" onclick="showMatch('丹麥 vs 伊朗','6月17日(三) 09:00 HKT','丹麥','伊朗','1-1','艾歷臣 (丹麥)')">
+        <div class="match-date">6月17日 09:00</div>
+        <div class="team-name">🇩🇰 丹麥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">伊朗<span>🇮🇷</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('英格蘭 vs 伊朗','6月22日(一) 06:00 HKT','英格蘭','伊朗','2-1','布卡約·沙卡 (英格蘭)')">
+        <div class="match-date">6月22日 06:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
+        <div class="team-name right">伊朗<span>🇮🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('卡塔爾 vs 加拿大','6月19日(四) 03:00 HKT','卡塔爾','加拿大','0-2','戴維斯 (加拿大)')">
-        <div class="match-date">6月19日 03:00</div>
-        <div class="team-name">🇶🇦 卡塔爾</div>
-        <div class="match-score-box">0-2</div>
-        <div class="team-name right">加拿大<span>🇨🇦</span></div>
+      <div class="match-row" onclick="showMatch('丹麥 vs 塞爾維亞','6月22日(一) 09:00 HKT','丹麥','塞爾維亞','1-1','比林比 (丹麥)')">
+        <div class="match-date">6月22日 09:00</div>
+        <div class="team-name">🇩🇰 丹麥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
       </div>
     </div>
 
     <!-- GROUP B -->
     <div class="group-card">
-      <div class="group-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 GROUP B</div>
-      <div class="match-row" onclick="showMatch('英格蘭 vs 伊朗','6月11日(三) 09:00 HKT','英格蘭','伊朗','3-1','哈利·卡尼 (英格蘭)')">
-        <div class="match-date">6月11日 09:00</div>
-        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
-        <div class="match-score-box">3-1</div>
-        <div class="team-name right">伊朗<span>🇮🇷</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('威爾斯 vs 美國','6月12日(四) 03:00 HKT','威爾斯','美國','1-1','巴爾 (威爾斯)')">
+      <div class="group-title">🇪🇸 GROUP B</div>
+      <div class="match-row" onclick="showMatch('西班牙 vs 墨西哥','6月12日(五) 03:00 HKT','西班牙','墨西哥','2-0','柏迪 (西班牙)')">
         <div class="match-date">6月12日 03:00</div>
-        <div class="team-name">🏴󠁧󠁢󠁷󠁬󠁳󠁿 威爾斯</div>
-        <div class="match-score-box">1-1</div>
-        <div class="team-name right">美國<span>🇺🇸</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('英格蘭 vs 美國','6月16日(一) 03:00 HKT','英格蘭','美國','2-0','哈利·卡尼 (英格蘭)')">
-        <div class="match-date">6月16日 03:00</div>
-        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
+        <div class="team-name">🇪🇸 西班牙</div>
         <div class="match-score-box">2-0</div>
-        <div class="team-name right">美國<span>🇺🇸</span></div>
+        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('威爾斯 vs 伊朗','6月16日(一) 09:00 HKT','威爾斯','伊朗','1-0','巴爾 (威爾斯)')">
-        <div class="match-date">6月16日 09:00</div>
-        <div class="team-name">🏴󠁧󠁢󠁷󠁬󠁳󠁿 威爾斯</div>
-        <div class="match-score-box">1-0</div>
-        <div class="team-name right">伊朗<span>🇮🇷</span></div>
+      <div class="match-row" onclick="showMatch('塞內加爾 vs 澳洲','6月12日(五) 12:00 HKT','塞內加爾','澳洲','1-1','杜卡斯 (澳洲)')">
+        <div class="match-date">6月12日 12:00</div>
+        <div class="team-name">🇸🇳 塞內加爾</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">澳洲<span>🇦🇺</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('英格蘭 vs 威爾斯','6月20日(五) 03:00 HKT','英格蘭','威爾斯','3-0','霍頓 (英格蘭)')">
-        <div class="match-date">6月20日 03:00</div>
-        <div class="team-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">威爾斯<span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span></div>
+      <div class="match-row" onclick="showMatch('西班牙 vs 塞內加爾','6月17日(三) 03:00 HKT','西班牙','塞內加爾','1-1','哈美特·戴爾 (塞內加爾)')">
+        <div class="match-date">6月17日 03:00</div>
+        <div class="team-name">🇪🇸 西班牙</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('伊朗 vs 美國','6月20日(五) 03:00 HKT','伊朗','美國','1-2','普利 (美國)')">
-        <div class="match-date">6月20日 03:00</div>
-        <div class="team-name">🇮🇷 伊朗</div>
-        <div class="match-score-box">1-2</div>
-        <div class="team-name right">美國<span>🇺🇸</span></div>
+      <div class="match-row" onclick="showMatch('墨西哥 vs 澳洲','6月17日(三) 12:00 HKT','墨西哥','澳洲','1-1','查維亞 (墨西哥)')">
+        <div class="match-date">6月17日 12:00</div>
+        <div class="team-name">🇲🇽 墨西哥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">澳洲<span>🇦🇺</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('西班牙 vs 澳洲','6月22日(一) 03:00 HKT','西班牙','澳洲','2-1','杜卡斯 (澳洲)')">
+        <div class="match-date">6月22日 03:00</div>
+        <div class="team-name">🇪🇸 西班牙</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">澳洲<span>🇦🇺</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('墨西哥 vs 塞內加爾','6月22日(一) 12:00 HKT','墨西哥','塞內加爾','1-1','沙迪奧·文尼 (塞內加爾)')">
+        <div class="match-date">6月22日 12:00</div>
+        <div class="team-name">🇲🇽 墨西哥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
       </div>
     </div>
 
     <!-- GROUP C -->
     <div class="group-card">
-      <div class="group-title">🇫🇷 GROUP C</div>
-      <div class="match-row" onclick="showMatch('法國 vs 沙特阿拉伯','6月12日(四) 06:00 HKT','法國','沙特阿拉伯','4-0','麥巴比 (法國)')">
-        <div class="match-date">6月12日 06:00</div>
-        <div class="team-name">🇫🇷 法國</div>
-        <div class="match-score-box">4-0</div>
-        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 墨西哥','6月12日(四) 09:00 HKT','阿根廷','墨西哥','2-1','美斯 (阿根廷)')">
-        <div class="match-date">6月12日 09:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
-        <div class="match-score-box">2-1</div>
-        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('波蘭 vs 沙特阿拉伯','6月17日(二) 03:00 HKT','波蘭','沙特阿拉伯','2-0','利雲 (波蘭)')">
-        <div class="match-date">6月17日 03:00</div>
-        <div class="team-name">🇵🇱 波蘭</div>
-        <div class="match-score-box">2-0</div>
-        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 波蘭','6月17日(二) 09:00 HKT','阿根廷','波蘭','1-1','美斯 (阿根廷)')">
-        <div class="match-date">6月17日 09:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
+      <div class="group-title">🇵🇹 GROUP C</div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 烏拉圭','6月13日(六) 03:00 HKT','葡萄牙','烏拉圭','1-1','迪阿拉斯開 (烏拉圭)')">
+        <div class="match-date">6月13日 03:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
         <div class="match-score-box">1-1</div>
+        <div class="team-name right">烏拉圭<span>🇺🇾</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('波蘭 vs 厄瓜多爾','6月13日(六) 06:00 HKT','波蘭','厄瓜多爾','1-1','利雲 (波蘭)')">
+        <div class="match-date">6月13日 06:00</div>
+        <div class="team-name">🇵🇱 波蘭</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 波蘭','6月18日(四) 03:00 HKT','葡萄牙','波蘭','2-1','利雲 (波蘭)')">
+        <div class="match-date">6月18日 03:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="match-score-box">2-1</div>
         <div class="team-name right">波蘭<span>🇵🇱</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('阿根廷 vs 沙特阿拉伯','6月21日(六) 03:00 HKT','阿根廷','沙特阿拉伯','3-0','美斯 (阿根廷)')">
-        <div class="match-date">6月21日 03:00</div>
-        <div class="team-name">🇦🇷 阿根廷</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('波蘭 vs 墨西哥','6月21日(六) 03:00 HKT','波蘭','墨西哥','1-1','利雲 (波蘭)')">
-        <div class="match-date">6月21日 03:00</div>
-        <div class="team-name">🇵🇱 波蘭</div>
+      <div class="match-row" onclick="showMatch('烏拉圭 vs 厄瓜多爾','6月18日(四) 06:00 HKT','烏拉圭','厄瓜多爾','1-1','努涅斯 (烏拉圭)')">
+        <div class="match-date">6月18日 06:00</div>
+        <div class="team-name">🇺🇾 烏拉圭</div>
         <div class="match-score-box">1-1</div>
-        <div class="team-name right">墨西哥<span>🇲🇽</span></div>
+        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('葡萄牙 vs 厄瓜多爾','6月23日(二) 03:00 HKT','葡萄牙','厄瓜多爾','2-1','C朗 (葡萄牙)')">
+        <div class="match-date">6月23日 03:00</div>
+        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('烏拉圭 vs 波蘭','6月23日(二) 06:00 HKT','烏拉圭','波蘭','2-1','迪阿拉斯開 (烏拉圭)')">
+        <div class="match-date">6月23日 06:00</div>
+        <div class="team-name">🇺🇾 烏拉圭</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">波蘭<span>🇵🇱</span></div>
       </div>
     </div>
 
     <!-- GROUP D -->
     <div class="group-card">
-      <div class="group-title">🇩🇪 GROUP D</div>
-      <div class="match-row" onclick="showMatch('德國 vs 日本','6月12日(四) 12:00 HKT','德國','日本','2-1','夏維斯 (德國)')">
-        <div class="match-date">6月12日 12:00</div>
-        <div class="team-name">🇩🇪 德國</div>
+      <div class="group-title">🇳🇱 GROUP D</div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 克羅地亞','6月13日(六) 09:00 HKT','荷蘭','克羅地亞','2-1','韋荷斯特 (荷蘭)')">
+        <div class="match-date">6月13日 09:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">日本<span>🇯🇵</span></div>
+        <div class="team-name right">克羅地亞<span>🇭🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('西班牙 vs 哥斯達黎加','6月13日(五) 03:00 HKT','西班牙','哥斯達黎加','4-0','洛迪 (西班牙)')">
-        <div class="match-date">6月13日 03:00</div>
-        <div class="team-name">🇪🇸 西班牙</div>
-        <div class="match-score-box">4-0</div>
-        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('日本 vs 哥斯達黎加','6月17日(二) 06:00 HKT','日本','哥斯達黎加','2-0','三笘薰 (日本)')">
-        <div class="match-date">6月17日 06:00</div>
-        <div class="team-name">🇯🇵 日本</div>
-        <div class="match-score-box">2-0</div>
-        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('西班牙 vs 德國','6月18日(三) 03:00 HKT','西班牙','德國','1-1','柏迪 (西班牙)')">
-        <div class="match-date">6月18日 03:00</div>
-        <div class="team-name">🇪🇸 西班牙</div>
+      <div class="match-row" onclick="showMatch('南韓 vs 卡塔爾','6月13日(六) 12:00 HKT','南韓','卡塔爾','1-1','孫興憨 (南韓)')">
+        <div class="match-date">6月13日 12:00</div>
+        <div class="team-name">🇰🇷 南韓</div>
         <div class="match-score-box">1-1</div>
-        <div class="team-name right">德國<span>🇩🇪</span></div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('日本 vs 西班牙','6月22日(日) 03:00 HKT','日本','西班牙','1-2','三笘薰 (日本)')">
-        <div class="match-date">6月22日 03:00</div>
-        <div class="team-name">🇯🇵 日本</div>
-        <div class="match-score-box">1-2</div>
-        <div class="team-name right">西班牙<span>🇪🇸</span></div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 南韓','6月18日(四) 09:00 HKT','荷蘭','南韓','1-1','迪比 (荷蘭)')">
+        <div class="match-date">6月18日 09:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">南韓<span>🇰🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('哥斯達黎加 vs 德國','6月22日(日) 03:00 HKT','哥斯達黎加','德國','1-4','夏維斯 (德國)')">
-        <div class="match-date">6月22日 03:00</div>
-        <div class="team-name">🇨🇷 哥斯達黎加</div>
-        <div class="match-score-box">1-4</div>
-        <div class="team-name right">德國<span>🇩🇪</span></div>
+      <div class="match-row" onclick="showMatch('克羅地亞 vs 卡塔爾','6月18日(四) 12:00 HKT','克羅地亞','卡塔爾','1-1','基利文歷 (克羅地亞)')">
+        <div class="match-date">6月18日 12:00</div>
+        <div class="team-name">🇭🇷 克羅地亞</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('荷蘭 vs 卡塔爾','6月23日(二) 09:00 HKT','荷蘭','卡塔爾','1-1','阿里 (卡塔爾)')">
+        <div class="match-date">6月23日 09:00</div>
+        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('克羅地亞 vs 南韓','6月23日(二) 12:00 HKT','克羅地亞','南韓','2-1','孫興憨 (南韓)')">
+        <div class="match-date">6月23日 12:00</div>
+        <div class="team-name">🇭🇷 克羅地亞</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">南韓<span>🇰🇷</span></div>
       </div>
     </div>
 
     <!-- GROUP E -->
     <div class="group-card">
-      <div class="group-title">🇧🇪 GROUP E</div>
-      <div class="match-row" onclick="showMatch('比利時 vs 加拿大','6月13日(五) 06:00 HKT','比利時','加拿大','2-0','迪布尼 (比利時)')">
-        <div class="match-date">6月13日 06:00</div>
-        <div class="team-name">🇧🇪 比利時</div>
-        <div class="match-score-box">2-0</div>
-        <div class="team-name right">加拿大<span>🇨🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('摩洛哥 vs 克羅地亞','6月13日(五) 09:00 HKT','摩洛哥','克羅地亞','0-0','基利文歷 (克羅地亞)')">
-        <div class="match-date">6月13日 09:00</div>
-        <div class="team-name">🇲🇦 摩洛哥</div>
-        <div class="match-score-box">0-0</div>
-        <div class="team-name right">克羅地亞<span>🇭🇷</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('比利時 vs 摩洛哥','6月18日(三) 06:00 HKT','比利時','摩洛哥','1-0','盧卡古 (比利時)')">
-        <div class="match-date">6月18日 06:00</div>
-        <div class="team-name">🇧🇪 比利時</div>
+      <div class="group-title">🇫🇷 GROUP E</div>
+      <div class="match-row" onclick="showMatch('法國 vs 哥倫比亞','6月14日(日) 03:00 HKT','法國','哥倫比亞','1-0','麥巴比 (法國)')">
+        <div class="match-date">6月14日 03:00</div>
+        <div class="team-name">🇫🇷 法國</div>
         <div class="match-score-box">1-0</div>
-        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
+        <div class="team-name right">哥倫比亞<span>🇨🇴</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('克羅地亞 vs 加拿大','6月18日(三) 09:00 HKT','克羅地亞','加拿大','3-1','基利文歷 (克羅地亞)')">
-        <div class="match-date">6月18日 09:00</div>
-        <div class="team-name">🇭🇷 克羅地亞</div>
-        <div class="match-score-box">3-1</div>
-        <div class="team-name right">加拿大<span>🇨🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('克羅地亞 vs 比利時','6月23日(一) 03:00 HKT','克羅地亞','比利時','2-1','基利文歷 (克羅地亞)')">
-        <div class="match-date">6月23日 03:00</div>
-        <div class="team-name">🇭🇷 克羅地亞</div>
-        <div class="match-score-box">2-1</div>
-        <div class="team-name right">比利時<span>🇧🇪</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('加拿大 vs 摩洛哥','6月23日(一) 03:00 HKT','加拿大','摩洛哥','1-1','戴維斯 (加拿大)')">
-        <div class="match-date">6月23日 03:00</div>
-        <div class="team-name">🇨🇦 加拿大</div>
+      <div class="match-row" onclick="showMatch('日本 vs 加納','6月14日(日) 06:00 HKT','日本','加納','1-1','沙希 (加納)')">
+        <div class="match-date">6月14日 06:00</div>
+        <div class="team-name">🇯🇵 日本</div>
         <div class="match-score-box">1-1</div>
-        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
+        <div class="team-name right">加納<span>🇬🇭</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('法國 vs 日本','6月19日(五) 03:00 HKT','法國','日本','2-1','三笘薰 (日本)')">
+        <div class="match-date">6月19日 03:00</div>
+        <div class="team-name">🇫🇷 法國</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">日本<span>🇯🇵</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('哥倫比亞 vs 加納','6月19日(五) 06:00 HKT','哥倫比亞','加納','2-2','占士·洛迪古斯 (哥倫比亞)')">
+        <div class="match-date">6月19日 06:00</div>
+        <div class="team-name">🇨🇴 哥倫比亞</div>
+        <div class="match-score-box">2-2</div>
+        <div class="team-name right">加納<span>🇬🇭</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('法國 vs 加納','6月24日(三) 03:00 HKT','法國','加納','2-1','庫杜斯 (加納)')">
+        <div class="match-date">6月24日 03:00</div>
+        <div class="team-name">🇫🇷 法國</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">加納<span>🇬🇭</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('哥倫比亞 vs 日本','6月24日(三) 06:00 HKT','哥倫比亞','日本','1-1','上田綺世 (日本)')">
+        <div class="match-date">6月24日 06:00</div>
+        <div class="team-name">🇨🇴 哥倫比亞</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">日本<span>🇯🇵</span></div>
       </div>
     </div>
 
     <!-- GROUP F -->
     <div class="group-card">
-      <div class="group-title">🇧🇷 GROUP F</div>
-      <div class="match-row" onclick="showMatch('巴西 vs 塞爾維亞','6月13日(五) 12:00 HKT','巴西','塞爾維亞','3-0','尼馬 (巴西)')">
-        <div class="match-date">6月13日 12:00</div>
-        <div class="team-name">🇧🇷 巴西</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
+      <div class="group-title">🇩🇪 GROUP F</div>
+      <div class="match-row" onclick="showMatch('德國 vs 美國','6月14日(日) 09:00 HKT','德國','美國','1-1','夏維斯 (德國)')">
+        <div class="match-date">6月14日 09:00</div>
+        <div class="team-name">🇩🇪 德國</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">美國<span>🇺🇸</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('瑞士 vs 喀麥隆','6月14日(六) 03:00 HKT','瑞士','喀麥隆','2-1','安度的 (瑞士)')">
-        <div class="match-date">6月14日 03:00</div>
-        <div class="team-name">🇨🇭 瑞士</div>
+      <div class="match-row" onclick="showMatch('加拿大 vs 哥斯達黎加','6月14日(日) 12:00 HKT','加拿大','哥斯達黎加','1-1','拿華斯 (哥斯達黎加)')">
+        <div class="match-date">6月14日 12:00</div>
+        <div class="team-name">🇨🇦 加拿大</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('德國 vs 加拿大','6月19日(五) 09:00 HKT','德國','加拿大','1-1','甘美治 (德國)')">
+        <div class="match-date">6月19日 09:00</div>
+        <div class="team-name">🇩🇪 德國</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('美國 vs 哥斯達黎加','6月19日(五) 12:00 HKT','美國','哥斯達黎加','2-1','麥肯尼 (美國)')">
+        <div class="match-date">6月19日 12:00</div>
+        <div class="team-name">🇺🇸 美國</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">喀麥隆<span>🇨🇲</span></div>
+        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('巴西 vs 瑞士','6月18日(三) 12:00 HKT','巴西','瑞士','2-0','尼馬 (巴西)')">
-        <div class="match-date">6月18日 12:00</div>
-        <div class="team-name">🇧🇷 巴西</div>
+      <div class="match-row" onclick="showMatch('德國 vs 哥斯達黎加','6月24日(三) 09:00 HKT','德國','哥斯達黎加','2-0','夏維斯 (德國)')">
+        <div class="match-date">6月24日 09:00</div>
+        <div class="team-name">🇩🇪 德國</div>
         <div class="match-score-box">2-0</div>
-        <div class="team-name right">瑞士<span>🇨🇭</span></div>
+        <div class="team-name right">哥斯達黎加<span>🇨🇷</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('喀麥隆 vs 塞爾維亞','6月19日(四) 06:00 HKT','喀麥隆','塞爾維亞','1-3','米特羅維奇 (塞爾維亞)')">
-        <div class="match-date">6月19日 06:00</div>
-        <div class="team-name">🇨🇲 喀麥隆</div>
-        <div class="match-score-box">1-3</div>
-        <div class="team-name right">塞爾維亞<span>🇷🇸</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('喀麥隆 vs 巴西','6月24日(二) 03:00 HKT','喀麥隆','巴西','0-3','安保路 (巴西)')">
-        <div class="match-date">6月24日 03:00</div>
-        <div class="team-name">🇨🇲 喀麥隆</div>
-        <div class="match-score-box">0-3</div>
-        <div class="team-name right">巴西<span>🇧🇷</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('塞爾維亞 vs 瑞士','6月24日(二) 03:00 HKT','塞爾維亞','瑞士','2-2','米特羅維奇 (塞爾維亞)')">
-        <div class="match-date">6月24日 03:00</div>
-        <div class="team-name">🇷🇸 塞爾維亞</div>
-        <div class="match-score-box">2-2</div>
-        <div class="team-name right">瑞士<span>🇨🇭</span></div>
+      <div class="match-row" onclick="showMatch('美國 vs 加拿大','6月24日(三) 12:00 HKT','美國','加拿大','1-1','戴維斯 (加拿大)')">
+        <div class="match-date">6月24日 12:00</div>
+        <div class="team-name">🇺🇸 美國</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">加拿大<span>🇨🇦</span></div>
       </div>
     </div>
 
     <!-- GROUP G -->
     <div class="group-card">
-      <div class="group-title">🇵🇹 GROUP G</div>
-      <div class="match-row" onclick="showMatch('葡萄牙 vs 加納','6月14日(六) 06:00 HKT','葡萄牙','加納','3-1','C朗 (葡萄牙)')">
-        <div class="match-date">6月14日 06:00</div>
-        <div class="team-name">🇵🇹 葡萄牙</div>
-        <div class="match-score-box">3-1</div>
-        <div class="team-name right">加納<span>🇬🇭</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('烏拉圭 vs 南韓','6月14日(六) 09:00 HKT','烏拉圭','南韓','2-1','蘇亞雷斯 (烏拉圭)')">
-        <div class="match-date">6月14日 09:00</div>
-        <div class="team-name">🇺🇾 烏拉圭</div>
+      <div class="group-title">🇦🇷 GROUP G</div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 瑞士','6月15日(一) 03:00 HKT','阿根廷','瑞士','2-1','安度的 (瑞士)')">
+        <div class="match-date">6月15日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">南韓<span>🇰🇷</span></div>
+        <div class="team-name right">瑞士<span>🇨🇭</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('葡萄牙 vs 烏拉圭','6月19日(四) 09:00 HKT','葡萄牙','烏拉圭','2-2','C朗 (葡萄牙)')">
-        <div class="match-date">6月19日 09:00</div>
-        <div class="team-name">🇵🇹 葡萄牙</div>
-        <div class="match-score-box">2-2</div>
-        <div class="team-name right">烏拉圭<span>🇺🇾</span></div>
+      <div class="match-row" onclick="showMatch('威爾斯 vs 沙特阿拉伯','6月15日(一) 06:00 HKT','威爾斯','沙特阿拉伯','1-1','艾爾-達薩里 (沙特阿拉伯)')">
+        <div class="match-date">6月15日 06:00</div>
+        <div class="team-name">🏴󠁧󠁢󠁷󠁬󠁳󠁿 威爾斯</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('南韓 vs 加納','6月20日(五) 06:00 HKT','南韓','加納','1-0','孫興憨 (南韓)')">
+      <div class="match-row" onclick="showMatch('阿根廷 vs 威爾斯','6月20日(六) 03:00 HKT','阿根廷','威爾斯','1-1','美斯 (阿根廷)')">
+        <div class="match-date">6月20日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">威爾斯<span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('瑞士 vs 沙特阿拉伯','6月20日(六) 06:00 HKT','瑞士','沙特阿拉伯','2-1','恩波洛 (瑞士)')">
         <div class="match-date">6月20日 06:00</div>
-        <div class="team-name">🇰🇷 南韓</div>
-        <div class="match-score-box">1-0</div>
-        <div class="team-name right">加納<span>🇬🇭</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('葡萄牙 vs 南韓','6月24日(二) 09:00 HKT','葡萄牙','南韓','2-1','C朗 (葡萄牙)')">
-        <div class="match-date">6月24日 09:00</div>
-        <div class="team-name">🇵🇹 葡萄牙</div>
+        <div class="team-name">🇨🇭 瑞士</div>
         <div class="match-score-box">2-1</div>
-        <div class="team-name right">南韓<span>🇰🇷</span></div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('加納 vs 烏拉圭','6月24日(二) 09:00 HKT','加納','烏拉圭','0-2','努涅斯 (烏拉圭)')">
-        <div class="match-date">6月24日 09:00</div>
-        <div class="team-name">🇬🇭 加納</div>
-        <div class="match-score-box">0-2</div>
-        <div class="team-name right">烏拉圭<span>🇺🇾</span></div>
+      <div class="match-row" onclick="showMatch('阿根廷 vs 沙特阿拉伯','6月25日(四) 03:00 HKT','阿根廷','沙特阿拉伯','2-1','美斯 (阿根廷)')">
+        <div class="match-date">6月25日 03:00</div>
+        <div class="team-name">🇦🇷 阿根廷</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">沙特阿拉伯<span>🇸🇦</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('瑞士 vs 威爾斯','6月25日(四) 06:00 HKT','瑞士','威爾斯','1-2','巴爾 (威爾斯)')">
+        <div class="match-date">6月25日 06:00</div>
+        <div class="team-name">🇨🇭 瑞士</div>
+        <div class="match-score-box">1-2</div>
+        <div class="team-name right">威爾斯<span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span></div>
       </div>
     </div>
 
     <!-- GROUP H -->
     <div class="group-card">
-      <div class="group-title">🇳🇱 GROUP H</div>
-      <div class="match-row" onclick="showMatch('荷蘭 vs 塞內加爾','6月14日(六) 12:00 HKT','荷蘭','塞內加爾','2-0','迪比 (荷蘭)')">
-        <div class="match-date">6月14日 12:00</div>
-        <div class="team-name">🇳🇱 荷蘭</div>
-        <div class="match-score-box">2-0</div>
-        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('厄瓜多爾 vs 卡塔爾','6月15日(日) 09:00 HKT','厄瓜多爾','卡塔爾','3-0','安拿華倫西亞 (厄瓜多爾)')">
+      <div class="group-title">🇧🇷 GROUP H</div>
+      <div class="match-row" onclick="showMatch('巴西 vs 比利時','6月15日(一) 09:00 HKT','巴西','比利時','1-1','盧卡古 (比利時)')">
         <div class="match-date">6月15日 09:00</div>
-        <div class="team-name">🇪🇨 厄瓜多爾</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
-      </div>
-      <div class="match-row" onclick="showMatch('荷蘭 vs 厄瓜多爾','6月20日(五) 09:00 HKT','荷蘭','厄瓜多爾','1-1','迪比 (荷蘭)')">
-        <div class="match-date">6月20日 09:00</div>
-        <div class="team-name">🇳🇱 荷蘭</div>
+        <div class="team-name">🇧🇷 巴西</div>
         <div class="match-score-box">1-1</div>
-        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
+        <div class="team-name right">比利時<span>🇧🇪</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('卡塔爾 vs 塞內加爾','6月21日(六) 06:00 HKT','卡塔爾','塞內加爾','1-3','迪耶 (塞內加爾)')">
-        <div class="match-date">6月21日 06:00</div>
-        <div class="team-name">🇶🇦 卡塔爾</div>
-        <div class="match-score-box">1-3</div>
-        <div class="team-name right">塞內加爾<span>🇸🇳</span></div>
+      <div class="match-row" onclick="showMatch('摩洛哥 vs 喀麥隆','6月15日(一) 12:00 HKT','摩洛哥','喀麥隆','1-1','尼敦 (摩洛哥)')">
+        <div class="match-date">6月15日 12:00</div>
+        <div class="team-name">🇲🇦 摩洛哥</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">喀麥隆<span>🇨🇲</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('荷蘭 vs 卡塔爾','6月25日(三) 03:00 HKT','荷蘭','卡塔爾','3-0','迪比 (荷蘭)')">
-        <div class="match-date">6月25日 03:00</div>
-        <div class="team-name">🇳🇱 荷蘭</div>
-        <div class="match-score-box">3-0</div>
-        <div class="team-name right">卡塔爾<span>🇶🇦</span></div>
+      <div class="match-row" onclick="showMatch('巴西 vs 摩洛哥','6月20日(六) 09:00 HKT','巴西','摩洛哥','2-1','哈基米 (摩洛哥)')">
+        <div class="match-date">6月20日 09:00</div>
+        <div class="team-name">🇧🇷 巴西</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
       </div>
-      <div class="match-row" onclick="showMatch('塞內加爾 vs 厄瓜多爾','6月25日(三) 03:00 HKT','塞內加爾','厄瓜多爾','1-2','安拿華倫西亞 (厄瓜多爾)')">
-        <div class="match-date">6月25日 03:00</div>
-        <div class="team-name">🇸🇳 塞內加爾</div>
-        <div class="match-score-box">1-2</div>
-        <div class="team-name right">厄瓜多爾<span>🇪🇨</span></div>
+      <div class="match-row" onclick="showMatch('比利時 vs 喀麥隆','6月20日(六) 12:00 HKT','比利時','喀麥隆','2-1','舒波-莫廷 (喀麥隆)')">
+        <div class="match-date">6月20日 12:00</div>
+        <div class="team-name">🇧🇪 比利時</div>
+        <div class="match-score-box">2-1</div>
+        <div class="team-name right">喀麥隆<span>🇨🇲</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('巴西 vs 喀麥隆','6月25日(四) 09:00 HKT','巴西','喀麥隆','1-1','尼馬 (巴西)')">
+        <div class="match-date">6月25日 09:00</div>
+        <div class="team-name">🇧🇷 巴西</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">喀麥隆<span>🇨🇲</span></div>
+      </div>
+      <div class="match-row" onclick="showMatch('比利時 vs 摩洛哥','6月25日(四) 12:00 HKT','比利時','摩洛哥','1-1','巴舒亞伊 (比利時)')">
+        <div class="match-date">6月25日 12:00</div>
+        <div class="team-name">🇧🇪 比利時</div>
+        <div class="match-score-box">1-1</div>
+        <div class="team-name right">摩洛哥<span>🇲🇦</span></div>
       </div>
     </div>
 
@@ -1037,77 +1035,77 @@
     <div class="bracket">
       <div class="round round-1">
         <div class="round-label">16強 · ROUND OF 16</div>
-        <div class="bracket-match" onclick="showMatch('巴西 vs 日本','6月27日(五) 03:00 HKT','巴西','日本','3-1','尼馬 (巴西)')">
-          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">3</span></div>
-          <div class="b-team loser"><span>🇯🇵</span> 日本 <span class="b-goals">1</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('克羅地亞 vs 摩洛哥','6月27日(五) 06:00 HKT','克羅地亞','摩洛哥','2-1','基利文歷 (克羅地亞)')">
-          <div class="b-team winner"><span>🇭🇷</span> 克羅地亞 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇲🇦</span> 摩洛哥 <span class="b-goals">1</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('阿根廷 vs 丹麥','6月27日(五) 09:00 HKT','阿根廷','丹麥','2-0','美斯 (阿根廷)')">
-          <div class="b-team winner"><span>🇦🇷</span> 阿根廷 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇩🇰</span> 丹麥 <span class="b-goals">0</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('法國 vs 澳洲','6月28日(六) 03:00 HKT','法國','澳洲','3-1','麥巴比 (法國)')">
-          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">3</span></div>
-          <div class="b-team loser"><span>🇦🇺</span> 澳洲 <span class="b-goals">1</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('德國 vs 墨西哥','6月28日(六) 06:00 HKT','德國','墨西哥','2-1','夏維斯 (德國)')">
-          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇲🇽</span> 墨西哥 <span class="b-goals">1</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('葡萄牙 vs 加納','6月28日(六) 09:00 HKT','葡萄牙','加納','4-2','C朗 (葡萄牙)')">
-          <div class="b-team winner"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">4</span></div>
-          <div class="b-team loser"><span>🇬🇭</span> 加納 <span class="b-goals">2</span></div>
-        </div>
-        <div class="bracket-match" onclick="showMatch('英格蘭 vs 塞內加爾','6月29日(日) 03:00 HKT','英格蘭','塞內加爾','2-0','哈利·卡尼 (英格蘭)')">
+        <div class="bracket-match" onclick="showMatch('英格蘭 vs 塞內加爾','6月28日(日) 03:00 HKT','英格蘭','塞內加爾','2-1','哈利·卡尼 (英格蘭)')">
           <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇸🇳</span> 塞內加爾 <span class="b-goals">0</span></div>
+          <div class="b-team loser"><span>🇸🇳</span> 塞內加爾 <span class="b-goals">1</span></div>
         </div>
-        <div class="bracket-match" onclick="showMatch('西班牙 vs 南韓','6月29日(日) 06:00 HKT','西班牙','南韓','3-2','柏迪 (西班牙)')">
-          <div class="b-team winner"><span>🇪🇸</span> 西班牙 <span class="b-goals">3</span></div>
-          <div class="b-team loser"><span>🇰🇷</span> 南韓 <span class="b-goals">2</span></div>
+        <div class="bracket-match" onclick="showMatch('葡萄牙 vs 克羅地亞','6月28日(日) 06:00 HKT','葡萄牙','克羅地亞','2-1','C朗 (葡萄牙)')">
+          <div class="b-team winner"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇭🇷</span> 克羅地亞 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('法國 vs 美國','6月28日(日) 09:00 HKT','法國','美國','2-1','麥巴比 (法國)')">
+          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇺🇸</span> 美國 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('阿根廷 vs 比利時','6月28日(日) 12:00 HKT','阿根廷','比利時','2-1','美斯 (阿根廷)')">
+          <div class="b-team winner"><span>🇦🇷</span> 阿根廷 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇧🇪</span> 比利時 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('西班牙 vs 塞爾維亞','6月29日(一) 03:00 HKT','西班牙','塞爾維亞','1-2','米特羅維奇 (塞爾維亞)')">
+          <div class="b-team winner"><span>🇪🇸</span> 西班牙 <span class="b-goals">1</span></div>
+          <div class="b-team loser"><span>🇷🇸</span> 塞爾維亞 <span class="b-goals">2</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('荷蘭 vs 烏拉圭','6月29日(一) 06:00 HKT','荷蘭','烏拉圭','2-1','迪比 (荷蘭)')">
+          <div class="b-team winner"><span>🇳🇱</span> 荷蘭 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇺🇾</span> 烏拉圭 <span class="b-goals">1</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('德國 vs 加納','6月29日(一) 09:00 HKT','德國','加納','2-0','夏維斯 (德國)')">
+          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇬🇭</span> 加納 <span class="b-goals">0</span></div>
+        </div>
+        <div class="bracket-match" onclick="showMatch('巴西 vs 威爾斯','6月29日(一) 12:00 HKT','巴西','威爾斯','2-1','雲尼修斯 (巴西)')">
+          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🏴󠁧󠁢󠁷󠁬󠁳󠁿</span> 威爾斯 <span class="b-goals">1</span></div>
         </div>
       </div>
 
       <div class="round round-2">
         <div class="round-label">8強 · QUARTERS</div>
-        <div class="bracket-match" onclick="showMatch('巴西 vs 克羅地亞','6月30日(一) 03:00 HKT','巴西','克羅地亞','2-1','尼馬 (巴西)')">
-          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇭🇷</span> 克羅地亞 <span class="b-goals">1</span></div>
+        <div class="bracket-match" onclick="showMatch('英格蘭 vs 葡萄牙','7月2日(四) 03:00 HKT','英格蘭','葡萄牙','1-2','C朗 (葡萄牙)')">
+          <div class="b-team winner"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">1</span></div>
         </div>
-        <div class="bracket-match" onclick="showMatch('阿根廷 vs 法國','6月30日(一) 06:00 HKT','阿根廷','法國','1-0','美斯 (阿根廷)')">
-          <div class="b-team winner"><span>🇦🇷</span> 阿根廷 <span class="b-goals">1</span></div>
-          <div class="b-team loser"><span>🇫🇷</span> 法國 <span class="b-goals">0</span></div>
+        <div class="bracket-match" onclick="showMatch('法國 vs 阿根廷','7月2日(四) 09:00 HKT','法國','阿根廷','2-1','基奧特 (法國)')">
+          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇦🇷</span> 阿根廷 <span class="b-goals">1</span></div>
         </div>
-        <div class="bracket-match" onclick="showMatch('德國 vs 葡萄牙','7月1日(二) 03:00 HKT','德國','葡萄牙','3-2','夏維斯 (德國)')">
-          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">3</span></div>
-          <div class="b-team loser"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">2</span></div>
+        <div class="bracket-match" onclick="showMatch('塞爾維亞 vs 荷蘭','7月3日(五) 03:00 HKT','塞爾維亞','荷蘭','1-2','迪比 (荷蘭)')">
+          <div class="b-team winner"><span>🇳🇱</span> 荷蘭 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇷🇸</span> 塞爾維亞 <span class="b-goals">1</span></div>
         </div>
-        <div class="bracket-match" onclick="showMatch('英格蘭 vs 西班牙','7月1日(二) 06:00 HKT','英格蘭','西班牙','2-1','哈利·卡尼 (英格蘭)')">
-          <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇪🇸</span> 西班牙 <span class="b-goals">1</span></div>
+        <div class="bracket-match" onclick="showMatch('德國 vs 巴西','7月3日(五) 09:00 HKT','德國','巴西','2-1','夏維斯 (德國)')">
+          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇧🇷</span> 巴西 <span class="b-goals">1</span></div>
         </div>
       </div>
 
       <div class="round round-3">
         <div class="round-label">4強 · SEMIS</div>
-        <div class="bracket-match" onclick="showMatch('巴西 vs 阿根廷','7月5日(六) 03:00 HKT','巴西','阿根廷','1-0','尼馬 (巴西)')">
-          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">1</span></div>
-          <div class="b-team loser"><span>🇦🇷</span> 阿根廷 <span class="b-goals">0</span></div>
+        <div class="bracket-match" onclick="showMatch('葡萄牙 vs 法國','7月7日(二) 03:00 HKT','葡萄牙','法國','1-2','麥巴比 (法國)')">
+          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇵🇹</span> 葡萄牙 <span class="b-goals">1</span></div>
         </div>
-        <div class="bracket-match" onclick="showMatch('英格蘭 vs 德國','7月6日(日) 03:00 HKT','英格蘭','德國','2-1','哈利·卡尼 (英格蘭)')">
-          <div class="b-team winner"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">2</span></div>
-          <div class="b-team loser"><span>🇩🇪</span> 德國 <span class="b-goals">1</span></div>
+        <div class="bracket-match" onclick="showMatch('荷蘭 vs 德國','7月8日(三) 03:00 HKT','荷蘭','德國','1-2','迪姆·阿拿 (德國)')">
+          <div class="b-team winner"><span>🇩🇪</span> 德國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇳🇱</span> 荷蘭 <span class="b-goals">1</span></div>
         </div>
       </div>
 
       <div class="round round-4">
         <div class="round-label">決賽 · FINAL</div>
-        <div class="bracket-match" onclick="showMatch('巴西 vs 英格蘭','7月19日(六) 03:00 HKT','巴西','英格蘭','3-1','尼馬 (巴西)')">
-          <div class="b-team winner"><span>🇧🇷</span> 巴西 <span class="b-goals">3</span></div>
-          <div class="b-team loser"><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> 英格蘭 <span class="b-goals">1</span></div>
+        <div class="bracket-match" onclick="showMatch('法國 vs 德國','7月19日(日) 03:00 HKT','法國','德國','2-1','麥巴比 (法國)')">
+          <div class="b-team winner"><span>🇫🇷</span> 法國 <span class="b-goals">2</span></div>
+          <div class="b-team loser"><span>🇩🇪</span> 德國 <span class="b-goals">1</span></div>
         </div>
       </div>
     </div>
@@ -1175,8 +1173,6 @@ for (let i = 0; i < 120; i++) particles.push(new Particle());
 function animateParticles() {
   ctx.clearRect(0, 0, W, H);
   particles.forEach(p => { p.update(); p.draw(); });
-
-  // Draw connections
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x;
@@ -1205,8 +1201,8 @@ const lineups = {
   '德國':['門將: 達史迪根','後衛: 基拿科','後衛: 魯迪格','後衛: 甘美治','後衛: 麥斯夏','中場: 哥列斯卡','中場: 甘莫爾','中場: 比比','前鋒: 夏維斯','前鋒: 迪姆·阿拿','前鋒: 湯馬士·梅拿'],
   '西班牙':['門將: 施蒙','後衛: 卡華查','後衛: 拉樸迪','後衛: 龍文','後衛: 加耶','中場: 洛迪','中場: 柏迪','中場: 费南迪斯','前鋒: 托里斯','前鋒: 莫拉達','前鋒: 威廉斯'],
   '葡萄牙':['門將: 迪奧高','後衛: 達洛治','後衛: 比比','後衛: 龍文','後衛: 纽奴·文迪斯','中場: B施華','中場: 干斯卡奧','中場: 般奴·費南迪斯','前鋒: C朗','前鋒: 祖奥·菲歷斯','前鋒: 拉法·施美度'],
-  '日本':['門將: 施蒙特','後衛: 冨安健洋','後衛: 板倉幌','後衛: 酒井宏樹','後衛: 長友佑都','中場: 遠藤航','中場: 守田英正','中場: 久保建英','前鋒: 三笘薰','前鋒: 上田綺世','前鋒: 堂安律'],
   '荷蘭':['門將: 華布爾','後衛: 戴利·白蘭特','後衛: 雲迪克','後衛: 阿基','後衛: 泰華利','中場: 弗朗基·迪莊','中場: 卡拉臣','中場: 迪比','前鋒: 孟菲斯','前鋒: 韋荷斯特','前鋒: 佩萊'],
+  '日本':['門將: 施蒙特','後衛: 冨安健洋','後衛: 板倉幌','後衛: 酒井宏樹','後衛: 長友佑都','中場: 遠藤航','中場: 守田英正','中場: 久保建英','前鋒: 三笘薰','前鋒: 上田綺世','前鋒: 堂安律'],
   '墨西哥':['門將: 奧查','後衛: 靴里拉','後衛: 蒙特斯','後衛: 阿亞拉','後衛: 加拉度','中場: 靴達度','中場: 侯克','中場: 艾維拉','前鋒: 查維亞·靴南迪斯','前鋒: 羅美奧','前鋒: 皮內達'],
   '比利時':['門將: 古圖斯','後衛: 卡斯坦尼','後衛: 華湯根','後衛: 保雅沙','後衛: 梅利亞','中場: 迪布尼','中場: 韋素','中場: 杜根夏','前鋒: 盧卡古','前鋒: 巴舒亞伊','前鋒: 多穆尼'],
   '克羅地亞':['門將: 利華','後衛: 祖蘭奴域','後衛: 維達','後衛: 羅美奧','後衛: 彼特洛域','中場: 摩迪','中場: 哥華傑','中場: 碧雲亞','前鋒: 基利文歷','前鋒: 佩利錫','前鋒: 卡拉馬歷'],
@@ -1227,8 +1223,7 @@ const lineups = {
   '加納':['門將: 華臣','後衛: 迪亞路','後衛: 巴巴','後衛: 艾迪耶','後衛: 泰利基','中場: 湯美','中場: 庫杜斯','中場: 安拔','前鋒: 威廉斯','前鋒: 沙希','前鋒: 耶舒'],
   '塞內加爾':['門將: E文迪','後衛: 沙利夫','後衛: 迪亞洛','後衛: 哥洛治','後衛: 拿耶·文迪','中場: 戴臣','中場: 門迪','中場: 迪耶','前鋒: 沙迪奧·文尼','前鋒: 哈美特·戴爾','前鋒: 保拿爾'],
   '卡塔爾':['門將: 施希','後衛: 艾哈杜斯','後衛: 艾爾拉维','後衛: 艾爾-哈治斯','後衛: 艾殊','中場: 布迪美','中場: 哈特姆','中場: 阿費夫','前鋒: 阿里','前鋒: 阿爾-埃爾','前鋒: 蒙塔爾'],
-  '丹麥':['門將: 舒梅切爾','後衛: 科尼利厄斯','後衛: 基斯特','後衛: 艾歷臣','後衛: 馬爾尼','中場: 迪蘭妮','中場: 比林比','中場: 靴堡','前鋒: 多爾貝','前鋒: 耶斯拔','前鋒: 布雲荷'],
-  '澳洲':['門將: 賴恩','後衛: 杜格拉斯','後衛: 蘇格爾','後衛: 比伊特','後衛: 卡拉積','中場: 慕士','中場: 積甸拿克','中場: 赫特斯','前鋒: 杜卡斯','前鋒: 麥卡倫','前鋒: 伊禾尼'],
+  '哥倫比亞':['門將: 奧斯賓拿','後衛: 阿里亞斯','後衛: 米拿','後衛: 山齊士','後衛: 法斯奧','中場: 占士·洛迪古斯','中場: 巴里奧斯','中場: 烏里比','前鋒: 迪亞斯','前鋒: 梅利爾','前鋒: 波尼亞'],
 };
 
 function showMatch(title, datetime, team1, team2, score, firstScorer) {
