@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T13:49:33.410978+08:00",
+  "lastUpdated": "2026-06-12T14:04:51.541160+08:00",
   "source": "foxsports",
   "matchCount": 103,
   "matches": [
@@ -60,14 +60,12 @@
       "team1_flag": "🇨🇦",
       "team2_zh": "波斯尼亞",
       "team2_flag": "🇧🇦",
-      "datetime": "2026-06-12",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "大衛斯",
-      "pred_scorer_team": "Canada",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:49:37.995892+08:00"
+      "datetime": "2026-06-12",
+      "predicted_at": "2026-06-12T13:49:37.995892+08:00",
+      "is_past": false
     },
     {
       "id": "USA-PAR-2026-06-12",
@@ -86,14 +84,12 @@
       "team1_flag": "🇺🇸",
       "team2_zh": "巴拉圭",
       "team2_flag": "🇵🇾",
-      "datetime": "2026-06-12",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "普利西奇",
-      "pred_scorer_team": "United States",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:49:40.730721+08:00"
+      "datetime": "2026-06-12",
+      "predicted_at": "2026-06-12T13:49:40.730721+08:00",
+      "is_past": false
     },
     {
       "id": "QAT-SUI-2026-06-13",
@@ -112,14 +108,12 @@
       "team1_flag": "🇶🇦",
       "team2_zh": "瑞士",
       "team2_flag": "🇨🇭",
-      "datetime": "2026-06-13",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 2,
       "pred_scorer": "沙奇里",
-      "pred_scorer_team": "Switzerland",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:49:43.593335+08:00"
+      "datetime": "2026-06-13",
+      "predicted_at": "2026-06-12T13:49:43.593335+08:00",
+      "is_past": false
     },
     {
       "id": "BRA-MAR-2026-06-13",
@@ -138,14 +132,12 @@
       "team1_flag": "🇧🇷",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
-      "datetime": "2026-06-13",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "維尼修斯",
-      "pred_scorer_team": "Brazil",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:49:46.069810+08:00"
+      "datetime": "2026-06-13",
+      "predicted_at": "2026-06-12T13:49:46.069810+08:00",
+      "is_past": false
     },
     {
       "id": "HAI-SCO-2026-06-13",
@@ -164,14 +156,12 @@
       "team1_flag": "🇭🇹",
       "team2_zh": "蘇格蘭",
       "team2_flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "datetime": "2026-06-13",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 3,
       "pred_scorer": "約翰·麥堅",
-      "pred_scorer_team": "Scotland",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:49:50.590068+08:00"
+      "datetime": "2026-06-13",
+      "predicted_at": "2026-06-12T13:49:50.590068+08:00",
+      "is_past": false
     },
     {
       "id": "AUS-TUR-2026-06-14",
@@ -191,7 +181,13 @@
       "team2_zh": "土耳其",
       "team2_flag": "🇹🇷",
       "datetime": "2026-06-14",
-      "is_past": false
+      "is_past": false,
+      "pred_score1": 1,
+      "pred_score2": 2,
+      "pred_scorer": "卡赫維奇",
+      "pred_scorer_team": "Türkiye",
+      "pred_confidence": 0.62,
+      "predicted_at": "2026-06-12T14:04:56.008553+08:00"
     },
     {
       "id": "GER-CUW-2026-06-14",
@@ -210,14 +206,12 @@
       "team1_flag": "🇩🇪",
       "team2_zh": "庫拉索",
       "team2_flag": "🇨🇼",
-      "datetime": "2026-06-14",
-      "is_past": false,
       "pred_score1": 5,
       "pred_score2": 0,
       "pred_scorer": "格納布里",
-      "pred_scorer_team": "Germany",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:50:54.013584+08:00"
+      "datetime": "2026-06-14",
+      "predicted_at": "2026-06-12T13:50:54.013584+08:00",
+      "is_past": false
     },
     {
       "id": "NED-JPN-2026-06-14",
@@ -236,14 +230,12 @@
       "team1_flag": "🇳🇱",
       "team2_zh": "日本",
       "team2_flag": "🇯🇵",
-      "datetime": "2026-06-14",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "哈維·西蒙斯",
-      "pred_scorer_team": "Netherlands",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:50:56.583934+08:00"
+      "datetime": "2026-06-14",
+      "predicted_at": "2026-06-12T13:50:56.583934+08:00",
+      "is_past": false
     },
     {
       "id": "CIV-ECU-2026-06-14",
@@ -262,14 +254,12 @@
       "team1_flag": "🇨🇮",
       "team2_zh": "厄瓜多爾",
       "team2_flag": "🇪🇨",
-      "datetime": "2026-06-14",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "凱塞多",
-      "pred_scorer_team": "Ecuador",
-      "pred_confidence": 0.55,
-      "predicted_at": "2026-06-12T13:51:02.238950+08:00"
+      "datetime": "2026-06-14",
+      "predicted_at": "2026-06-12T13:51:02.238950+08:00",
+      "is_past": false
     },
     {
       "id": "SWE-TUN-2026-06-14",
@@ -288,14 +278,12 @@
       "team1_flag": "🇸🇪",
       "team2_zh": "突尼斯",
       "team2_flag": "🇹🇳",
-      "datetime": "2026-06-14",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "伊沙克",
-      "pred_scorer_team": "Sweden",
-      "pred_confidence": 0.6,
-      "predicted_at": "2026-06-12T13:51:15.775847+08:00"
+      "datetime": "2026-06-14",
+      "predicted_at": "2026-06-12T13:51:15.775847+08:00",
+      "is_past": false
     },
     {
       "id": "ESP-CPV-2026-06-15",
@@ -314,14 +302,12 @@
       "team1_flag": "🇪🇸",
       "team2_zh": "佛得角",
       "team2_flag": "🇨🇻",
-      "datetime": "2026-06-15",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "拉明·耶馬",
-      "pred_scorer_team": "Spain",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:51:18.729074+08:00"
+      "datetime": "2026-06-15",
+      "predicted_at": "2026-06-12T13:51:18.729074+08:00",
+      "is_past": false
     },
     {
       "id": "BEL-EGY-2026-06-15",
@@ -340,14 +326,12 @@
       "team1_flag": "🇧🇪",
       "team2_zh": "埃及",
       "team2_flag": "🇪🇬",
-      "datetime": "2026-06-15",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "盧卡庫",
-      "pred_scorer_team": "Belgium",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:51:21.629430+08:00"
+      "datetime": "2026-06-15",
+      "predicted_at": "2026-06-12T13:51:21.629430+08:00",
+      "is_past": false
     },
     {
       "id": "KSA-URU-2026-06-15",
@@ -366,14 +350,12 @@
       "team1_flag": "🇸🇦",
       "team2_zh": "烏拉圭",
       "team2_flag": "🇺🇾",
-      "datetime": "2026-06-15",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 2,
       "pred_scorer": "達爾文·努涅斯",
-      "pred_scorer_team": "Uruguay",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:51:25.327331+08:00"
+      "datetime": "2026-06-15",
+      "predicted_at": "2026-06-12T13:51:25.327331+08:00",
+      "is_past": false
     },
     {
       "id": "IRN-NZL-2026-06-15",
@@ -392,14 +374,12 @@
       "team1_flag": "🇮🇷",
       "team2_zh": "新西蘭",
       "team2_flag": "🇳🇿",
-      "datetime": "2026-06-15",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "泰利米",
-      "pred_scorer_team": "Iran",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:51:27.897181+08:00"
+      "datetime": "2026-06-15",
+      "predicted_at": "2026-06-12T13:51:27.897181+08:00",
+      "is_past": false
     },
     {
       "id": "FRA-SEN-2026-06-16",
@@ -418,14 +398,12 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "塞內加爾",
       "team2_flag": "🇸🇳",
-      "datetime": "2026-06-16",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "麥巴比",
-      "pred_scorer_team": "France",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:51:30.454284+08:00"
+      "datetime": "2026-06-16",
+      "predicted_at": "2026-06-12T13:51:30.454284+08:00",
+      "is_past": false
     },
     {
       "id": "IRQ-NOR-2026-06-16",
@@ -444,14 +422,12 @@
       "team1_flag": "🇮🇶",
       "team2_zh": "挪威",
       "team2_flag": "🇳🇴",
-      "datetime": "2026-06-16",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 3,
       "pred_scorer": "艾寧夏蘭特",
-      "pred_scorer_team": "Norway",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:51:35.733970+08:00"
+      "datetime": "2026-06-16",
+      "predicted_at": "2026-06-12T13:51:35.733970+08:00",
+      "is_past": false
     },
     {
       "id": "ARG-ALG-2026-06-16",
@@ -470,14 +446,12 @@
       "team1_flag": "🇦🇷",
       "team2_zh": "阿爾及利亞",
       "team2_flag": "🇩🇿",
-      "datetime": "2026-06-16",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "美斯",
-      "pred_scorer_team": "Argentina",
-      "pred_confidence": 0.78,
-      "predicted_at": "2026-06-12T13:52:21.566621+08:00"
+      "datetime": "2026-06-16",
+      "predicted_at": "2026-06-12T13:52:21.566621+08:00",
+      "is_past": false
     },
     {
       "id": "AUT-JOR-2026-06-17",
@@ -496,14 +470,12 @@
       "team1_flag": "🇦🇹",
       "team2_zh": "約旦",
       "team2_flag": "🇯🇴",
-      "datetime": "2026-06-17",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "阿瑙托維奇",
-      "pred_scorer_team": "Austria",
-      "pred_confidence": 0.75,
-      "predicted_at": "2026-06-12T13:52:34.417432+08:00"
+      "datetime": "2026-06-17",
+      "predicted_at": "2026-06-12T13:52:34.417432+08:00",
+      "is_past": false
     },
     {
       "id": "POR-COD-2026-06-17",
@@ -522,14 +494,12 @@
       "team1_flag": "🇵🇹",
       "team2_zh": "剛果民主共和國",
       "team2_flag": "🇨🇩",
-      "datetime": "2026-06-17",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "C羅",
-      "pred_scorer_team": "Portugal",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:52:40.141685+08:00"
+      "datetime": "2026-06-17",
+      "predicted_at": "2026-06-12T13:52:40.141685+08:00",
+      "is_past": false
     },
     {
       "id": "ENG-CRO-2026-06-17",
@@ -548,14 +518,12 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "克羅地亞",
       "team2_flag": "🇭🇷",
-      "datetime": "2026-06-17",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "哈利卡尼",
-      "pred_scorer_team": "England",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:52:43.078066+08:00"
+      "datetime": "2026-06-17",
+      "predicted_at": "2026-06-12T13:52:43.078066+08:00",
+      "is_past": false
     },
     {
       "id": "GHA-PAN-2026-06-17",
@@ -574,14 +542,12 @@
       "team1_flag": "🇬🇭",
       "team2_zh": "巴拿馬",
       "team2_flag": "🇵🇦",
-      "datetime": "2026-06-17",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "阿尤",
-      "pred_scorer_team": "Ghana",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:52:45.723565+08:00"
+      "datetime": "2026-06-17",
+      "predicted_at": "2026-06-12T13:52:45.723565+08:00",
+      "is_past": false
     },
     {
       "id": "UZB-COL-2026-06-17",
@@ -601,7 +567,13 @@
       "team2_zh": "哥倫比亞",
       "team2_flag": "🇨🇴",
       "datetime": "2026-06-17",
-      "is_past": false
+      "is_past": false,
+      "pred_score1": 0,
+      "pred_score2": 2,
+      "pred_scorer": "路易斯·迪亞斯",
+      "pred_scorer_team": "Colombia",
+      "pred_confidence": 0.72,
+      "predicted_at": "2026-06-12T14:05:04.303538+08:00"
     },
     {
       "id": "MEX-KOR-2026-06-17",
@@ -620,14 +592,12 @@
       "team1_flag": "🇲🇽",
       "team2_zh": "南韓",
       "team2_flag": "🇰🇷",
-      "datetime": "2026-06-17T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "孫興慜",
-      "pred_scorer_team": "South Korea",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:53:48.900338+08:00"
+      "datetime": "2026-06-17T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:53:48.900338+08:00",
+      "is_past": false
     },
     {
       "id": "RSA-CZE-2026-06-17",
@@ -646,14 +616,12 @@
       "team1_flag": "🇿🇦",
       "team2_zh": "捷克",
       "team2_flag": "🇨🇿",
-      "datetime": "2026-06-17T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 2,
       "pred_scorer": "帕特里克·希克",
-      "pred_scorer_team": "Czechia",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:53:51.864789+08:00"
+      "datetime": "2026-06-17T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:53:51.864789+08:00",
+      "is_past": false
     },
     {
       "id": "CAN-QAT-2026-06-18",
@@ -672,14 +640,12 @@
       "team1_flag": "🇨🇦",
       "team2_zh": "卡塔爾",
       "team2_flag": "🇶🇦",
-      "datetime": "2026-06-18T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "大衛",
-      "pred_scorer_team": "Canada",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:54:11.181487+08:00"
+      "datetime": "2026-06-18T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:11.181487+08:00",
+      "is_past": false
     },
     {
       "id": "BIH-SUI-2026-06-18",
@@ -698,14 +664,12 @@
       "team1_flag": "🇧🇦",
       "team2_zh": "瑞士",
       "team2_flag": "🇨🇭",
-      "datetime": "2026-06-18T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 2,
       "pred_scorer": "沙奇里",
-      "pred_scorer_team": "Switzerland",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:54:13.595257+08:00"
+      "datetime": "2026-06-18T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:13.595257+08:00",
+      "is_past": false
     },
     {
       "id": "BRA-HAI-2026-06-19",
@@ -724,14 +688,12 @@
       "team1_flag": "🇧🇷",
       "team2_zh": "海地",
       "team2_flag": "🇭🇹",
-      "datetime": "2026-06-19T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 4,
       "pred_score2": 0,
       "pred_scorer": "維尼修斯",
-      "pred_scorer_team": "Brazil",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:54:40.834617+08:00"
+      "datetime": "2026-06-19T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:40.834617+08:00",
+      "is_past": false
     },
     {
       "id": "MAR-SCO-2026-06-19",
@@ -750,14 +712,12 @@
       "team1_flag": "🇲🇦",
       "team2_zh": "蘇格蘭",
       "team2_flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "datetime": "2026-06-19T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "哈基米",
-      "pred_scorer_team": "Morocco",
-      "pred_confidence": 0.68,
-      "predicted_at": "2026-06-12T13:54:43.852064+08:00"
+      "datetime": "2026-06-19T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:43.852064+08:00",
+      "is_past": false
     },
     {
       "id": "USA-AUS-2026-06-19",
@@ -776,14 +736,12 @@
       "team1_flag": "🇺🇸",
       "team2_zh": "澳洲",
       "team2_flag": "🇦🇺",
-      "datetime": "2026-06-19T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "普利西奇",
-      "pred_scorer_team": "United States",
-      "pred_confidence": 0.68,
-      "predicted_at": "2026-06-12T13:54:46.782330+08:00"
+      "datetime": "2026-06-19T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:46.782330+08:00",
+      "is_past": false
     },
     {
       "id": "PAR-TUR-2026-06-19",
@@ -802,14 +760,12 @@
       "team1_flag": "🇵🇾",
       "team2_zh": "土耳其",
       "team2_flag": "🇹🇷",
-      "datetime": "2026-06-19T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "達雲",
-      "pred_scorer_team": "Paraguay",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:54:52.800274+08:00"
+      "datetime": "2026-06-19T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:52.800274+08:00",
+      "is_past": false
     },
     {
       "id": "GER-CIV-2026-06-20",
@@ -828,14 +784,12 @@
       "team1_flag": "🇩🇪",
       "team2_zh": "科特迪瓦",
       "team2_flag": "🇨🇮",
-      "datetime": "2026-06-20T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "穆夏拉",
-      "pred_scorer_team": "Germany",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:54:55.921775+08:00"
+      "datetime": "2026-06-20T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:55.921775+08:00",
+      "is_past": false
     },
     {
       "id": "CUW-ECU-2026-06-20",
@@ -854,14 +808,12 @@
       "team1_flag": "🇨🇼",
       "team2_zh": "厄瓜多爾",
       "team2_flag": "🇪🇨",
-      "datetime": "2026-06-20T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 3,
       "pred_scorer": "恩納·瓦倫西亞",
-      "pred_scorer_team": "Ecuador",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:54:58.912042+08:00"
+      "datetime": "2026-06-20T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:54:58.912042+08:00",
+      "is_past": false
     },
     {
       "id": "NED-SWE-2026-06-20",
@@ -880,14 +832,12 @@
       "team1_flag": "🇳🇱",
       "team2_zh": "瑞典",
       "team2_flag": "🇸🇪",
-      "datetime": "2026-06-20T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "未知",
-      "pred_scorer_team": "Netherlands",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:55:01.536537+08:00"
+      "datetime": "2026-06-20T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:01.536537+08:00",
+      "is_past": false
     },
     {
       "id": "JPN-TUN-2026-06-20",
@@ -906,14 +856,12 @@
       "team1_flag": "🇯🇵",
       "team2_zh": "突尼斯",
       "team2_flag": "🇹🇳",
-      "datetime": "2026-06-20T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "久保建英",
-      "pred_scorer_team": "Japan",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:55:04.132027+08:00"
+      "datetime": "2026-06-20T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:04.132027+08:00",
+      "is_past": false
     },
     {
       "id": "BEL-IRN-2026-06-21",
@@ -932,14 +880,12 @@
       "team1_flag": "🇧🇪",
       "team2_zh": "伊朗",
       "team2_flag": "🇮🇷",
-      "datetime": "2026-06-21T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "盧卡庫",
-      "pred_scorer_team": "Belgium",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:55:07.709260+08:00"
+      "datetime": "2026-06-21T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:07.709260+08:00",
+      "is_past": false
     },
     {
       "id": "EGY-NZL-2026-06-21",
@@ -958,14 +904,12 @@
       "team1_flag": "🇪🇬",
       "team2_zh": "新西蘭",
       "team2_flag": "🇳🇿",
-      "datetime": "2026-06-21T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "穆罕默德·沙拿",
-      "pred_scorer_team": "Egypt",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:55:10.503340+08:00"
+      "datetime": "2026-06-21T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:10.503340+08:00",
+      "is_past": false
     },
     {
       "id": "ESP-KSA-2026-06-21",
@@ -984,14 +928,12 @@
       "team1_flag": "🇪🇸",
       "team2_zh": "沙特阿拉伯",
       "team2_flag": "🇸🇦",
-      "datetime": "2026-06-21T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "拉明·亞馬爾",
-      "pred_scorer_team": "Spain",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:55:13.800189+08:00"
+      "datetime": "2026-06-21T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:13.800189+08:00",
+      "is_past": false
     },
     {
       "id": "CPV-URU-2026-06-21",
@@ -1010,14 +952,12 @@
       "team1_flag": "🇨🇻",
       "team2_zh": "烏拉圭",
       "team2_flag": "🇺🇾",
-      "datetime": "2026-06-21T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 3,
       "pred_scorer": "達爾文·努涅斯",
-      "pred_scorer_team": "Uruguay",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:55:16.878639+08:00"
+      "datetime": "2026-06-21T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:16.878639+08:00",
+      "is_past": false
     },
     {
       "id": "FRA-IRQ-2026-06-22",
@@ -1036,14 +976,12 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "伊拉克",
       "team2_flag": "🇮🇶",
-      "datetime": "2026-06-22T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "麥巴比",
-      "pred_scorer_team": "France",
-      "pred_confidence": 0.82,
-      "predicted_at": "2026-06-12T13:55:21.403147+08:00"
+      "datetime": "2026-06-22T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:21.403147+08:00",
+      "is_past": false
     },
     {
       "id": "SEN-NOR-2026-06-22",
@@ -1062,14 +1000,12 @@
       "team1_flag": "🇸🇳",
       "team2_zh": "挪威",
       "team2_flag": "🇳🇴",
-      "datetime": "2026-06-22T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 2,
       "pred_scorer": "哈蘭德",
-      "pred_scorer_team": "Norway",
-      "pred_confidence": 0.68,
-      "predicted_at": "2026-06-12T13:55:24.333596+08:00"
+      "datetime": "2026-06-22T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:24.333596+08:00",
+      "is_past": false
     },
     {
       "id": "ARG-AUT-2026-06-22",
@@ -1088,14 +1024,12 @@
       "team1_flag": "🇦🇷",
       "team2_zh": "奧地利",
       "team2_flag": "🇦🇹",
-      "datetime": "2026-06-22T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "美斯",
-      "pred_scorer_team": "Argentina",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:55:27.846203+08:00"
+      "datetime": "2026-06-22T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:27.846203+08:00",
+      "is_past": false
     },
     {
       "id": "ALG-JOR-2026-06-22",
@@ -1114,14 +1048,12 @@
       "team1_flag": "🇩🇿",
       "team2_zh": "約旦",
       "team2_flag": "🇯🇴",
-      "datetime": "2026-06-22T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "賓特拿",
-      "pred_scorer_team": "Algeria",
-      "pred_confidence": 0.6,
-      "predicted_at": "2026-06-12T13:55:46.228649+08:00"
+      "datetime": "2026-06-22T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:46.228649+08:00",
+      "is_past": false
     },
     {
       "id": "MEX-CZE-2026-06-23",
@@ -1140,14 +1072,12 @@
       "team1_flag": "🇲🇽",
       "team2_zh": "捷克",
       "team2_flag": "🇨🇿",
-      "datetime": "2026-06-23T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "希尼斯",
-      "pred_scorer_team": "Mexico",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:55:49.204138+08:00"
+      "datetime": "2026-06-23T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:49.204138+08:00",
+      "is_past": false
     },
     {
       "id": "POR-UZB-2026-06-23",
@@ -1166,14 +1096,12 @@
       "team1_flag": "🇵🇹",
       "team2_zh": "烏茲別克",
       "team2_flag": "🇺🇿",
-      "datetime": "2026-06-23T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "C朗拿度",
-      "pred_scorer_team": "Portugal",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:55:53.688128+08:00"
+      "datetime": "2026-06-23T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:53.688128+08:00",
+      "is_past": false
     },
     {
       "id": "RSA-KOR-2026-06-23",
@@ -1192,14 +1120,12 @@
       "team1_flag": "🇿🇦",
       "team2_zh": "南韓",
       "team2_flag": "🇰🇷",
-      "datetime": "2026-06-23T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "孫興慜",
-      "pred_scorer_team": "South Korea",
-      "pred_confidence": 0.55,
-      "predicted_at": "2026-06-12T13:55:56.296090+08:00"
+      "datetime": "2026-06-23T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:55:56.296090+08:00",
+      "is_past": false
     },
     {
       "id": "COD-COL-2026-06-23",
@@ -1218,14 +1144,12 @@
       "team1_flag": "🇨🇩",
       "team2_zh": "哥倫比亞",
       "team2_flag": "🇨🇴",
-      "datetime": "2026-06-23T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 2,
       "pred_scorer": "路易斯·迪亞斯",
-      "pred_scorer_team": "Colombia",
-      "pred_confidence": 0.68,
-      "predicted_at": "2026-06-12T13:56:06.335293+08:00"
+      "datetime": "2026-06-23T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:06.335293+08:00",
+      "is_past": false
     },
     {
       "id": "ENG-GHA-2026-06-23",
@@ -1244,14 +1168,12 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "加納",
       "team2_flag": "🇬🇭",
-      "datetime": "2026-06-23T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "哈利簡尼",
-      "pred_scorer_team": "England",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:10.073544+08:00"
+      "datetime": "2026-06-23T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:10.073544+08:00",
+      "is_past": false
     },
     {
       "id": "CRO-PAN-2026-06-23",
@@ -1270,14 +1192,12 @@
       "team1_flag": "🇭🇷",
       "team2_zh": "巴拿馬",
       "team2_flag": "🇵🇦",
-      "datetime": "2026-06-23T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "莫德里奇",
-      "pred_scorer_team": "Croatia",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:13.044469+08:00"
+      "datetime": "2026-06-23T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:13.044469+08:00",
+      "is_past": false
     },
     {
       "id": "CAN-SUI-2026-06-24",
@@ -1296,14 +1216,12 @@
       "team1_flag": "🇨🇦",
       "team2_zh": "瑞士",
       "team2_flag": "🇨🇭",
-      "datetime": "2026-06-24T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 2,
       "pred_scorer": "沙奇里",
-      "pred_scorer_team": "Switzerland",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:56:15.623602+08:00"
+      "datetime": "2026-06-24T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:15.623602+08:00",
+      "is_past": false
     },
     {
       "id": "BIH-QAT-2026-06-24",
@@ -1322,14 +1240,12 @@
       "team1_flag": "🇧🇦",
       "team2_zh": "卡塔爾",
       "team2_flag": "🇶🇦",
-      "datetime": "2026-06-24T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "哲科",
-      "pred_scorer_team": "Bosnia and Herzegovina",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:56:19.503419+08:00"
+      "datetime": "2026-06-24T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:19.503419+08:00",
+      "is_past": false
     },
     {
       "id": "BRA-SCO-2026-06-25",
@@ -1348,14 +1264,12 @@
       "team1_flag": "🇧🇷",
       "team2_zh": "蘇格蘭",
       "team2_flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "datetime": "2026-06-25T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "維尼修斯",
-      "pred_scorer_team": "Brazil",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:29.210872+08:00"
+      "datetime": "2026-06-25T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:29.210872+08:00",
+      "is_past": false
     },
     {
       "id": "MAR-HAI-2026-06-25",
@@ -1374,14 +1288,12 @@
       "team1_flag": "🇲🇦",
       "team2_zh": "海地",
       "team2_flag": "🇭🇹",
-      "datetime": "2026-06-25T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "阿什拉夫·哈基米",
-      "pred_scorer_team": "Morocco",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:32.680278+08:00"
+      "datetime": "2026-06-25T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:32.680278+08:00",
+      "is_past": false
     },
     {
       "id": "USA-TUR-2026-06-25",
@@ -1400,14 +1312,12 @@
       "team1_flag": "🇺🇸",
       "team2_zh": "土耳其",
       "team2_flag": "🇹🇷",
-      "datetime": "2026-06-25T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "普利西奇",
-      "pred_scorer_team": "United States",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:56:38.037240+08:00"
+      "datetime": "2026-06-25T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:38.037240+08:00",
+      "is_past": false
     },
     {
       "id": "PAR-AUS-2026-06-25",
@@ -1426,14 +1336,12 @@
       "team1_flag": "🇵🇾",
       "team2_zh": "澳洲",
       "team2_flag": "🇦🇺",
-      "datetime": "2026-06-25T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "迪亞高·阿朗素",
-      "pred_scorer_team": "Paraguay",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:56:42.607572+08:00"
+      "datetime": "2026-06-25T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:42.607572+08:00",
+      "is_past": false
     },
     {
       "id": "GER-ECU-2026-06-26",
@@ -1452,14 +1360,12 @@
       "team1_flag": "🇩🇪",
       "team2_zh": "厄瓜多爾",
       "team2_flag": "🇪🇨",
-      "datetime": "2026-06-26T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "穆夏拉",
-      "pred_scorer_team": "Germany",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:45.062721+08:00"
+      "datetime": "2026-06-26T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:45.062721+08:00",
+      "is_past": false
     },
     {
       "id": "CUW-CIV-2026-06-26",
@@ -1478,14 +1384,12 @@
       "team1_flag": "🇨🇼",
       "team2_zh": "科特迪瓦",
       "team2_flag": "🇨🇮",
-      "datetime": "2026-06-26T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 0,
       "pred_score2": 2,
       "pred_scorer": "塞巴斯蒂安·阿萊",
-      "pred_scorer_team": "Ivory Coast",
-      "pred_confidence": 0.7,
-      "predicted_at": "2026-06-12T13:56:54.349162+08:00"
+      "datetime": "2026-06-26T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:54.349162+08:00",
+      "is_past": false
     },
     {
       "id": "NED-TUN-2026-06-26",
@@ -1504,14 +1408,12 @@
       "team1_flag": "🇳🇱",
       "team2_zh": "突尼斯",
       "team2_flag": "🇹🇳",
-      "datetime": "2026-06-26T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "哈克",
-      "pred_scorer_team": "Netherlands",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:56:57.395512+08:00"
+      "datetime": "2026-06-26T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:56:57.395512+08:00",
+      "is_past": false
     },
     {
       "id": "JPN-SWE-2026-06-26",
@@ -1530,14 +1432,12 @@
       "team1_flag": "🇯🇵",
       "team2_zh": "瑞典",
       "team2_flag": "🇸🇪",
-      "datetime": "2026-06-26T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "伊沙克",
-      "pred_scorer_team": "Sweden",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:57:54.618044+08:00"
+      "datetime": "2026-06-26T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:57:54.618044+08:00",
+      "is_past": false
     },
     {
       "id": "BEL-NZL-2026-06-27",
@@ -1556,14 +1456,12 @@
       "team1_flag": "🇧🇪",
       "team2_zh": "新西蘭",
       "team2_flag": "🇳🇿",
-      "datetime": "2026-06-27T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "盧卡庫",
-      "pred_scorer_team": "Belgium",
-      "pred_confidence": 0.78,
-      "predicted_at": "2026-06-12T13:57:57.635682+08:00"
+      "datetime": "2026-06-27T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:57:57.635682+08:00",
+      "is_past": false
     },
     {
       "id": "EGY-IRN-2026-06-27",
@@ -1582,14 +1480,12 @@
       "team1_flag": "🇪🇬",
       "team2_zh": "伊朗",
       "team2_flag": "🇮🇷",
-      "datetime": "2026-06-27T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "穆罕默德·沙拿",
-      "pred_scorer_team": "Egypt",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:58:08.011811+08:00"
+      "datetime": "2026-06-27T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:58:08.011811+08:00",
+      "is_past": false
     },
     {
       "id": "ESP-URU-2026-06-27",
@@ -1608,14 +1504,12 @@
       "team1_flag": "🇪🇸",
       "team2_zh": "烏拉圭",
       "team2_flag": "🇺🇾",
-      "datetime": "2026-06-27T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "拉明·耶馬",
-      "pred_scorer_team": "Spain",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:58:42.354720+08:00"
+      "datetime": "2026-06-27T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:58:42.354720+08:00",
+      "is_past": false
     },
     {
       "id": "CPV-KSA-2026-06-27",
@@ -1634,14 +1528,12 @@
       "team1_flag": "🇨🇻",
       "team2_zh": "沙特阿拉伯",
       "team2_flag": "🇸🇦",
-      "datetime": "2026-06-27T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "達里",
-      "pred_scorer_team": "Saudi Arabia",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:58:52.351136+08:00"
+      "datetime": "2026-06-27T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:58:52.351136+08:00",
+      "is_past": false
     },
     {
       "id": "FRA-NOR-2026-06-28",
@@ -1660,14 +1552,12 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "挪威",
       "team2_flag": "🇳🇴",
-      "datetime": "2026-06-28T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 1,
       "pred_scorer": "基利安·麥巴比",
-      "pred_scorer_team": "France",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:58:58.921045+08:00"
+      "datetime": "2026-06-28T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:58:58.921045+08:00",
+      "is_past": false
     },
     {
       "id": "SEN-IRQ-2026-06-28",
@@ -1686,14 +1576,12 @@
       "team1_flag": "🇸🇳",
       "team2_zh": "伊拉克",
       "team2_flag": "🇮🇶",
-      "datetime": "2026-06-28T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 0,
       "pred_scorer": "沙迪奧·文尼",
-      "pred_scorer_team": "Senegal",
-      "pred_confidence": 0.7,
-      "predicted_at": "2026-06-12T13:59:02.213764+08:00"
+      "datetime": "2026-06-28T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:02.213764+08:00",
+      "is_past": false
     },
     {
       "id": "ARG-JOR-2026-06-28",
@@ -1712,14 +1600,12 @@
       "team1_flag": "🇦🇷",
       "team2_zh": "約旦",
       "team2_flag": "🇯🇴",
-      "datetime": "2026-06-28T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 4,
       "pred_score2": 0,
       "pred_scorer": "梅西",
-      "pred_scorer_team": "Argentina",
-      "pred_confidence": 0.85,
-      "predicted_at": "2026-06-12T13:59:05.384721+08:00"
+      "datetime": "2026-06-28T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:05.384721+08:00",
+      "is_past": false
     },
     {
       "id": "ALG-AUT-2026-06-28",
@@ -1738,14 +1624,12 @@
       "team1_flag": "🇩🇿",
       "team2_zh": "奧地利",
       "team2_flag": "🇦🇹",
-      "datetime": "2026-06-28T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 1,
       "pred_scorer": "薩德·本拉赫馬",
-      "pred_scorer_team": "Algeria",
-      "pred_confidence": 0.58,
-      "predicted_at": "2026-06-12T13:59:17.642227+08:00"
+      "datetime": "2026-06-28T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:17.642227+08:00",
+      "is_past": false
     },
     {
       "id": "POR-COL-2026-06-29",
@@ -1764,14 +1648,12 @@
       "team1_flag": "🇵🇹",
       "team2_zh": "哥倫比亞",
       "team2_flag": "🇨🇴",
-      "datetime": "2026-06-29T03:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "C羅",
-      "pred_scorer_team": "Portugal",
-      "pred_confidence": 0.68,
-      "predicted_at": "2026-06-12T13:59:24.056037+08:00"
+      "datetime": "2026-06-29T03:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:24.056037+08:00",
+      "is_past": false
     },
     {
       "id": "MEX-PAR-2026-06-29",
@@ -1821,14 +1703,12 @@
       "team1_flag": "🇨🇩",
       "team2_zh": "烏茲別克",
       "team2_flag": "🇺🇿",
-      "datetime": "2026-06-29T06:00:00+08:00",
-      "is_past": false,
       "pred_score1": 1,
       "pred_score2": 2,
       "pred_scorer": "舍爾佐德·納斯魯拉耶夫",
-      "pred_scorer_team": "Uzbekistan",
-      "pred_confidence": 0.6,
-      "predicted_at": "2026-06-12T13:59:31.980421+08:00"
+      "datetime": "2026-06-29T06:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:31.980421+08:00",
+      "is_past": false
     },
     {
       "id": "BRA-CAN-2026-06-29",
@@ -1878,14 +1758,12 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "巴拿馬",
       "team2_flag": "🇵🇦",
-      "datetime": "2026-06-29T09:00:00+08:00",
-      "is_past": false,
       "pred_score1": 3,
       "pred_score2": 0,
       "pred_scorer": "哈利卡尼",
-      "pred_scorer_team": "England",
-      "pred_confidence": 0.72,
-      "predicted_at": "2026-06-12T13:59:38.379659+08:00"
+      "datetime": "2026-06-29T09:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:38.379659+08:00",
+      "is_past": false
     },
     {
       "id": "GER-JPN-2026-06-29",
@@ -1935,14 +1813,12 @@
       "team1_flag": "🇭🇷",
       "team2_zh": "加納",
       "team2_flag": "🇬🇭",
-      "datetime": "2026-06-29T12:00:00+08:00",
-      "is_past": false,
       "pred_score1": 2,
       "pred_score2": 1,
       "pred_scorer": "莫德里奇",
-      "pred_scorer_team": "Croatia",
-      "pred_confidence": 0.62,
-      "predicted_at": "2026-06-12T13:59:46.721552+08:00"
+      "datetime": "2026-06-29T12:00:00+08:00",
+      "predicted_at": "2026-06-12T13:59:46.721552+08:00",
+      "is_past": false
     },
     {
       "id": "IRN-URU-2026-06-29",
@@ -2813,5 +2689,5 @@
       "predicted_at": "2026-06-12T14:02:29.170215+08:00"
     }
   ],
-  "lastPredictedAt": "2026-06-12T14:02:29.470410+08:00"
+  "lastPredictedAt": "2026-06-12T14:05:04.603689+08:00"
 }
