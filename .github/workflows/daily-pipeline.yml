@@ -80,7 +80,7 @@ jobs:
             git push
           }
 
-      # ── 5. Deploy to GitHub Pages ──────────────────────────────────────────
+      # ── 5. Upload static site artifact for Pages ───────────────────────────
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -89,6 +89,13 @@ jobs:
         with:
           path: '.'
 
+  deploy-pages:
+    needs: pipeline
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
