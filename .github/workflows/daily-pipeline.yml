@@ -1,0 +1,94 @@
+name: Daily WC 2026 Pipeline — Scrape + AI Predict + Build + Deploy
+
+on:
+  # Daily at 15:00 HKT == 07:00 UTC
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      force_repredict:
+        description: 'Force AI to re-predict ALL pregame matches'
+        required: false
+        default: 'false'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/daily-pipeline.yml'
+      - 'scrape_foxsports.py'
+      - 'generate_predictions.py'
+      - 'build_index.py'
+      - 'templates/**'
+      - 'data/data_overrides.json'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps
+        run: pip install requests beautifulsoup4 openai -q
+
+      # ── 1. Scrape Fox Sports for latest scores/schedule ────────────────────
+      - name: Scrape Fox Sports
+        run: python scrape_foxsports.py
+        continue-on-error: true   # don't kill pipeline if Fox is briefly down
+
+      # ── 2. Run AI prediction. On scheduled cron we always run.
+      #     On first-ever execution (no predictions yet) we run too.
+      #     Force flag re-predicts everything.
+      - name: AI predictions (OpenRouter)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          AI_MODEL_ID: ${{ vars.AI_MODEL_ID || 'openrouter/owl-alpha' }}
+        run: |
+          if [ "${{ github.event.inputs.force_repredict }}" = "true" ]; then
+            python generate_predictions.py --force
+          else
+            python generate_predictions.py
+          fi
+
+      # ── 3. Apply overrides + build static page from JSON ───────────────────
+      - name: Build index.html
+        run: python build_index.py
+
+      # ── 4. Commit data + rebuilt page back to repo ─────────────────────────
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/ index.html
+          git diff --staged --quiet && echo "No changes to commit" || {
+            git commit -m "🤖 Auto-update WC 2026 data $(TZ='Asia/Hong_Kong' date +'%Y-%m-%d %H:%M HKT')"
+            git pull --rebase
+            git push
+          }
+
+      # ── 5. Deploy to GitHub Pages ──────────────────────────────────────────
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

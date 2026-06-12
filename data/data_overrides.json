@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "match": "South Korea vs Czechia",
+      "field": "datetime",
+      "value": "2026-06-11T09:30:00+08:00",
+      "reason": "User correction: kick-off time is 09:30 HKT, not 06:00"
+    }
+  ],
+  "_comment": "Add entries here to override scraped data. 'match' is team1 vs team2 (English names from Fox). 'field' can be datetime, score1, score2, etc. These overrides survive scrapes."
+}

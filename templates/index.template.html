@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 世界盃 AI 預測 | FUTURE FOOTBALL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #030308;
+      --bg-card: rgba(10, 10, 25, 0.85);
+      --cyan: #00F5FF;
+      --cyan-dim: #00a8b3;
+      --magenta: #FF00E5;
+      --gold: #FFD700;
+      --green: #00FF88;
+      --text: #e8e8ff;
+      --muted: #8888aa;
+      --border: rgba(0, 245, 255, 0.2);
+      --past-opacity: 0.45;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Rajdhani', sans-serif; background: var(--bg-dark); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .hex-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70' viewBox='0 0 60 70'%3E%3Cpath d='M30 5 L55 20 L55 50 L30 65 L5 50 L5 20 Z' fill='none' stroke='%2300F5FF' stroke-width='1'/%3E%3C/svg%3E"); background-size: 60px 70px; }
+    .wrapper { position: relative; z-index: 2; }
+    .hero { text-align: center; padding: 80px 20px 60px; position: relative; }
+    .hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,245,255,0.12) 0%, rgba(255,0,229,0.06) 40%, transparent 70%); pointer-events: none; }
+    .hero-badge { display: inline-block; font-family: 'Orbitron', monospace; font-size: 0.7rem; letter-spacing: 4px; color: var(--cyan); border: 1px solid var(--cyan); padding: 6px 20px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; box-shadow: 0 0 20px rgba(0,245,255,0.3), inset 0 0 20px rgba(0,245,255,0.05); }
+    .hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900; letter-spacing: 6px; line-height: 1; background: linear-gradient(135deg, #fff 0%, var(--cyan) 50%, var(--magenta) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0,245,255,0.5)); }
+    .hero-sub { font-family: 'Orbitron', monospace; font-size: clamp(0.9rem, 2.5vw, 1.3rem); color: var(--muted); letter-spacing: 8px; margin-top: 10px; }
+    .hero-date { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; color: var(--magenta); margin-top: 15px; letter-spacing: 3px; font-weight: 600; }
+    .hero-trophy { font-size: 4rem; margin-top: 30px; filter: drop-shadow(0 0 20px rgba(255,215,0,0.6)); animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .stats-bar { display: flex; justify-content: center; gap: 40px; padding: 30px 20px; flex-wrap: wrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.3); }
+    .stat { text-align: center; position: relative; }
+    .stat::after { content: ''; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 1px; height: 40px; background: var(--border); }
+    .stat:last-child::after { display: none; }
+    .stat-value { font-family: 'Orbitron', monospace; font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, var(--cyan), var(--magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+    .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; }
+    .winner-section { text-align: center; padding: 60px 20px; position: relative; }
+    .winner-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%); pointer-events: none; }
+    .winner-card { display: inline-block; background: var(--bg-card); border: 2px solid var(--gold); border-radius: 16px; padding: 40px 60px; position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(255,215,0,0.2); }
+    .winner-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent 0deg, rgba(255,215,0,0.1) 60deg, transparent 120deg); animation: spin 8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .winner-card > * { position: relative; z-index: 1; }
+    .winner-label { font-family: 'Orbitron', monospace; font-size: 0.7rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+    .winner-flag { font-size: 3.5rem; display: block; margin: 8px 0; }
+    .winner-name { font-family: 'Orbitron', monospace; font-size: 2.2rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 30px rgba(255,215,0,0.5); }
+    .winner-score { font-family: 'Orbitron', monospace; font-size: 1.2rem; color: var(--text); margin-top: 8px; letter-spacing: 2px; }
+    .section-header { text-align: center; padding: 50px 20px 25px; }
+    .section-header h2 { font-family: 'Orbitron', monospace; font-size: clamp(1.3rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--cyan); text-shadow: 0 0 20px rgba(0,245,255,0.4); }
+    .section-header p { color: var(--muted); margin-top: 6px; letter-spacing: 2px; font-size: 0.85rem; }
+    .groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 0 20px 40px; max-width: 1400px; margin: 0 auto; }
+    .group-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+    .group-card:hover { border-color: var(--cyan); box-shadow: 0 0 25px rgba(0,245,255,0.15); }
+    .group-title { font-family: 'Orbitron', monospace; font-size: 0.95rem; font-weight: 700; color: var(--cyan); margin-bottom: 12px; letter-spacing: 2px; display: flex; align-items: center; gap: 6px; }
+    .group-title::before { content: ''; width: 3px; height: 18px; background: linear-gradient(180deg, var(--cyan), var(--magenta)); border-radius: 2px; }
+    .match-row { display: flex; align-items: center; padding: 8px; border-radius: 8px; cursor: pointer; transition: all 0.25s ease; margin-bottom: 6px; border: 1px solid transparent; gap: 6px; }
+    .match-row:last-child { margin-bottom: 0; }
+    .match-row:hover { background: rgba(0,245,255,0.08); border-color: var(--cyan); box-shadow: 0 0 12px rgba(0,245,255,0.1); transform: translateX(3px); }
+    .match-date { font-size: 0.65rem; color: var(--muted); min-width: 60px; letter-spacing: 1px; }
+    .team-name { font-size: 0.8rem; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .team-name.right { text-align: right; }
+    .match-score-box { font-family: 'Orbitron', monospace; font-size: 0.85rem; font-weight: 700; color: var(--green); min-width: 34px; text-align: center; padding: 2px 6px; border: 1px solid rgba(0,255,136,0.3); border-radius: 5px; background: rgba(0,255,136,0.05); }
+    .match-score-box.past-score { color: var(--muted); border-color: rgba(136,136,170,0.3); background: rgba(136,136,170,0.05); }
+    /* ── Past match greyed-out styling ── */
+    .match-row.past-match { opacity: var(--past-opacity); }
+    .match-row.past-match:hover { opacity: 0.7; }
+    .match-row.past-match .team-name,
+    .match-row.past-match .match-date { text-decoration: line-through; text-decoration-color: rgba(136,136,170,0.4); }
+    .match-row.past-match .match-score-box { color: var(--muted); border-color: rgba(136,136,170,0.2); background: rgba(136,136,170,0.05); }
+    .past-label { font-size: 0.55rem; color: var(--muted); background: rgba(136,136,170,0.1); padding: 1px 5px; border-radius: 3px; margin-left: 4px; letter-spacing: 1px; text-transform: uppercase; }
+    .bracket-section { padding: 40px 10px; overflow-x: auto; }
+    .bracket-section h2 { text-align: center; font-family: 'Orbitron', monospace; font-size: clamp(1.3rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--magenta); text-shadow: 0 0 20px rgba(255,0,229,0.4); margin-bottom: 30px; }
+    .bracket { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; max-width: 1400px; margin: 0 auto; min-width: 900px; }
+    .round { display: flex; flex-direction: column; justify-content: space-around; }
+    .round-1 { gap: 8px; } .round-2 { gap: 30px; } .round-3 { gap: 80px; } .round-4 { gap: 180px; } .round-5 { gap: 0; justify-content: center; }
+    .round-label { text-align: center; font-family: 'Orbitron', monospace; font-size: 0.55rem; letter-spacing: 2px; color: var(--magenta); text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,0,229,0.2); }
+    .bracket-match { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin: 2px; cursor: pointer; transition: all 0.25s ease; position: relative; font-size: 0.75rem; }
+    .bracket-match:hover { border-color: var(--magenta); box-shadow: 0 0 15px rgba(255,0,229,0.2); transform: scale(1.02); }
+    .round-5 .bracket-match { background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,0,229,0.1)); border-color: var(--gold); }
+    .b-team { display: flex; align-items: center; gap: 4px; padding: 2px 0; font-size: 0.75rem; }
+    .b-team.winner { color: var(--cyan); font-weight: 700; }
+    .b-team.loser { color: var(--muted); }
+    .b-goals { margin-left: auto; font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 700; color: var(--green); }
+    .b-team.loser .b-goals { color: var(--muted); }
+    .bracket-match.past-match { opacity: var(--past-opacity); }
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
+    .modal-overlay.active { display: flex; }
+    .modal { background: linear-gradient(135deg, #0a0a20, #12001a); border: 2px solid var(--cyan); border-radius: 20px; padding: 30px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 0 60px rgba(0,245,255,0.2); }
+    .modal-close { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); font-size: 1.2rem; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: rgba(255,0,229,0.2); border-color: var(--magenta); color: #fff; }
+    .modal-title { font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 700; color: var(--cyan); margin-bottom: 4px; letter-spacing: 2px; }
+    .modal-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 20px; letter-spacing: 1px; }
+    .first-scorer-card { display: flex; align-items: center; gap: 14px; background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px; }
+    .first-scorer-icon { font-size: 2rem; filter: drop-shadow(0 0 10px rgba(0,255,136,0.5)); }
+    .first-scorer-info .label { font-size: 0.65rem; color: var(--green); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+    .first-scorer-info .name { font-family: 'Orbitron', monospace; font-size: 1rem; font-weight: 700; color: #fff; }
+    .first-scorer-info .team { font-size: 0.8rem; color: var(--muted); }
+    .lineup-section h3 { font-family: 'Orbitron', monospace; font-size: 0.75rem; letter-spacing: 3px; color: var(--magenta); text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,0,229,0.2); }
+    .lineup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .lineup-col h4 { font-size: 0.9rem; font-weight: 700; color: var(--cyan); margin-bottom: 8px; }
+    .lineup-list { list-style: none; }
+    .lineup-list li { font-size: 0.75rem; color: var(--text); padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 6px; }
+    .lineup-list li::before { content: ''; width: 3px; height: 3px; background: var(--cyan); border-radius: 50%; flex-shrink: 0; }
+    .lineup-list li:last-child { border-bottom: none; }
+    .updated-bar { text-align: center; padding: 8px; font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; }
+    footer { text-align: center; padding: 30px; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); margin-top: 30px; letter-spacing: 2px; }
+    @media (max-width: 768px) { .stats-bar { gap: 20px; } .stat-value { font-size: 1.8rem; } .winner-card { padding: 25px 35px; } .winner-name { font-size: 1.5rem; } .lineup-grid { grid-template-columns: 1fr; } .groups-grid { padding: 0 10px 30px; } .match-date { display: none; } }
+    ::-webkit-scrollbar { width: 5px; height: 5px; } ::-webkit-scrollbar-track { background: var(--bg-dark); } ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="hex-overlay"></div>
+
+<div class="wrapper">
+  <div class="hero">
+    <div class="hero-badge">⚽ FIFA WORLD CUP 2026</div>
+    <h1>2026 世界盃</h1>
+    <div class="hero-sub">AI PREDICTION ENGINE</div>
+    <div class="hero-date">USA · MEXICO · CANADA · JUNE 11 – JULY 19, 2026</div>
+    <div class="hero-trophy">🏆</div>
+  </div>
+
+  <div class="stats-bar" id="statsBar">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="winner-section" id="winnerSection">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="section-header">
+    <h2>小組賽 · GROUP STAGE</h2>
+    <p>48 teams · 12 groups · 72 matches</p>
+  </div>
+
+  <div class="groups-grid" id="groupsGrid">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="bracket-section">
+    <h2>淘汰賽 · KNOCKOUT STAGE</h2>
+    <div class="bracket" id="bracketGrid">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <div class="updated-bar">🔄 最後更新: __LAST_UPDATED__</div>
+</div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-meta" id="mMeta"></div>
+    <div class="first-scorer-card" id="mScorer"></div>
+    <div class="lineup-section">
+      <h3>估計正選球員 ESTIMATED LINEUP</h3>
+      <div class="lineup-grid" id="mLineup"></div>
+    </div>
+  </div>
+</div>
+
+<footer>⚽ 2026 世界盃 AI 預測 · 未來足球風格 · 僅供娛樂 · 純屬模擬</footer>
+
+<script>
+// ── Embedded match data (built by build_index.py) ──
+const MATCHES = __MATCHES_JSON__;
+
+// ── Particles ──
+const canvas=document.getElementById('particles');const ctx=canvas.getContext('2d');let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+class Particle{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;this.r=Math.random()*1.5+0.5;this.alpha=Math.random()*0.5+0.1;this.color=Math.random()>0.5?'0,245,255':'255,0,229';}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1;}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.fill();}}
+for(let i=0;i<100;i++)particles.push(new Particle());
+function animateParticles(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;const dist=Math.sqrt(dx*dx+dy*dy);if(dist<100){ctx.beginPath();ctx.strokeStyle=`rgba(0,245,255,${0.08*(1-dist/100)})`;ctx.lineWidth=0.5;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}}}requestAnimationFrame(animateParticles);}
+animateParticles();
+
+// ── Lineups ──
+const lineups = __LINEUPS_JSON__;
+
+// ── Date helpers ──
+const MONTHS_ZH = ['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+function fmtDate(d, t) {
+  if (!d) return '';
+  const p = d.split('-');
+  const m = MONTHS_ZH[parseInt(p[1])] || p[1];
+  const day = parseInt(p[2]);
+  return t ? `${m}${day}日 ${t}` : `${m}${day}日`;
+}
+function fmtDateShort(d) {
+  if (!d) return '';
+  const p = d.split('-');
+  return `${parseInt(p[1])}月${parseInt(p[2])}日`;
+}
+
+// ── Stats bar ──
+function renderStats() {
+  const all = MATCHES.matches;
+  const past = all.filter(m => m.is_past).length;
+  const total = all.length;
+  const goals = all.reduce((s, m) => {
+    if (m.score1 != null && m.score2 != null) return s + m.score1 + m.score2;
+    const ps = (m.predicted_score || '').split('-');
+    if (ps.length === 2) return s + parseInt(ps[0]) + parseInt(ps[1]);
+    return s;
+  }, 0);
+  document.getElementById('statsBar').innerHTML =
+    `<div class="stat"><div class="stat-value">${goals}</div><div class="stat-label">預測總進球</div></div>` +
+    `<div class="stat"><div class="stat-value">48</div><div class="stat-label">決賽球隊</div></div>` +
+    `<div class="stat"><div class="stat-value">${total}</div><div class="stat-label">總比賽場次</div></div>`;
+}
+
+// ── Winner section ──
+function renderWinner() {
+  const final = MATCHES.matches.find(m => m.stage === 'FINAL');
+  if (!final) return;
+  const score = final.predicted_score || '?-?';
+  const s = score.split('-');
+  const winner = s.length === 2 ? (parseInt(s[0]) > parseInt(s[1]) ? 'team1' : 'team2') : '';
+  const wFlag = winner === 'team1' ? final.team1_flag : final.team2_flag;
+  const wName = winner === 'team1' ? final.team1_zh : final.team2_zh;
+  document.getElementById('winnerSection').innerHTML =
+    `<div class="winner-glow"></div>
+     <div class="winner-card">
+       <div class="winner-label">🏆 AI PREDICTED CHAMPION</div>
+       <div class="winner-flag">${wFlag}</div>
+       <div class="winner-name">${wName}</div>
+       <div class="winner-score">FINAL ${score} vs ${winner === 'team1' ? final.team2_zh : final.team1_zh}</div>
+     </div>`;
+}
+
+// ── Group stage grid ──
+function renderGroups() {
+  const all = MATCHES.matches.filter(m => !m.is_knockout);
+  const groups = {};
+  const groupFlags = {};
+  all.forEach(m => {
+    const g = m.group;
+    if (!groups[g]) { groups[g] = []; groupFlags[g] = m.team1_flag; }
+    groups[g].push(m);
+  });
+
+  let html = '';
+  Object.keys(groups).sort().forEach(g => {
+    html += `<div class="group-card"><div class="group-title">${groupFlags[g]} ${g}</div>`;
+    groups[g].forEach(m => {
+      const score = m.status === 'final' ? `${m.score1}-${m.score2}` : (m.predicted_score || 'vs');
+      const pastCls = m.is_past ? ' past-match' : '';
+      const scoreCls = m.is_past ? ' past-score' : '';
+      const pastTag = m.is_past ? '<span class="past-label">完</span>' : '';
+      const scorer = m.predicted_first_scorer ? `${m.predicted_first_scorer} (${m.predicted_first_scorer_team||m.team1_zh})` : '';
+      const dtFull = fmtDate(m.date, m.kickoff_time) + ' HKT';
+      html += `<div class="match-row${pastCls}" onclick="showMatch('${m.team1_zh} vs ${m.team2_zh}','${dtFull}','${m.team1_zh}','${m.team2_zh}','${score}','${scorer}')">
+        <div class="match-date">${fmtDateShort(m.date)} ${m.kickoff_time||''}</div>
+        <div class="team-name">${m.team1_flag} ${m.team1_zh}${pastTag}</div>
+        <div class="match-score-box${scoreCls}">${score}</div>
+        <div class="team-name right">${m.team2_zh} <span>${m.team2_flag}</span></div>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  document.getElementById('groupsGrid').innerHTML = html;
+}
+
+// ── Knockout bracket ──
+function renderBracket() {
+  const all = MATCHES.matches.filter(m => m.is_knockout);
+  const rounds = [
+    { key: 'R32', label: '32強 · R32', cls: 'round-1' },
+    { key: 'R16', label: '16強 · R16', cls: 'round-2' },
+    { key: 'QF',  label: '8強 · QF',   cls: 'round-3' },
+    { key: 'SF',  label: '4強 · SF',   cls: 'round-4' },
+    { key: 'FINAL', label: '決賽 · FINAL', cls: 'round-5' }
+  ];
+
+  let html = '';
+  rounds.forEach(r => {
+    const games = all.filter(m => m.stage === r.key);
+    html += `<div class="round ${r.cls}"><div class="round-label">${r.label}</div>`;
+    games.forEach(m => {
+      const score = m.predicted_score || '?-?';
+      const s = score.split('-');
+      const t1g = s[0] || '?', t2g = s[1] || '?';
+      const w = s.length === 2 ? (parseInt(s[0]) > parseInt(s[1]) ? 1 : (parseInt(s[1]) > parseInt(s[0]) ? 2 : 0)) : 0;
+      const pastCls = m.is_past ? ' past-match' : '';
+      const scorer = m.predicted_first_scorer ? `${m.predicted_first_scorer} (${m.predicted_first_scorer_team||m.team1_zh})` : '';
+      const dtFull = fmtDate(m.date, m.kickoff_time) + ' HKT';
+      html += `<div class="bracket-match${pastCls}" onclick="showMatch('${m.team1_zh} vs ${m.team2_zh}','${dtFull}','${m.team1_zh}','${m.team2_zh}','${score}','${scorer}')">
+        <div class="b-team ${w===1?'winner':'loser'}"><span>${m.team1_flag}</span> ${m.team1_zh} <span class="b-goals">${t1g}</span></div>
+        <div class="b-team ${w===2?'winner':'loser'}"><span>${m.team2_flag}</span> ${m.team2_zh} <span class="b-goals">${t2g}</span></div>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  document.getElementById('bracketGrid').innerHTML = html;
+}
+
+// ── Modal ──
+function showMatch(title, datetime, team1, team2, score, firstScorer) {
+  const modal = document.getElementById('modal');
+  document.getElementById('mTitle').textContent = title;
+  document.getElementById('mMeta').textContent = datetime + ' | 預測比分: ' + score;
+  const parts = firstScorer.split(' (');
+  const scorer = parts[0];
+  const team = parts[1] ? parts[1].replace(')','') : team1;
+  document.getElementById('mScorer').innerHTML = '<div class="first-scorer-icon">⚽</div><div class="first-scorer-info"><div class="label">估計首名入球 FIRST GOAL</div><div class="name">' + scorer + '</div><div class="team">' + team + '</div></div>';
+  const l1 = lineups[team1] || ['估計陣容待定'];
+  const l2 = lineups[team2] || ['估計陣容待定'];
+  document.getElementById('mLineup').innerHTML = '<div class="lineup-col"><h4>' + team1 + '</h4><ul class="lineup-list">' + l1.map(p => '<li>' + p + '</li>').join('') + '</ul></div><div class="lineup-col"><h4>' + team2 + '</h4><ul class="lineup-list">' + l2.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
+  modal.classList.add('active');
+}
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+// ── Init ──
+renderStats();
+renderWinner();
+renderGroups();
+renderBracket();
+</script>
+</body>
+</html>
