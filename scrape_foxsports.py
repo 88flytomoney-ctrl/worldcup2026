@@ -353,10 +353,11 @@ def merge_with_existing(new_matches, existing_data):
         if mid in existing_by_id:
             old = existing_by_id[mid]
             # Preserve AI prediction fields if they exist
-            if "pred_score1" in old and m.get("status") == "pregame":
-                m["pred_score1"] = old["pred_score1"]
-                m["pred_score2"] = old["pred_score2"]
-                m["pred_scorer"] = old.get("pred_scorer", "")
+            for pred_key in ["predicted_score", "predicted_first_scorer",
+                            "predicted_first_scorer_team", "predicted_confidence", "predicted_at",
+                            "pred_score1", "pred_score2", "pred_scorer", "pred_scorer_team"]:
+                if pred_key in old and m.get("status") == "pregame":
+                    m[pred_key] = old[pred_key]
             # Preserve datetime if it was set (from overrides or previous runs)
             if "datetime" in old and old["datetime"]:
                 m["datetime"] = old["datetime"]
@@ -472,7 +473,7 @@ def main():
     print(f"   Groups: {sorted(groups)}")
     final = sum(1 for m in all_matches if m.get("status") == "final")
     pregame = sum(1 for m in all_matches if m.get("status") == "pregame")
-    has_pred = sum(1 for m in all_matches if m.get("pred_score1") is not None)
+    has_pred = sum(1 for m in all_matches if m.get("predicted_score") or m.get("pred_score1") is not None)
     print(f"   Final: {final}, Pregame: {pregame}, With AI prediction: {has_pred}")
 
 

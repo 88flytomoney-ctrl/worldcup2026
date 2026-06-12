@@ -10,6 +10,7 @@ import os
 import sys
 import json
 import time
+import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
@@ -39,7 +40,7 @@ def predict_match(client, match):
     """Ask the LLM to predict score + first scorer for one match."""
     t1 = match["team1"]
     t2 = match["team2"]
-    group = match.get("group", "")
+    group = match.get("group", match.get("stage", ""))
     
     prompt = (
         f"You are a football statistics engine predicting FIFA World Cup 2026 results.\n"
@@ -53,44 +54,50 @@ def predict_match(client, match):
         f"Output JSON:"
     )
     
-    try:
-        response = client.chat.completions.create(
-            model=AI_MODEL_ID,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.4,
-            max_tokens=200,
-            timeout=20,
-        )
-        raw = response.choices[0].message.content.strip()
-        
-        # Strip markdown if present
-        if raw.startswith("```"):
-            raw = raw.split("\n", 1)[1] if "\n" in raw else raw
-            if raw.endswith("```"):
-                raw = raw.rsplit("\n", 1)[0] if "\n" in raw else raw
-            if raw.startswith("json"):
-                raw = raw[4:].lstrip()
-        raw = raw.strip()
-        
-        # Try to find JSON object boundaries
-        if not raw.startswith("{"):
-            start = raw.find("{")
-            end = raw.rfind("}")
-            if start >= 0 and end > start:
-                raw = raw[start:end+1]
-        
-        parsed = json.loads(raw)
-        return {
-            "pred_score1": int(parsed.get("score1", 1)),
-            "pred_score2": int(parsed.get("score2", 1)),
-            "pred_scorer": str(parsed.get("first_scorer", "未知")),
-            "pred_scorer_team": str(parsed.get("scorer_team", t1)),
-            "pred_confidence": float(parsed.get("confidence", 0.5)),
-            "predicted_at": datetime.now(HKT).isoformat(),
-        }
-    except Exception as e:
-        print(f"   ⚠️ Prediction failed for {t1} vs {t2}: {e}")
-        return None
+    for attempt in range(3):
+        try:
+            response = client.chat.completions.create(
+                model=AI_MODEL_ID,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.4,
+                max_tokens=200,
+                timeout=30,
+            )
+            raw = response.choices[0].message.content.strip()
+            
+            # Strip markdown if present
+            if raw.startswith("```"):
+                raw = raw.split("\n", 1)[1] if "\n" in raw else raw
+                if raw.endswith("```"):
+                    raw = raw.rsplit("\n", 1)[0] if "\n" in raw else raw
+                if raw.startswith("json"):
+                    raw = raw[4:].lstrip()
+            raw = raw.strip()
+            
+            # Try to find JSON object boundaries
+            if not raw.startswith("{"):
+                start = raw.find("{")
+                end = raw.rfind("}")
+                if start >= 0 and end > start:
+                    raw = raw[start:end+1]
+            
+            parsed = json.loads(raw)
+            score1 = int(parsed.get("score1", 1))
+            score2 = int(parsed.get("score2", 1))
+            return {
+                "predicted_score": f"{score1}-{score2}",
+                "predicted_first_scorer": str(parsed.get("first_scorer", "未知")),
+                "predicted_first_scorer_team": str(parsed.get("scorer_team", t1)),
+                "predicted_confidence": float(parsed.get("confidence", 0.5)),
+                "predicted_at": datetime.now(HKT).isoformat(),
+            }
+        except Exception as e:
+            if attempt < 2:
+                print(f"   ⚠️ Attempt {attempt+1} failed: {e}, retrying...")
+                time.sleep(2)
+            else:
+                print(f"   ❌ Prediction failed for {t1} vs {t2}: {e}")
+                return None
 
 
 def main():
@@ -120,10 +127,18 @@ def main():
     # Find pregame matches needing prediction
     to_predict = []
     for m in matches:
-        if m.get("status") != "pregame":
+        # Skip already-played (final) matches
+        if m.get("status") == "final":
             continue
-        if not force and m.get("pred_score1") is not None:
+        # Skip matches that already have a prediction, unless --force
+        if not force and m.get("predicted_score"):
             continue
+        # On --force, clear old prediction so we overwrite
+        if force and m.get("predicted_score"):
+            for key in ["predicted_score", "predicted_first_scorer",
+                        "predicted_first_scorer_team", "predicted_confidence", "predicted_at",
+                        "pred_score1", "pred_score2", "pred_scorer", "pred_scorer_team", "pred_confidence"]:
+                m.pop(key, None)
         to_predict.append(m)
     
     print(f"🎯 Matches to predict: {len(to_predict)}")
@@ -136,15 +151,18 @@ def main():
     fail = 0
     
     for i, m in enumerate(to_predict, 1):
-        print(f"\n[{i}/{len(to_predict)}] {m['team1']} vs {m['team2']} ({m.get('group','')})")
+        t1, t2 = m.get("team1", "?"), m.get("team2", "?")
+        group = m.get("group", m.get("stage", ""))
+        print(f"\n[{i}/{len(to_predict)}] {t1} vs {t2} ({group})")
         pred = predict_match(client, m)
         if pred:
             m.update(pred)
-            print(f"   ✅ {pred['pred_score1']}-{pred['pred_score2']} | first scorer: {pred['pred_scorer']} ({pred['pred_scorer_team']})")
+            print(f"   ✅ {pred['predicted_score']} | first scorer: {pred['predicted_first_scorer']} ({pred['predicted_first_scorer_team']})")
             success += 1
         else:
             fail += 1
-        time.sleep(0.3)  # rate-limit friendly
+        # Rate limit: 0.5s between requests
+        time.sleep(0.5)
     
     # Save back
     data["lastPredictedAt"] = datetime.now(HKT).isoformat()
