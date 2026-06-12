@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T17:33:11.826656+08:00",
+  "lastUpdated": "2026-06-12T18:55:26.134535+08:00",
   "source": "foxsports",
   "matchCount": 103,
   "matches": [
@@ -285,13 +285,13 @@
       "team1_flag": "🇨🇮",
       "team2_zh": "厄瓜多爾",
       "team2_flag": "🇪🇨",
-      "datetime": "2026-06-14T09:00:00+08:00",
-      "is_past": false,
       "predicted_score": "1-1",
       "predicted_first_scorer": "安達",
       "predicted_first_scorer_team": "Ecuador",
       "predicted_confidence": 0.55,
-      "predicted_at": "2026-06-12T17:33:16.315321+08:00"
+      "predicted_at": "2026-06-12T17:33:16.315321+08:00",
+      "datetime": "2026-06-14T09:00:00+08:00",
+      "is_past": false
     },
     {
       "id": "ESP-CPV-2026-06-15",
@@ -2630,6 +2630,5 @@
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-06-12T17:33:16.815426+08:00"
+  ]
 }
