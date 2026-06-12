@@ -296,16 +296,20 @@ def apply_overrides(matches, overrides_data):
             if (t1_search in mt1 and t2_search in mt2) or \
                (t1_search in mt2 and t2_search in mt1):
                 # Apply the override
-                if field in m:
-                    old_val = m[field]
-                    m[field] = value
-                    applied += 1
-                    print(f"  ✅ Override: {match_desc} → {field}: {old_val} → {value}")
-                elif field == "datetime":
-                    # Set even if field doesn't exist yet
-                    m[field] = value
-                    applied += 1
-                    print(f"  ✅ Override: {match_desc} → {field} (new): {value}")
+                old_val = m.get(field, "")
+                m[field] = value
+                applied += 1
+                print(f"  ✅ Override: {match_desc} → {field}: {old_val} → {value}")
+                # If datetime was overridden, also update date and kickoff_time fields
+                if field == "datetime" and "T" in value:
+                    try:
+                        dt_part, time_part = value.split("T", 1)
+                        time_only = time_part.split("+")[0].split("-")[0][:5]  # HH:MM
+                        m["date"] = dt_part
+                        m["kickoff_time"] = time_only
+                        print(f"     → date={dt_part}, kickoff_time={time_only}")
+                    except Exception as e:
+                        print(f"     ⚠️ Could not parse datetime: {e}")
                 break  # Only apply to first matching match
     
     return matches, applied

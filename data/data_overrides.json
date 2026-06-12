@@ -3,9 +3,122 @@
     {
       "match": "South Korea vs Czechia",
       "field": "datetime",
-      "value": "2026-06-11T09:30:00+08:00",
-      "reason": "User correction: kick-off time is 09:30 HKT, not 06:00"
+      "value": "2026-06-11T09:30:00+08:00"
+    },
+    {
+      "match": "Mexico vs South Africa",
+      "field": "datetime",
+      "value": "2026-06-11T03:00:00+08:00"
+    },
+    {
+      "match": "Canada vs Bosnia and Herzegovina",
+      "field": "datetime",
+      "value": "2026-06-12T06:00:00+08:00"
+    },
+    {
+      "match": "United States vs Paraguay",
+      "field": "datetime",
+      "value": "2026-06-12T09:00:00+08:00"
+    },
+    {
+      "match": "Qatar vs Switzerland",
+      "field": "datetime",
+      "value": "2026-06-13T03:00:00+08:00"
+    },
+    {
+      "match": "Brazil vs Morocco",
+      "field": "datetime",
+      "value": "2026-06-13T06:00:00+08:00"
+    },
+    {
+      "match": "Haiti vs Scotland",
+      "field": "datetime",
+      "value": "2026-06-13T09:00:00+08:00"
+    },
+    {
+      "match": "Australia vs Türkiye",
+      "field": "datetime",
+      "value": "2026-06-14T03:00:00+08:00"
+    },
+    {
+      "match": "Germany vs Curacao",
+      "field": "datetime",
+      "value": "2026-06-14T06:00:00+08:00"
+    },
+    {
+      "match": "Ivory Coast vs Ecuador",
+      "field": "datetime",
+      "value": "2026-06-14T09:00:00+08:00"
+    },
+    {
+      "match": "Netherlands vs Japan",
+      "field": "datetime",
+      "value": "2026-06-14T03:00:00+08:00"
+    },
+    {
+      "match": "Sweden vs Tunisia",
+      "field": "datetime",
+      "value": "2026-06-14T06:00:00+08:00"
+    },
+    {
+      "match": "Belgium vs Egypt",
+      "field": "datetime",
+      "value": "2026-06-15T03:00:00+08:00"
+    },
+    {
+      "match": "Iran vs New Zealand",
+      "field": "datetime",
+      "value": "2026-06-15T06:00:00+08:00"
+    },
+    {
+      "match": "Spain vs Cape Verde",
+      "field": "datetime",
+      "value": "2026-06-15T03:00:00+08:00"
+    },
+    {
+      "match": "Saudi Arabia vs Uruguay",
+      "field": "datetime",
+      "value": "2026-06-15T06:00:00+08:00"
+    },
+    {
+      "match": "France vs Senegal",
+      "field": "datetime",
+      "value": "2026-06-16T03:00:00+08:00"
+    },
+    {
+      "match": "Iraq vs Norway",
+      "field": "datetime",
+      "value": "2026-06-16T06:00:00+08:00"
+    },
+    {
+      "match": "Argentina vs Algeria",
+      "field": "datetime",
+      "value": "2026-06-16T03:00:00+08:00"
+    },
+    {
+      "match": "Austria vs Jordan",
+      "field": "datetime",
+      "value": "2026-06-17T03:00:00+08:00"
+    },
+    {
+      "match": "Portugal vs Congo DR",
+      "field": "datetime",
+      "value": "2026-06-17T03:00:00+08:00"
+    },
+    {
+      "match": "Uzbekistan vs Colombia",
+      "field": "datetime",
+      "value": "2026-06-17T06:00:00+08:00"
+    },
+    {
+      "match": "England vs Croatia",
+      "field": "datetime",
+      "value": "2026-06-17T03:00:00+08:00"
+    },
+    {
+      "match": "Ghana vs Panama",
+      "field": "datetime",
+      "value": "2026-06-17T06:00:00+08:00"
     }
-  ],
-  "_comment": "Add entries here to override scraped data. 'match' is team1 vs team2 (English names from Fox). 'field' can be datetime, score1, score2, etc. These overrides survive scrapes."
+  ]
 }
