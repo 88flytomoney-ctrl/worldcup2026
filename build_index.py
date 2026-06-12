@@ -61,18 +61,31 @@ def main():
     matches_db, overrides, lineups = load_data()
     matches_db = apply_overrides(matches_db, overrides)
 
-    # Mark is_past based on actual current time vs match datetime
+    # Mark is_past based on actual current time vs match datetime.
+    # Rule: status is the source of truth.
+    #   - status == "final" → definitely past (already played)
+    #   - status == "pregame" → never past (regardless of datetime — match hasn't started)
+    #   - otherwise → fall back to datetime comparison (date-only defaults to end-of-day)
     now = datetime.now(HKT)
     for m in matches_db["matches"]:
+        status = m.get("status", "")
+        if status == "final":
+            m["is_past"] = True
+            continue
+        if status == "pregame":
+            m["is_past"] = False
+            continue
+        # Unknown status — use datetime comparison
         try:
             dt_str = m.get("datetime", "")
             if "T" in dt_str:
                 mdt = datetime.fromisoformat(dt_str)
             else:
-                mdt = datetime.fromisoformat(dt_str + "T00:00:00+08:00")
+                # Date-only → end of day so matches don't grey out before they start
+                mdt = datetime.fromisoformat(dt_str + "T23:59:59+08:00")
             m["is_past"] = mdt < now
         except Exception:
-            m["is_past"] = m.get("status") == "final"
+            m["is_past"] = False
 
     # Inject JSON into template
     template = TEMPLATE_FILE.read_text()
