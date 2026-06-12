@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T17:12:43.573819+08:00",
+  "lastUpdated": "2026-06-12T17:33:11.826656+08:00",
   "source": "foxsports",
   "matchCount": 103,
   "matches": [
@@ -65,7 +65,7 @@
       "predicted_first_scorer_team": "Canada",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:23:50.572286+08:00",
-      "datetime": "2026-06-12",
+      "datetime": "2026-06-12T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -90,7 +90,7 @@
       "predicted_first_scorer_team": "United States",
       "predicted_confidence": 0.62,
       "predicted_at": "2026-06-12T16:23:53.617049+08:00",
-      "datetime": "2026-06-12",
+      "datetime": "2026-06-12T09:00:00+08:00",
       "is_past": false
     },
     {
@@ -115,7 +115,7 @@
       "predicted_first_scorer_team": "Switzerland",
       "predicted_confidence": 0.82,
       "predicted_at": "2026-06-12T16:24:02.250948+08:00",
-      "datetime": "2026-06-13",
+      "datetime": "2026-06-13T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -140,7 +140,7 @@
       "predicted_first_scorer_team": "Brazil",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:24:05.518409+08:00",
-      "datetime": "2026-06-13",
+      "datetime": "2026-06-13T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -165,7 +165,7 @@
       "predicted_first_scorer_team": "Scotland",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:24:08.682878+08:00",
-      "datetime": "2026-06-13",
+      "datetime": "2026-06-13T09:00:00+08:00",
       "is_past": false
     },
     {
@@ -190,32 +190,7 @@
       "predicted_first_scorer_team": "Türkiye",
       "predicted_confidence": 0.62,
       "predicted_at": "2026-06-12T16:24:13.848009+08:00",
-      "datetime": "2026-06-14",
-      "is_past": false
-    },
-    {
-      "id": "GER-CUW-2026-06-14",
-      "team1": "Germany",
-      "team2": "Curacao",
-      "abbr1": "GER",
-      "abbr2": "CUW",
-      "group": "GROUP E",
-      "date": "2026-06-14",
-      "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "德國",
-      "team1_flag": "🇩🇪",
-      "team2_zh": "庫拉索",
-      "team2_flag": "🇨🇼",
-      "predicted_score": "4-0",
-      "predicted_first_scorer": "穆勒",
-      "predicted_first_scorer_team": "Germany",
-      "predicted_confidence": 0.85,
-      "predicted_at": "2026-06-12T16:24:17.391574+08:00",
-      "datetime": "2026-06-14",
+      "datetime": "2026-06-14T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -240,7 +215,7 @@
       "predicted_first_scorer_team": "Netherlands",
       "predicted_confidence": 0.62,
       "predicted_at": "2026-06-12T16:24:27.243803+08:00",
-      "datetime": "2026-06-14",
+      "datetime": "2026-06-14T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -256,16 +231,16 @@
       "score1": null,
       "score2": null,
       "winner": "",
-      "team1_zh": "科特迪瓦",
-      "team1_flag": "🇨🇮",
-      "team2_zh": "厄瓜多爾",
-      "team2_flag": "🇪🇨",
+      "team1_zh": "德國",
+      "team1_flag": "🇩🇪",
+      "team2_zh": "庫拉索",
+      "team2_flag": "🇨🇼",
       "predicted_score": "1-1",
       "predicted_first_scorer": "凱西",
       "predicted_first_scorer_team": "Ivory Coast",
       "predicted_confidence": 0.58,
       "predicted_at": "2026-06-12T16:24:52.595799+08:00",
-      "datetime": "2026-06-14",
+      "datetime": "2026-06-14T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -290,8 +265,33 @@
       "predicted_first_scorer_team": "Sweden",
       "predicted_confidence": 0.62,
       "predicted_at": "2026-06-12T16:24:56.236135+08:00",
-      "datetime": "2026-06-14",
+      "datetime": "2026-06-14T06:00:00+08:00",
       "is_past": false
+    },
+    {
+      "id": "CIV-ECU-2026-06-14",
+      "team1": "Ivory Coast",
+      "team2": "Ecuador",
+      "abbr1": "CIV",
+      "abbr2": "ECU",
+      "group": "GROUP E",
+      "date": "2026-06-14",
+      "kickoff_time": "09:00",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "科特迪瓦",
+      "team1_flag": "🇨🇮",
+      "team2_zh": "厄瓜多爾",
+      "team2_flag": "🇪🇨",
+      "datetime": "2026-06-14T09:00:00+08:00",
+      "is_past": false,
+      "predicted_score": "1-1",
+      "predicted_first_scorer": "安達",
+      "predicted_first_scorer_team": "Ecuador",
+      "predicted_confidence": 0.55,
+      "predicted_at": "2026-06-12T17:33:16.315321+08:00"
     },
     {
       "id": "ESP-CPV-2026-06-15",
@@ -315,7 +315,7 @@
       "predicted_first_scorer_team": "Spain",
       "predicted_confidence": 0.78,
       "predicted_at": "2026-06-12T16:24:59.454216+08:00",
-      "datetime": "2026-06-15",
+      "datetime": "2026-06-15T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -340,7 +340,7 @@
       "predicted_first_scorer_team": "Belgium",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:25:04.554212+08:00",
-      "datetime": "2026-06-15",
+      "datetime": "2026-06-15T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -365,7 +365,7 @@
       "predicted_first_scorer_team": "Uruguay",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:25:07.144529+08:00",
-      "datetime": "2026-06-15",
+      "datetime": "2026-06-15T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -390,7 +390,7 @@
       "predicted_first_scorer_team": "Iran",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:25:10.472695+08:00",
-      "datetime": "2026-06-15",
+      "datetime": "2026-06-15T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -415,32 +415,7 @@
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:25:14.706330+08:00",
-      "datetime": "2026-06-16",
-      "is_past": false
-    },
-    {
-      "id": "IRQ-NOR-2026-06-16",
-      "team1": "Iraq",
-      "team2": "Norway",
-      "abbr1": "IRQ",
-      "abbr2": "NOR",
-      "group": "GROUP I",
-      "date": "2026-06-16",
-      "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "伊拉克",
-      "team1_flag": "🇮🇶",
-      "team2_zh": "挪威",
-      "team2_flag": "🇳🇴",
-      "predicted_score": "0-3",
-      "predicted_first_scorer": "艾蘭德",
-      "predicted_first_scorer_team": "Norway",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-12T16:25:18.230723+08:00",
-      "datetime": "2026-06-16",
+      "datetime": "2026-06-16T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -465,7 +440,32 @@
       "predicted_first_scorer_team": "Argentina",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:25:21.738459+08:00",
-      "datetime": "2026-06-16",
+      "datetime": "2026-06-16T03:00:00+08:00",
+      "is_past": false
+    },
+    {
+      "id": "IRQ-NOR-2026-06-16",
+      "team1": "Iraq",
+      "team2": "Norway",
+      "abbr1": "IRQ",
+      "abbr2": "NOR",
+      "group": "GROUP I",
+      "date": "2026-06-16",
+      "kickoff_time": "06:00",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "伊拉克",
+      "team1_flag": "🇮🇶",
+      "team2_zh": "挪威",
+      "team2_flag": "🇳🇴",
+      "predicted_score": "0-3",
+      "predicted_first_scorer": "艾蘭德",
+      "predicted_first_scorer_team": "Norway",
+      "predicted_confidence": 0.72,
+      "predicted_at": "2026-06-12T16:25:18.230723+08:00",
+      "datetime": "2026-06-16T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -490,7 +490,7 @@
       "predicted_first_scorer_team": "Austria",
       "predicted_confidence": 0.82,
       "predicted_at": "2026-06-12T16:25:25.606697+08:00",
-      "datetime": "2026-06-17",
+      "datetime": "2026-06-17T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -515,7 +515,7 @@
       "predicted_first_scorer_team": "Portugal",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-06-12T16:25:28.708792+08:00",
-      "datetime": "2026-06-17",
+      "datetime": "2026-06-17T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -540,57 +540,7 @@
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:25:31.809866+08:00",
-      "datetime": "2026-06-17",
-      "is_past": false
-    },
-    {
-      "id": "GHA-PAN-2026-06-17",
-      "team1": "Ghana",
-      "team2": "Panama",
-      "abbr1": "GHA",
-      "abbr2": "PAN",
-      "group": "GROUP L",
-      "date": "2026-06-17",
-      "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "加納",
-      "team1_flag": "🇬🇭",
-      "team2_zh": "巴拿馬",
-      "team2_flag": "🇵🇦",
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "未知",
-      "predicted_first_scorer_team": "Ghana",
-      "predicted_confidence": 0.6,
-      "predicted_at": "2026-06-12T16:25:48.966287+08:00",
-      "datetime": "2026-06-17",
-      "is_past": false
-    },
-    {
-      "id": "UZB-COL-2026-06-17",
-      "team1": "Uzbekistan",
-      "team2": "Colombia",
-      "abbr1": "UZB",
-      "abbr2": "COL",
-      "group": "GROUP K",
-      "date": "2026-06-17",
-      "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "烏茲別克",
-      "team1_flag": "🇺🇿",
-      "team2_zh": "哥倫比亞",
-      "team2_flag": "🇨🇴",
-      "predicted_score": "0-2",
-      "predicted_first_scorer": "路易斯·迪亞斯",
-      "predicted_first_scorer_team": "Colombia",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-12T16:25:52.565198+08:00",
-      "datetime": "2026-06-17",
+      "datetime": "2026-06-17T03:00:00+08:00",
       "is_past": false
     },
     {
@@ -616,6 +566,56 @@
       "predicted_confidence": 0.62,
       "predicted_at": "2026-06-12T16:25:55.731970+08:00",
       "datetime": "2026-06-17T03:00:00+08:00",
+      "is_past": false
+    },
+    {
+      "id": "GHA-PAN-2026-06-17",
+      "team1": "Ghana",
+      "team2": "Panama",
+      "abbr1": "GHA",
+      "abbr2": "PAN",
+      "group": "GROUP L",
+      "date": "2026-06-17",
+      "kickoff_time": "06:00",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "加納",
+      "team1_flag": "🇬🇭",
+      "team2_zh": "巴拿馬",
+      "team2_flag": "🇵🇦",
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "未知",
+      "predicted_first_scorer_team": "Ghana",
+      "predicted_confidence": 0.6,
+      "predicted_at": "2026-06-12T16:25:48.966287+08:00",
+      "datetime": "2026-06-17T06:00:00+08:00",
+      "is_past": false
+    },
+    {
+      "id": "UZB-COL-2026-06-17",
+      "team1": "Uzbekistan",
+      "team2": "Colombia",
+      "abbr1": "UZB",
+      "abbr2": "COL",
+      "group": "GROUP K",
+      "date": "2026-06-17",
+      "kickoff_time": "06:00",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "烏茲別克",
+      "team1_flag": "🇺🇿",
+      "team2_zh": "哥倫比亞",
+      "team2_flag": "🇨🇴",
+      "predicted_score": "0-2",
+      "predicted_first_scorer": "路易斯·迪亞斯",
+      "predicted_first_scorer_team": "Colombia",
+      "predicted_confidence": 0.72,
+      "predicted_at": "2026-06-12T16:25:52.565198+08:00",
+      "datetime": "2026-06-17T06:00:00+08:00",
       "is_past": false
     },
     {
@@ -2630,5 +2630,6 @@
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
-  ]
+  ],
+  "lastPredictedAt": "2026-06-12T17:33:16.815426+08:00"
 }
