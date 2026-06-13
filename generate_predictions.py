@@ -20,6 +20,7 @@ from openai import OpenAI
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 MATCHES_FILE = DATA_DIR / "matches.json"
+LINEUPS_FILE = DATA_DIR / "lineups.json"
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 AI_MODEL_ID = os.environ.get("AI_MODEL_ID", "openrouter/owl-alpha")
@@ -36,21 +37,69 @@ def get_client():
     )
 
 
-def predict_match(client, match):
-    """Ask the LLM to predict score + first scorer for one match."""
+def _team_zh_key(match, side):
+    """Return the Chinese team name used as key in lineups.json (team1_zh / team2_zh)."""
+    return match.get(f"{side}_zh") or match.get(side, "")
+
+
+def _load_lineups():
+    if LINEUPS_FILE.exists():
+        try:
+            return json.loads(LINEUPS_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def predict_match(client, match, lineups=None):
+    """Ask the LLM to predict score + first scorer for one match.
+
+    The LLM is *constrained* to pick the first scorer from the supplied
+    squad lineup (lineups.json). This prevents hallucinated players such
+    as retired internationals (Shaqiri 沙基利/沙奇里) appearing as scorers.
+    """
     t1 = match["team1"]
     t2 = match["team2"]
     group = match.get("group", match.get("stage", ""))
-    
+    lineups = lineups or {}
+
+    t1_key = _team_zh_key(match, "team1")
+    t2_key = _team_zh_key(match, "team2")
+    t1_lineup = lineups.get(t1_key, [])
+    t2_lineup = lineups.get(t2_key, [])
+
+    # Extract just the player names (strip "門將: ", "後衛: " etc.)
+    def _names(lineup):
+        out = []
+        for entry in lineup:
+            if ":" in entry:
+                out.append(entry.split(":", 1)[1].strip())
+            else:
+                out.append(entry.strip())
+        return out
+
+    t1_names = _names(t1_lineup)
+    t2_names = _names(t2_lineup)
+
+    if t1_names and t2_names:
+        squad_block = (
+            f"\nVerified 2026 World Cup squad starting XI (use ONLY these names — do NOT invent players):\n"
+            f"  {t1} ({t1_key}): {', '.join(t1_names)}\n"
+            f"  {t2} ({t2_key}): {', '.join(t2_names)}\n\n"
+            f"CRITICAL: first_scorer MUST be one of the names listed above. "
+            f"Do NOT use retired players. Do NOT use players from previous tournaments. "
+            f"Do NOT list any name more than once across both squads.\n"
+        )
+    else:
+        squad_block = ""
+
     prompt = (
         f"You are a football statistics engine predicting FIFA World Cup 2026 results.\n"
         f"Predict the score and first goal scorer for this match:\n\n"
-        f"  {t1} vs {t2} ({group})\n\n"
+        f"  {t1} vs {t2} ({group})\n"
+        f"{squad_block}\n"
         f"Return ONLY a valid JSON object — no markdown, no explanations:\n"
-        f'{{"score1": <int>, "score2": <int>, "first_scorer": "<scorer name in Traditional Chinese>", "scorer_team": "<{t1} or {t2}>", "confidence": <0.0-1.0>}}\n\n'
-        f"Examples of valid output:\n"
-        f'{{"score1": 2, "score2": 1, "first_scorer": "麥巴比", "scorer_team": "{t1}", "confidence": 0.65}}\n'
-        f'{{"score1": 1, "score2": 1, "first_scorer": "孫興慜", "scorer_team": "{t2}", "confidence": 0.55}}\n\n'
+        f'{{"score1": <int>, "score2": <int>, "first_scorer": "<scorer name in Traditional Chinese — MUST be from the squad list above>", "scorer_team": "<{t1} or {t2}>", "confidence": <0.0-1.0>}}\n\n'
         f"Output JSON:"
     )
     
@@ -84,10 +133,27 @@ def predict_match(client, match):
             parsed = json.loads(raw)
             score1 = int(parsed.get("score1", 1))
             score2 = int(parsed.get("score2", 1))
+            scorer = str(parsed.get("first_scorer", "未知")).strip()
+            scorer_team = str(parsed.get("scorer_team", t1)).strip()
+
+            # Squad validation: if a lineup is available, the scorer MUST be in it.
+            # Otherwise fall back to "首位破門球員" (TBD) instead of hallucinating.
+            if t1_names or t2_names:
+                allowed = set(t1_names) | set(t2_names)
+                if scorer not in allowed:
+                    # Try a soft match (substring) before giving up
+                    soft = next((n for n in allowed if scorer and (scorer in n or n in scorer)), None)
+                    if soft:
+                        scorer = soft
+                    else:
+                        print(f"   ⚠️  Scorer '{scorer}' not in squad — replacing with TBD")
+                        scorer = "首位破門球員待定"
+                        scorer_team = t1 if score1 >= score2 else t2
+
             return {
                 "predicted_score": f"{score1}-{score2}",
-                "predicted_first_scorer": str(parsed.get("first_scorer", "未知")),
-                "predicted_first_scorer_team": str(parsed.get("scorer_team", t1)),
+                "predicted_first_scorer": scorer,
+                "predicted_first_scorer_team": scorer_team,
                 "predicted_confidence": float(parsed.get("confidence", 0.5)),
                 "predicted_at": datetime.now(HKT).isoformat(),
             }
@@ -123,6 +189,8 @@ def main():
         sys.exit(0)
     
     client = get_client()
+    lineups = _load_lineups()
+    print(f"📋 Loaded squad lineups for {len(lineups)} teams")
     
     # Find pregame matches needing prediction
     to_predict = []
@@ -154,7 +222,7 @@ def main():
         t1, t2 = m.get("team1", "?"), m.get("team2", "?")
         group = m.get("group", m.get("stage", ""))
         print(f"\n[{i}/{len(to_predict)}] {t1} vs {t2} ({group})")
-        pred = predict_match(client, m)
+        pred = predict_match(client, m, lineups=lineups)
         if pred:
             m.update(pred)
             print(f"   ✅ {pred['predicted_score']} | first scorer: {pred['predicted_first_scorer']} ({pred['predicted_first_scorer_team']})")
