@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-13T21:11:39.050262+08:00",
+  "lastUpdated": "2026-06-14T18:00:02.254796+08:00",
   "source": "foxsports",
   "matchCount": 103,
   "matches": [
@@ -94,21 +94,17 @@
       "group": "GROUP B",
       "date": "2026-06-13",
       "kickoff_time": "03:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
+      "status": "final",
+      "score1": 1,
+      "score2": 1,
       "winner": "",
       "team1_zh": "卡塔爾",
       "team1_flag": "🇶🇦",
       "team2_zh": "瑞士",
       "team2_flag": "🇨🇭",
-      "predicted_score": "0-2",
-      "predicted_first_scorer": "沙卡",
-      "predicted_first_scorer_team": "Switzerland",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-13T21:11:54.251394+08:00",
       "datetime": "2026-06-13T03:00:00+08:00",
-      "is_past": false
+      "predicted_at": "2026-06-13T21:11:54.251394+08:00",
+      "is_past": true
     },
     {
       "id": "BRA-MAR-2026-06-13",
@@ -119,21 +115,17 @@
       "group": "GROUP C",
       "date": "2026-06-13",
       "kickoff_time": "06:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
+      "status": "final",
+      "score1": 1,
+      "score2": 1,
       "winner": "",
       "team1_zh": "巴西",
       "team1_flag": "🇧🇷",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
-      "predicted_score": "2-0",
-      "predicted_first_scorer": "維尼修斯",
-      "predicted_first_scorer_team": "Brazil",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-12T16:24:05.518409+08:00",
       "datetime": "2026-06-13T06:00:00+08:00",
-      "is_past": false
+      "predicted_at": "2026-06-12T16:24:05.518409+08:00",
+      "is_past": true
     },
     {
       "id": "HAI-SCO-2026-06-13",
@@ -144,21 +136,17 @@
       "group": "GROUP C",
       "date": "2026-06-13",
       "kickoff_time": "09:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 1,
+      "winner": "team2",
       "team1_zh": "海地",
       "team1_flag": "🇭🇹",
       "team2_zh": "蘇格蘭",
       "team2_flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "predicted_score": "0-3",
-      "predicted_first_scorer": "約翰·麥堅",
-      "predicted_first_scorer_team": "Scotland",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-12T16:24:08.682878+08:00",
       "datetime": "2026-06-13T09:00:00+08:00",
-      "is_past": false
+      "predicted_at": "2026-06-12T16:24:08.682878+08:00",
+      "is_past": true
     },
     {
       "id": "AUS-TUR-2026-06-14",
@@ -169,21 +157,17 @@
       "group": "GROUP D",
       "date": "2026-06-14",
       "kickoff_time": "03:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 2,
+      "score2": 0,
+      "winner": "team1",
       "team1_zh": "澳洲",
       "team1_flag": "🇦🇺",
       "team2_zh": "土耳其",
       "team2_flag": "🇹🇷",
-      "predicted_score": "1-2",
-      "predicted_first_scorer": "卡達",
-      "predicted_first_scorer_team": "Türkiye",
-      "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-12T16:24:13.848009+08:00",
       "datetime": "2026-06-14T03:00:00+08:00",
-      "is_past": false
+      "predicted_at": "2026-06-12T16:24:13.848009+08:00",
+      "is_past": true
     },
     {
       "id": "NED-JPN-2026-06-14",
@@ -2622,6 +2606,5 @@
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-06-13T21:12:43.256480+08:00"
+  ]
 }
