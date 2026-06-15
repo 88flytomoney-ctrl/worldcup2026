@@ -2,8 +2,10 @@ name: Daily WC 2026 Pipeline — Scrape + AI Predict + Build + Deploy
 
 on:
   # Daily at 15:00 HKT == 07:00 UTC
+  # NOTE: shifted to 04:00 UTC (12:00 HKT) because GitHub cron delays 2-3h
+  # — actual run lands ~14:00-15:00 HKT
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 4 * * *'
   workflow_dispatch:
     inputs:
       force_repredict:
