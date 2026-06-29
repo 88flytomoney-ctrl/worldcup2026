@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T15:51:07.935203+08:00",
+  "lastUpdated": "2026-06-29T16:58:27.607668+08:00",
   "source": "foxsports",
   "matchCount": 218,
   "matches": [
@@ -3891,21 +3891,17 @@
       "group": "",
       "date": "2026-06-28",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 1,
+      "winner": "team2",
       "team1_zh": "南非",
       "team1_flag": "🇿🇦",
       "team2_zh": "加拿大",
       "team2_flag": "🇨🇦",
       "datetime": "2026-06-28",
-      "is_past": false,
-      "predicted_score": "1-1",
-      "predicted_first_scorer": "拉林",
-      "predicted_first_scorer_team": "Canada",
-      "predicted_confidence": 0.55,
-      "predicted_at": "2026-06-28T15:51:11.861528+08:00"
+      "predicted_at": "2026-06-28T15:51:11.861528+08:00",
+      "is_past": true
     },
     {
       "id": "FRA-NOR-2026-06-28",
@@ -4024,13 +4020,13 @@
       "team1_flag": "🇧🇷",
       "team2_zh": "日本",
       "team2_flag": "🇯🇵",
-      "datetime": "2026-06-29",
-      "is_past": false,
       "predicted_score": "3-1",
       "predicted_first_scorer": "尼馬",
       "predicted_first_scorer_team": "Brazil",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:51:14.752061+08:00"
+      "predicted_at": "2026-06-28T15:51:14.752061+08:00",
+      "datetime": "2026-06-29",
+      "is_past": false
     },
     {
       "id": "GER-PAR-2026-06-29",
@@ -4049,13 +4045,13 @@
       "team1_flag": "🇩🇪",
       "team2_zh": "巴拉圭",
       "team2_flag": "🇵🇾",
-      "datetime": "2026-06-29",
-      "is_past": false,
       "predicted_score": "3-1",
       "predicted_first_scorer": "梅斯亞拿",
       "predicted_first_scorer_team": "Germany",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:51:20.375673+08:00"
+      "predicted_at": "2026-06-28T15:51:20.375673+08:00",
+      "datetime": "2026-06-29",
+      "is_past": false
     },
     {
       "id": "NED-MAR-2026-06-29",
@@ -4074,13 +4070,13 @@
       "team1_flag": "🇳🇱",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
-      "datetime": "2026-06-29",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "迪比",
       "predicted_first_scorer_team": "Netherlands",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:51:23.604248+08:00"
+      "predicted_at": "2026-06-28T15:51:23.604248+08:00",
+      "datetime": "2026-06-29",
+      "is_past": false
     },
     {
       "id": "POR-COD-2026-06-29",
@@ -4332,13 +4328,13 @@
       "team1_flag": "🇨🇮",
       "team2_zh": "挪威",
       "team2_flag": "🇳🇴",
-      "datetime": "2026-06-30",
-      "is_past": false,
       "predicted_score": "1-2",
       "predicted_first_scorer": "夏蘭特",
       "predicted_first_scorer_team": "Norway",
       "predicted_confidence": 0.65,
-      "predicted_at": "2026-06-28T15:51:26.848246+08:00"
+      "predicted_at": "2026-06-28T15:51:26.848246+08:00",
+      "datetime": "2026-06-30",
+      "is_past": false
     },
     {
       "id": "FRA-SWE-2026-06-30",
@@ -4357,13 +4353,13 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "瑞典",
       "team2_flag": "🇸🇪",
-      "datetime": "2026-06-30",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "基沙文",
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:51:39.343220+08:00"
+      "predicted_at": "2026-06-28T15:51:39.343220+08:00",
+      "datetime": "2026-06-30",
+      "is_past": false
     },
     {
       "id": "MEX-ECU-2026-06-30",
@@ -4382,13 +4378,13 @@
       "team1_flag": "🇲🇽",
       "team2_zh": "厄瓜多爾",
       "team2_flag": "🇪🇨",
-      "datetime": "2026-06-30",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "安拿華倫西亞",
       "predicted_first_scorer_team": "Ecuador",
       "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-28T15:51:42.447721+08:00"
+      "predicted_at": "2026-06-28T15:51:42.447721+08:00",
+      "datetime": "2026-06-30",
+      "is_past": false
     },
     {
       "id": "FRA-ALG-2026-06-30",
@@ -4515,13 +4511,13 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "剛果民主共和國",
       "team2_flag": "🇨🇩",
-      "datetime": "2026-07-01",
-      "is_past": false,
       "predicted_score": "3-0",
       "predicted_first_scorer": "哈利·卡尼",
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:51:45.749474+08:00"
+      "predicted_at": "2026-06-28T15:51:45.749474+08:00",
+      "datetime": "2026-07-01",
+      "is_past": false
     },
     {
       "id": "BEL-SEN-2026-07-01",
@@ -4540,13 +4536,13 @@
       "team1_flag": "🇧🇪",
       "team2_zh": "塞內加爾",
       "team2_flag": "🇸🇳",
-      "datetime": "2026-07-01",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "盧卡古",
       "predicted_first_scorer_team": "Belgium",
       "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-28T15:51:48.443747+08:00"
+      "predicted_at": "2026-06-28T15:51:48.443747+08:00",
+      "datetime": "2026-07-01",
+      "is_past": false
     },
     {
       "id": "USA-BIH-2026-07-01",
@@ -4565,13 +4561,13 @@
       "team1_flag": "🇺🇸",
       "team2_zh": "波斯尼亞",
       "team2_flag": "🇧🇦",
-      "datetime": "2026-07-01",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "韋亞",
       "predicted_first_scorer_team": "United States",
       "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-28T15:51:53.262291+08:00"
+      "predicted_at": "2026-06-28T15:51:53.262291+08:00",
+      "datetime": "2026-07-01",
+      "is_past": false
     },
     {
       "id": "NED-TUR-2026-07-01",
@@ -4698,13 +4694,13 @@
       "team1_flag": "🇪🇸",
       "team2_zh": "奧地利",
       "team2_flag": "🇦🇹",
-      "datetime": "2026-07-02",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "莫拉達",
       "predicted_first_scorer_team": "Spain",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:52:00.400473+08:00"
+      "predicted_at": "2026-06-28T15:52:00.400473+08:00",
+      "datetime": "2026-07-02",
+      "is_past": false
     },
     {
       "id": "POR-CRO-2026-07-02",
@@ -4723,13 +4719,13 @@
       "team1_flag": "🇵🇹",
       "team2_zh": "克羅地亞",
       "team2_flag": "🇭🇷",
-      "datetime": "2026-07-02",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "般奴·費南迪斯",
       "predicted_first_scorer_team": "Portugal",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:52:05.845147+08:00"
+      "predicted_at": "2026-06-28T15:52:05.845147+08:00",
+      "datetime": "2026-07-02",
+      "is_past": false
     },
     {
       "id": "SUI-ALG-2026-07-02",
@@ -4748,13 +4744,13 @@
       "team1_flag": "🇨🇭",
       "team2_zh": "阿爾及利亞",
       "team2_flag": "🇩🇿",
-      "datetime": "2026-07-02",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "沙卡",
       "predicted_first_scorer_team": "Switzerland",
       "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-28T15:52:08.371119+08:00"
+      "predicted_at": "2026-06-28T15:52:08.371119+08:00",
+      "datetime": "2026-07-02",
+      "is_past": false
     },
     {
       "id": "CZE-IRQ-2026-07-02",
@@ -4881,13 +4877,13 @@
       "team1_flag": "🇦🇺",
       "team2_zh": "埃及",
       "team2_flag": "🇪🇬",
-      "datetime": "2026-07-03",
-      "is_past": false,
       "predicted_score": "1-2",
       "predicted_first_scorer": "沙拿",
       "predicted_first_scorer_team": "Egypt",
       "predicted_confidence": 0.62,
-      "predicted_at": "2026-06-28T15:52:12.287716+08:00"
+      "predicted_at": "2026-06-28T15:52:12.287716+08:00",
+      "datetime": "2026-07-03",
+      "is_past": false
     },
     {
       "id": "ARG-CPV-2026-07-03",
@@ -4906,13 +4902,13 @@
       "team1_flag": "🇦🇷",
       "team2_zh": "佛得角",
       "team2_flag": "🇨🇻",
-      "datetime": "2026-07-03",
-      "is_past": false,
       "predicted_score": "3-0",
       "predicted_first_scorer": "美斯",
       "predicted_first_scorer_team": "Argentina",
       "predicted_confidence": 0.85,
-      "predicted_at": "2026-06-28T15:52:15.011112+08:00"
+      "predicted_at": "2026-06-28T15:52:15.011112+08:00",
+      "datetime": "2026-07-03",
+      "is_past": false
     },
     {
       "id": "COL-GHA-2026-07-03",
@@ -4931,13 +4927,13 @@
       "team1_flag": "🇨🇴",
       "team2_zh": "加納",
       "team2_flag": "🇬🇭",
-      "datetime": "2026-07-03",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "首位破門球員待定",
       "predicted_first_scorer_team": "Colombia",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-06-28T15:52:20.131154+08:00"
+      "predicted_at": "2026-06-28T15:52:20.131154+08:00",
+      "datetime": "2026-07-03",
+      "is_past": false
     },
     {
       "id": "PAR-NED-2026-07-05",
@@ -5344,6 +5340,5 @@
       "predicted_confidence": 0.68,
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-06-28T15:52:20.631318+08:00"
+  ]
 }
