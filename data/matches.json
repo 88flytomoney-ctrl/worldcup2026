@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T23:31:09.321782+08:00",
+  "lastUpdated": "2026-07-05T15:24:54.920517+08:00",
   "source": "foxsports",
   "matchCount": 226,
   "matches": [
@@ -4896,16 +4896,16 @@
       "group": "",
       "date": "2026-07-04",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 3,
+      "winner": "team2",
       "team1_zh": "加拿大",
       "team1_flag": "🇨🇦",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
       "datetime": "2026-07-04",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "PAR-FRA-2026-07-04",
@@ -4916,16 +4916,16 @@
       "group": "",
       "date": "2026-07-04",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 1,
+      "winner": "team2",
       "team1_zh": "巴拉圭",
       "team1_flag": "🇵🇾",
       "team2_zh": "法國",
       "team2_flag": "🇫🇷",
       "datetime": "2026-07-04",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "BRA-NOR-2026-07-05",
@@ -5453,5 +5453,5 @@
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
   ],
-  "lastPredictedAt": "2026-07-04T23:31:47.229529+08:00"
+  "lastPredictedAt": "2026-07-05T15:25:23.400021+08:00"
 }
