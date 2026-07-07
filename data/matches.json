@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T17:36:48.221333+08:00",
+  "lastUpdated": "2026-07-07T15:37:25.746779+08:00",
   "source": "foxsports",
   "matchCount": 226,
   "matches": [
@@ -5030,16 +5030,16 @@
       "group": "",
       "date": "2026-07-06",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 1,
+      "winner": "team2",
       "team1_zh": "葡萄牙",
       "team1_flag": "🇵🇹",
       "team2_zh": "西班牙",
       "team2_flag": "🇪🇸",
       "datetime": "2026-07-06",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "USA-BEL-2026-07-06",
@@ -5050,16 +5050,16 @@
       "group": "",
       "date": "2026-07-06",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 1,
+      "score2": 4,
+      "winner": "team2",
       "team1_zh": "美國",
       "team1_flag": "🇺🇸",
       "team2_zh": "比利時",
       "team2_flag": "🇧🇪",
       "datetime": "2026-07-06",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "GER-ARG-2026-07-06",
@@ -5453,5 +5453,5 @@
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
   ],
-  "lastPredictedAt": "2026-07-06T17:37:07.922451+08:00"
+  "lastPredictedAt": "2026-07-07T15:37:36.342962+08:00"
 }
