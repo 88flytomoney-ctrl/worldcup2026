@@ -334,6 +334,39 @@ def enrich_with_translations(matches, team_map):
     return matches
 
 
+def dedupe_matches(matches):
+    """
+    Remove duplicate matches by sorted team-pair.
+    When the same team-pair appears multiple times:
+    - Prefer 'final' status over 'pregame' (real result over synthetic)
+    - If same status, prefer the one with an earlier date (actual match date)
+    - Merge AI predictions from the loser into the winner
+    """
+    by_pair = {}
+    for m in matches:
+        pair_key = tuple(sorted([m["team1"], m["team2"]]))
+        if pair_key not in by_pair:
+            by_pair[pair_key] = m
+            continue
+        
+        existing = by_pair[pair_key]
+        # Prefer final over pregame
+        if m["status"] == "final" and existing["status"] != "final":
+            # Merge predictions from the old (likely synthetic pregame) entry
+            for pred_key in ["predicted_score", "predicted_first_scorer",
+                            "predicted_first_scorer_team", "predicted_confidence", "predicted_at"]:
+                if pred_key in existing and pred_key not in m:
+                    m[pred_key] = existing[pred_key]
+            by_pair[pair_key] = m
+        elif m["status"] == existing["status"]:
+            # Same status: prefer earlier date (actual match date, not synthetic)
+            if m.get("date", "9999") < existing.get("date", "9999"):
+                by_pair[pair_key] = m
+        # else: keep existing (it's final, new one is pregame)
+    
+    return list(by_pair.values())
+
+
 def merge_with_existing(new_matches, existing_data):
     """
     Merge newly scraped data with existing matches.json.
@@ -421,6 +454,12 @@ def main():
     if fox_matches:
         all_matches = build_full_schedule(fox_matches)
         print(f"\n📅 Full schedule: {len(all_matches)} matches (group stage)")
+        # Dedupe: remove synthetic matches that have real Fox results
+        before = len(all_matches)
+        all_matches = dedupe_matches(all_matches)
+        removed = before - len(all_matches)
+        if removed:
+            print(f"🧹 Deduped {removed} stale synthetic matches (real Fox results exist)")
     else:
         all_matches = existing.get("matches", [])
     
@@ -429,6 +468,13 @@ def main():
     
     # Merge with existing data (preserves AI predictions)
     all_matches = merge_with_existing(all_matches, existing)
+    
+    # Final dedupe pass on merged data
+    before_merge = len(all_matches)
+    all_matches = dedupe_matches(all_matches)
+    final_removed = before_merge - len(all_matches)
+    if final_removed:
+        print(f"🧹 Final dedupe: removed {final_removed} duplicates from merged data")
     
     # Apply overrides
     all_matches, n_applied = apply_overrides(all_matches, overrides)
@@ -453,7 +499,9 @@ def main():
                 match_dt = datetime.fromisoformat(m["datetime"])
                 if match_dt.tzinfo is None:
                     match_dt = match_dt.replace(tzinfo=HKT)
-                m["is_past"] = match_dt < now and m["status"] == "final"
+                # Mark as past if the match time has passed — regardless of status
+                # This catches both final matches AND stale pregame matches
+                m["is_past"] = match_dt < now
             except (ValueError, TypeError):
                 m["is_past"] = False
         else:
