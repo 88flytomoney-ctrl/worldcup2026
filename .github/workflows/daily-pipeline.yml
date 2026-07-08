@@ -58,7 +58,7 @@ jobs:
       - name: AI predictions (OpenRouter)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          AI_MODEL_ID: ${{ vars.AI_MODEL_ID || 'openrouter/owl-alpha' }}
+          AI_MODEL_ID: ${{ vars.AI_MODEL_ID || 'poolside/laguna-xs-2.1:free' }}
         run: |
           if [ "${{ github.event.inputs.force_repredict }}" = "true" ]; then
             python generate_predictions.py --force
