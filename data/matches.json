@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-08T16:54:07.541176+08:00",
+  "lastUpdated": "2026-07-08T16:58:50.432616+08:00",
   "source": "foxsports",
   "matchCount": 227,
   "matches": [
@@ -5133,7 +5133,12 @@
       "team2_zh": "埃及",
       "team2_flag": "🇪🇬",
       "datetime": "2026-07-07",
-      "is_past": false
+      "is_past": false,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "首位破門球員待定",
+      "predicted_first_scorer_team": "Argentina",
+      "predicted_confidence": 0.75,
+      "predicted_at": "2026-07-08T16:58:53.558478+08:00"
     },
     {
       "id": "SUI-COL-2026-07-07",
@@ -5153,7 +5158,12 @@
       "team2_zh": "哥倫比亞",
       "team2_flag": "🇨🇴",
       "datetime": "2026-07-07",
-      "is_past": false
+      "is_past": false,
+      "predicted_score": "1-1",
+      "predicted_first_scorer": "華格斯",
+      "predicted_first_scorer_team": "Switzerland",
+      "predicted_confidence": 0.65,
+      "predicted_at": "2026-07-08T16:58:54.532888+08:00"
     },
     {
       "id": "FRA-IRQ-2026-07-07",
@@ -5443,7 +5453,12 @@
       "team2_zh": "W102",
       "team2_flag": "🏳️",
       "datetime": "2026-07-19",
-      "is_past": false
+      "is_past": false,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "梁浩然",
+      "predicted_first_scorer_team": "W101",
+      "predicted_confidence": 0.68,
+      "predicted_at": "2026-07-08T16:58:55.427240+08:00"
     },
     {
       "id": "ENG-FRA-2026-07-19",
@@ -5473,5 +5488,5 @@
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
   ],
-  "lastPredictedAt": "2026-07-08T16:54:22.910315+08:00"
+  "lastPredictedAt": "2026-07-08T16:58:55.927405+08:00"
 }
