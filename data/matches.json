@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-07T15:37:25.746779+08:00",
+  "lastUpdated": "2026-07-08T14:27:32.893063+08:00",
   "source": "foxsports",
-  "matchCount": 226,
+  "matchCount": 227,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-23",
@@ -5426,6 +5426,26 @@
       "predicted_at": "2026-06-12T16:41:21.205677+08:00"
     },
     {
+      "id": "W101-W102-2026-07-19",
+      "team1": "W101",
+      "team2": "W102",
+      "abbr1": "W101",
+      "abbr2": "W102",
+      "group": "",
+      "date": "2026-07-19",
+      "kickoff_time": "",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "W101",
+      "team1_flag": "🏳️",
+      "team2_zh": "W102",
+      "team2_flag": "🏳️",
+      "datetime": "2026-07-19",
+      "is_past": false
+    },
+    {
       "id": "ENG-FRA-2026-07-19",
       "team1": "England",
       "team2": "France",
@@ -5453,5 +5473,5 @@
       "predicted_at": "2026-06-12T16:41:26.372969+08:00"
     }
   ],
-  "lastPredictedAt": "2026-07-07T15:37:36.342962+08:00"
+  "lastPredictedAt": "2026-07-08T14:27:48.110892+08:00"
 }
