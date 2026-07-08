@@ -62,20 +62,12 @@ def main():
     matches_db = apply_overrides(matches_db, overrides)
 
     # Mark is_past based on actual current time vs match datetime.
-    # Rule: status is the source of truth.
-    #   - status == "final" → definitely past (already played)
-    #   - status == "pregame" → never past (regardless of datetime — match hasn't started)
-    #   - otherwise → fall back to datetime comparison (date-only defaults to end-of-day)
+    # Rule: a match is "past" when its scheduled datetime has passed,
+    # regardless of whether Fox Sports has marked it "final" yet.
+    # Stale pregame matches (synthetic entries never updated by Fox)
+    # should still be greyed out when their datetime is in the past.
     now = datetime.now(HKT)
     for m in matches_db["matches"]:
-        status = m.get("status", "")
-        if status == "final":
-            m["is_past"] = True
-            continue
-        if status == "pregame":
-            m["is_past"] = False
-            continue
-        # Unknown status — use datetime comparison
         try:
             dt_str = m.get("datetime", "")
             if "T" in dt_str:
@@ -83,9 +75,12 @@ def main():
             else:
                 # Date-only → end of day so matches don't grey out before they start
                 mdt = datetime.fromisoformat(dt_str + "T23:59:59+08:00")
+            if mdt.tzinfo is None:
+                mdt = mdt.replace(tzinfo=HKT)
             m["is_past"] = mdt < now
         except Exception:
-            m["is_past"] = False
+            # Fall back to status-based logic if datetime parsing fails
+            m["is_past"] = m.get("status") == "final"
 
     # Inject JSON into template
     template = TEMPLATE_FILE.read_text()
