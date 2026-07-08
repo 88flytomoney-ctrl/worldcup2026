@@ -23,7 +23,7 @@ MATCHES_FILE = DATA_DIR / "matches.json"
 LINEUPS_FILE = DATA_DIR / "lineups.json"
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-AI_MODEL_ID = os.environ.get("AI_MODEL_ID", "openrouter/owl-alpha")
+AI_MODEL_ID = os.environ.get("AI_MODEL_ID", "poolside/laguna-xs-2.1:free")
 
 HKT = timezone(timedelta(hours=8))
 
@@ -109,10 +109,17 @@ def predict_match(client, match, lineups=None):
                 model=AI_MODEL_ID,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.4,
-                max_tokens=200,
+                max_tokens=1000,
                 timeout=30,
+                extra_body={"reasoning": {"enabled": False}},
             )
-            raw = response.choices[0].message.content.strip()
+            msg = response.choices[0].message
+            raw = msg.content
+            if not raw:
+                raw = getattr(msg, "reasoning_content", None) or getattr(msg, "reasoning", None)
+            if not raw:
+                raise ValueError("Model returned empty content")
+            raw = raw.strip()
             
             # Strip markdown if present
             if raw.startswith("```"):
