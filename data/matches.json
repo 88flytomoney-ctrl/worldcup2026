@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-09T06:08:54.496348+00:00",
+  "lastUpdated": "2026-07-09T06:25:27.864190+00:00",
   "source": "foxsports",
-  "matchCount": 119,
+  "matchCount": 120,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-11",
@@ -2903,10 +2903,10 @@
       "predicted_at": "2026-07-09T12:17:15.910785+08:00"
     },
     {
-      "id": "NOR-ARG-2026-07-16",
-      "team1": "Norway",
+      "id": "ENG-ARG-2026-07-16",
+      "team1": "England",
       "team2": "Argentina",
-      "abbr1": "NOR",
+      "abbr1": "ENG",
       "abbr2": "ARG",
       "group": "",
       "stage": "SF",
@@ -2916,8 +2916,8 @@
       "score1": null,
       "score2": null,
       "winner": "",
-      "team1_zh": "挪威",
-      "team1_flag": "🇳🇴",
+      "team1_zh": "英格蘭",
+      "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
       "datetime": "2026-07-16T03:00:00+08:00",
