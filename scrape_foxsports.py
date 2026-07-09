@@ -18,6 +18,14 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 MATCHES_FILE = DATA_DIR / "matches.json"
 OVERRIDES_FILE = DATA_DIR / "data_overrides.json"
+
+# ── Blacklist ───────────────────────────────────────────────────────────────
+# Fox Sports sometimes shows wrong synthetic matches (e.g., Spain vs Belgium
+# on 07-01 as R32 when they actually meet in QF on 07-12).
+# These IDs are always removed.
+BLACKLIST_IDS = {
+    "ESP-BEL-2026-07-01",  # Fake R32 — Spain & Belgium meet in QF, not R32
+}
 TEAM_MAP_FILE = DATA_DIR / "team_map.json"
 
 FOX_URL = "https://www.foxsports.com/soccer/fifa-world-cup/scores"
@@ -445,6 +453,13 @@ def main():
     fox_matches = []
     if html:
         fox_matches = parse_fox_matches(html)
+        # Remove blacklisted matches (fake/wrong from Fox)
+        if BLACKLIST_IDS:
+            before_bl = len(fox_matches)
+            fox_matches = [m for m in fox_matches if m.get("id", "") not in BLACKLIST_IDS]
+            bl_removed = before_bl - len(fox_matches)
+            if bl_removed:
+                print(f"🚫 Blacklist: removed {bl_removed} fake match(es)")
         print(f"   Parsed {len(fox_matches)} matches from Fox")
         final_count = sum(1 for m in fox_matches if m["status"] == "final")
         pregame_count = sum(1 for m in fox_matches if m["status"] == "pregame")
@@ -468,6 +483,14 @@ def main():
     
     # Merge with existing data (preserves AI predictions)
     all_matches = merge_with_existing(all_matches, existing)
+    
+    # Remove blacklisted matches from merged data too
+    if BLACKLIST_IDS:
+        before_bl = len(all_matches)
+        all_matches = [m for m in all_matches if m.get("id", "") not in BLACKLIST_IDS]
+        bl_removed = before_bl - len(all_matches)
+        if bl_removed:
+            print(f"🚫 Blacklist (post-merge): removed {bl_removed} fake match(es)")
     
     # Final dedupe pass on merged data
     before_merge = len(all_matches)
