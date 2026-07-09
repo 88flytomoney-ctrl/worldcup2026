@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T06:28:58.155591+00:00",
+  "lastUpdated": "2026-07-09T06:43:33.654640+00:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2955,11 +2955,11 @@
       "predicted_at": "2026-07-09T12:17:24.563400+08:00"
     },
     {
-      "id": "W1-W2-2026-07-19",
-      "team1": "Winner SF1",
-      "team2": "Winner SF2",
-      "abbr1": "W1",
-      "abbr2": "W2",
+      "id": "FRA-ARG-2026-07-19",
+      "team1": "France",
+      "team2": "Argentina",
+      "abbr1": "FRA",
+      "abbr2": "ARG",
       "group": "",
       "stage": "FINAL",
       "date": "2026-07-19",
@@ -2968,10 +2968,10 @@
       "score1": null,
       "score2": null,
       "winner": "",
-      "team1_zh": "SF1勝者",
-      "team1_flag": "🏆",
-      "team2_zh": "SF2勝者",
-      "team2_flag": "🏆",
+      "team1_zh": "法國",
+      "team1_flag": "🇫🇷",
+      "team2_zh": "阿根廷",
+      "team2_flag": "🇦🇷",
       "datetime": "2026-07-19T03:00:00+08:00",
       "is_past": false,
       "is_knockout": true,
