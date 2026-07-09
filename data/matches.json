@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T06:00:57.103857+00:00",
+  "lastUpdated": "2026-07-09T14:04:16.478102+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -1021,7 +1021,12 @@
       "team2_zh": "塞內加爾",
       "team2_flag": "🇸🇳",
       "datetime": "2026-06-22",
-      "is_past": true
+      "is_past": true,
+      "predicted_score": "1-1",
+      "predicted_first_scorer": "梅林",
+      "predicted_first_scorer_team": "Norway",
+      "predicted_confidence": 0.62,
+      "predicted_at": "2026-07-09T14:04:18.530461+08:00"
     },
     {
       "id": "JOR-ALG-2026-06-22",
@@ -1041,7 +1046,12 @@
       "team2_zh": "阿爾及利亞",
       "team2_flag": "🇩🇿",
       "datetime": "2026-06-22",
-      "is_past": true
+      "is_past": true,
+      "predicted_score": "1-1",
+      "predicted_first_scorer": "穆薩",
+      "predicted_first_scorer_team": "Jordan",
+      "predicted_confidence": 0.65,
+      "predicted_at": "2026-07-09T14:04:19.643253+08:00"
     },
     {
       "id": "FRA-IRQ-2026-06-22",
@@ -1061,7 +1071,12 @@
       "team2_zh": "伊拉克",
       "team2_flag": "🇮🇶",
       "datetime": "2026-06-22T03:00:00+08:00",
-      "is_past": true
+      "is_past": true,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "麥巴比",
+      "predicted_first_scorer_team": "France",
+      "predicted_confidence": 0.72,
+      "predicted_at": "2026-07-09T14:04:20.943140+08:00"
     },
     {
       "id": "ARG-AUT-2026-06-22",
@@ -2263,33 +2278,6 @@
       "predicted_at": "2026-07-09T12:16:15.814492+08:00"
     },
     {
-      "id": "ESP-BEL-2026-07-01",
-      "team1": "Spain",
-      "team2": "Belgium",
-      "abbr1": "ESP",
-      "abbr2": "BEL",
-      "group": "",
-      "stage": "R32",
-      "date": "2026-07-01",
-      "kickoff_time": "06:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "西班牙",
-      "team1_flag": "🇪🇸",
-      "team2_zh": "比利時",
-      "team2_flag": "🇧🇪",
-      "datetime": "2026-07-01T06:00:00+08:00",
-      "is_past": true,
-      "is_knockout": true,
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "托里斯",
-      "predicted_first_scorer_team": "Spain",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:16:21.566111+08:00"
-    },
-    {
       "id": "ARG-SWE-2026-07-01",
       "team1": "Argentina",
       "team2": "Sweden",
@@ -2796,15 +2784,38 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
-      "datetime": "2026-07-09",
-      "is_past": true,
       "predicted_score": "2-1",
       "predicted_first_scorer": "麥巴比",
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:04.679369+08:00",
-      "stage": "QF",
-      "is_knockout": true
+      "datetime": "2026-07-09",
+      "is_past": true
+    },
+    {
+      "id": "ESP-BEL-2026-07-10",
+      "team1": "Spain",
+      "team2": "Belgium",
+      "abbr1": "ESP",
+      "abbr2": "BEL",
+      "group": "",
+      "date": "2026-07-10",
+      "kickoff_time": "",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "西班牙",
+      "team1_flag": "🇪🇸",
+      "team2_zh": "比利時",
+      "team2_flag": "🇧🇪",
+      "datetime": "2026-07-10",
+      "is_past": false,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "托里斯",
+      "predicted_first_scorer_team": "Spain",
+      "predicted_confidence": 0.72,
+      "predicted_at": "2026-07-09T14:04:21.842398+08:00"
     },
     {
       "id": "NOR-ENG-2026-07-11",
@@ -2823,15 +2834,13 @@
       "team1_flag": "🇳🇴",
       "team2_zh": "英格蘭",
       "team2_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "datetime": "2026-07-11",
-      "is_past": false,
       "predicted_score": "1-2",
       "predicted_first_scorer": "哈利·馬奎爾",
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:09.338269+08:00",
-      "stage": "QF",
-      "is_knockout": true
+      "datetime": "2026-07-11",
+      "is_past": false
     },
     {
       "id": "ARG-SUI-2026-07-11",
@@ -2850,15 +2859,13 @@
       "team1_flag": "🇦🇷",
       "team2_zh": "瑞士",
       "team2_flag": "🇨🇭",
-      "datetime": "2026-07-11",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "首位破門球員待定",
       "predicted_first_scorer_team": "Argentina",
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:13.668905+08:00",
-      "stage": "QF",
-      "is_knockout": true
+      "datetime": "2026-07-11",
+      "is_past": false
     },
     {
       "id": "FRA-ESP-2026-07-15",
@@ -2965,29 +2972,7 @@
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-07-09T12:17:28.858527+08:00"
-    },
-    {
-      "id": "ESP-BEL-2026-07-12",
-      "team1": "Spain",
-      "team2": "Belgium",
-      "abbr1": "ESP",
-      "abbr2": "BEL",
-      "group": "",
-      "stage": "QF",
-      "date": "2026-07-12",
-      "kickoff_time": "03:00",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
-      "team1_zh": "西班牙",
-      "team1_flag": "🇪🇸",
-      "team2_zh": "比利時",
-      "team2_flag": "🇧🇪",
-      "datetime": "2026-07-12T03:00:00+08:00",
-      "is_past": false,
-      "is_knockout": true
     }
   ],
-  "lastPredictedAt": "2026-07-09T12:17:29.358724+08:00"
+  "lastPredictedAt": "2026-07-09T14:04:22.342541+08:00"
 }
