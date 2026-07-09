@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-09T12:14:12.354939+08:00",
+  "lastUpdated": "2026-07-09T04:23:11.890347+00:00",
   "source": "foxsports",
-  "matchCount": 120,
+  "matchCount": 121,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-11",
@@ -2802,7 +2802,9 @@
       "predicted_first_scorer": "麥巴比",
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:17:04.679369+08:00"
+      "predicted_at": "2026-07-09T12:17:04.679369+08:00",
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "NOR-ENG-2026-07-11",
@@ -2827,7 +2829,9 @@
       "predicted_first_scorer": "哈利·馬奎爾",
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:17:09.338269+08:00"
+      "predicted_at": "2026-07-09T12:17:09.338269+08:00",
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "ARG-SUI-2026-07-11",
@@ -2852,7 +2856,9 @@
       "predicted_first_scorer": "首位破門球員待定",
       "predicted_first_scorer_team": "Argentina",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:17:13.668905+08:00"
+      "predicted_at": "2026-07-09T12:17:13.668905+08:00",
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "FRA-ESP-2026-07-15",
@@ -2959,6 +2965,28 @@
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.68,
       "predicted_at": "2026-07-09T12:17:28.858527+08:00"
+    },
+    {
+      "id": "ESP-BEL-2026-07-12",
+      "team1": "Spain",
+      "team2": "Belgium",
+      "abbr1": "ESP",
+      "abbr2": "BEL",
+      "group": "",
+      "stage": "QF",
+      "date": "2026-07-12",
+      "kickoff_time": "03:00",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "西班牙",
+      "team1_flag": "🇪🇸",
+      "team2_zh": "比利時",
+      "team2_flag": "🇧🇪",
+      "datetime": "2026-07-12T03:00:00+08:00",
+      "is_past": false,
+      "is_knockout": true
     }
   ],
   "lastPredictedAt": "2026-07-09T12:17:29.358724+08:00"
