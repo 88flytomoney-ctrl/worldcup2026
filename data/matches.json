@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T06:43:33.654640+00:00",
+  "lastUpdated": "2026-07-09T15:36:17.977432+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2790,9 +2790,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:04.679369+08:00",
       "datetime": "2026-07-09",
-      "is_past": true,
-      "stage": "QF",
-      "is_knockout": true
+      "is_past": true
     },
     {
       "id": "ESP-BEL-2026-07-10",
@@ -2817,9 +2815,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T14:04:21.842398+08:00",
       "datetime": "2026-07-10",
-      "is_past": false,
-      "stage": "QF",
-      "is_knockout": true
+      "is_past": false
     },
     {
       "id": "NOR-ENG-2026-07-11",
@@ -2844,9 +2840,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:09.338269+08:00",
       "datetime": "2026-07-11",
-      "is_past": false,
-      "stage": "QF",
-      "is_knockout": true
+      "is_past": false
     },
     {
       "id": "ARG-SUI-2026-07-11",
@@ -2871,9 +2865,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:13.668905+08:00",
       "datetime": "2026-07-11",
-      "is_past": false,
-      "stage": "QF",
-      "is_knockout": true
+      "is_past": false
     },
     {
       "id": "FRA-ESP-2026-07-15",
@@ -2975,11 +2967,12 @@
       "datetime": "2026-07-19T03:00:00+08:00",
       "is_past": false,
       "is_knockout": true,
-      "predicted_score": "",
-      "predicted_first_scorer": "",
-      "predicted_first_scorer_team": "",
-      "predicted_confidence": 0,
-      "predicted_at": ""
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "首位破門球員待定",
+      "predicted_first_scorer_team": "France",
+      "predicted_confidence": 0.75,
+      "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ]
+  ],
+  "lastPredictedAt": "2026-07-09T15:36:23.539942+08:00"
 }
