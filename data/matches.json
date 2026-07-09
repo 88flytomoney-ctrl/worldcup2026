@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T06:25:27.864190+00:00",
+  "lastUpdated": "2026-07-09T06:28:58.155591+00:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2955,11 +2955,11 @@
       "predicted_at": "2026-07-09T12:17:24.563400+08:00"
     },
     {
-      "id": "ENG-FRA-2026-07-19",
-      "team1": "England",
-      "team2": "France",
-      "abbr1": "ENG",
-      "abbr2": "FRA",
+      "id": "W1-W2-2026-07-19",
+      "team1": "Winner SF1",
+      "team2": "Winner SF2",
+      "abbr1": "W1",
+      "abbr2": "W2",
       "group": "",
       "stage": "FINAL",
       "date": "2026-07-19",
@@ -2968,18 +2968,18 @@
       "score1": null,
       "score2": null,
       "winner": "",
-      "team1_zh": "英格蘭",
-      "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "team2_zh": "法國",
-      "team2_flag": "🇫🇷",
+      "team1_zh": "SF1勝者",
+      "team1_flag": "🏆",
+      "team2_zh": "SF2勝者",
+      "team2_flag": "🏆",
       "datetime": "2026-07-19T03:00:00+08:00",
       "is_past": false,
       "is_knockout": true,
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "哈利·卡尼",
-      "predicted_first_scorer_team": "England",
-      "predicted_confidence": 0.68,
-      "predicted_at": "2026-07-09T12:17:28.858527+08:00"
+      "predicted_score": "",
+      "predicted_first_scorer": "",
+      "predicted_first_scorer_team": "",
+      "predicted_confidence": 0,
+      "predicted_at": ""
     }
   ]
 }
