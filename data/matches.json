@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-09T14:05:24.903515+08:00",
+  "lastUpdated": "2026-07-09T06:08:54.496348+00:00",
   "source": "foxsports",
-  "matchCount": 120,
+  "matchCount": 119,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-11",
@@ -2790,7 +2790,9 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:04.679369+08:00",
       "datetime": "2026-07-09",
-      "is_past": true
+      "is_past": true,
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "ESP-BEL-2026-07-10",
@@ -2815,7 +2817,9 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T14:04:21.842398+08:00",
       "datetime": "2026-07-10",
-      "is_past": false
+      "is_past": false,
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "NOR-ENG-2026-07-11",
@@ -2840,7 +2844,9 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:09.338269+08:00",
       "datetime": "2026-07-11",
-      "is_past": false
+      "is_past": false,
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "ARG-SUI-2026-07-11",
@@ -2865,7 +2871,9 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:13.668905+08:00",
       "datetime": "2026-07-11",
-      "is_past": false
+      "is_past": false,
+      "stage": "QF",
+      "is_knockout": true
     },
     {
       "id": "FRA-ESP-2026-07-15",
