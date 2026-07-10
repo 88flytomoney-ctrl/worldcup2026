@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T15:36:17.977432+08:00",
+  "lastUpdated": "2026-07-10T15:34:12.083100+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2776,20 +2776,16 @@
       "group": "",
       "date": "2026-07-09",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 2,
+      "score2": 0,
+      "winner": "team1",
       "team1_zh": "法國",
       "team1_flag": "🇫🇷",
       "team2_zh": "摩洛哥",
       "team2_flag": "🇲🇦",
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "麥巴比",
-      "predicted_first_scorer_team": "France",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:17:04.679369+08:00",
       "datetime": "2026-07-09",
+      "predicted_at": "2026-07-09T12:17:04.679369+08:00",
       "is_past": true
     },
     {
@@ -2815,7 +2811,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T14:04:21.842398+08:00",
       "datetime": "2026-07-10",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "NOR-ENG-2026-07-11",
@@ -2973,6 +2969,5 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-07-09T15:36:23.539942+08:00"
+  ]
 }
