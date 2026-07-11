@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T15:34:12.083100+08:00",
+  "lastUpdated": "2026-07-11T14:12:12.211965+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2797,20 +2797,16 @@
       "group": "",
       "date": "2026-07-10",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 2,
+      "score2": 1,
+      "winner": "team1",
       "team1_zh": "西班牙",
       "team1_flag": "🇪🇸",
       "team2_zh": "比利時",
       "team2_flag": "🇧🇪",
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "托里斯",
-      "predicted_first_scorer_team": "Spain",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T14:04:21.842398+08:00",
       "datetime": "2026-07-10",
+      "predicted_at": "2026-07-09T14:04:21.842398+08:00",
       "is_past": true
     },
     {
@@ -2836,7 +2832,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:09.338269+08:00",
       "datetime": "2026-07-11",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "ARG-SUI-2026-07-11",
@@ -2861,7 +2857,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-09T12:17:13.668905+08:00",
       "datetime": "2026-07-11",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "FRA-ESP-2026-07-15",
