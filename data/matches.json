@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-12T14:32:05.124873+08:00",
+  "lastUpdated": "2026-07-12T23:31:09.332977+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2876,13 +2876,13 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "西班牙",
       "team2_flag": "🇪🇸",
-      "datetime": "2026-07-14",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "麥巴比",
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.75,
-      "predicted_at": "2026-07-12T14:32:06.955393+08:00"
+      "predicted_at": "2026-07-12T14:32:06.955393+08:00",
+      "datetime": "2026-07-14",
+      "is_past": false
     },
     {
       "id": "ENG-ARG-2026-07-15",
@@ -2901,13 +2901,13 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
-      "datetime": "2026-07-15",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "哈利·卡尼",
       "predicted_first_scorer_team": "England",
       "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-12T14:32:07.839614+08:00"
+      "predicted_at": "2026-07-12T14:32:07.839614+08:00",
+      "datetime": "2026-07-15",
+      "is_past": false
     },
     {
       "id": "W101-W102-2026-07-19",
@@ -2961,6 +2961,5 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-07-12T14:32:08.339720+08:00"
+  ]
 }
