@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T23:31:10.143498+08:00",
+  "lastUpdated": "2026-07-12T14:32:05.124873+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2860,15 +2860,14 @@
       "is_past": true
     },
     {
-      "id": "FRA-ESP-2026-07-15",
+      "id": "FRA-ESP-2026-07-14",
       "team1": "France",
       "team2": "Spain",
       "abbr1": "FRA",
       "abbr2": "ESP",
       "group": "",
-      "stage": "SF",
-      "date": "2026-07-15",
-      "kickoff_time": "03:00",
+      "date": "2026-07-14",
+      "kickoff_time": "",
       "status": "pregame",
       "score1": null,
       "score2": null,
@@ -2877,25 +2876,23 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "西班牙",
       "team2_flag": "🇪🇸",
-      "datetime": "2026-07-15T03:00:00+08:00",
+      "datetime": "2026-07-14",
       "is_past": false,
-      "is_knockout": true,
       "predicted_score": "2-1",
       "predicted_first_scorer": "麥巴比",
       "predicted_first_scorer_team": "France",
-      "predicted_confidence": 0.72,
-      "predicted_at": "2026-07-09T12:17:15.910785+08:00"
+      "predicted_confidence": 0.75,
+      "predicted_at": "2026-07-12T14:32:06.955393+08:00"
     },
     {
-      "id": "ENG-ARG-2026-07-16",
+      "id": "ENG-ARG-2026-07-15",
       "team1": "England",
       "team2": "Argentina",
       "abbr1": "ENG",
       "abbr2": "ARG",
       "group": "",
-      "stage": "SF",
-      "date": "2026-07-16",
-      "kickoff_time": "03:00",
+      "date": "2026-07-15",
+      "kickoff_time": "",
       "status": "pregame",
       "score1": null,
       "score2": null,
@@ -2904,14 +2901,13 @@
       "team1_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
-      "datetime": "2026-07-16T03:00:00+08:00",
+      "datetime": "2026-07-15",
       "is_past": false,
-      "is_knockout": true,
-      "predicted_score": "1-2",
-      "predicted_first_scorer": "梅林",
-      "predicted_first_scorer_team": "Norway",
-      "predicted_confidence": 0.75,
-      "predicted_at": "2026-07-09T12:17:20.316933+08:00"
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "哈利·卡尼",
+      "predicted_first_scorer_team": "England",
+      "predicted_confidence": 0.72,
+      "predicted_at": "2026-07-12T14:32:07.839614+08:00"
     },
     {
       "id": "W101-W102-2026-07-19",
@@ -2965,5 +2961,6 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ]
+  ],
+  "lastPredictedAt": "2026-07-12T14:32:08.339720+08:00"
 }
