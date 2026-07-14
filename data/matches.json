@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-13T17:36:11.179656+08:00",
+  "lastUpdated": "2026-07-14T14:10:16.897391+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2882,7 +2882,7 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-12T14:32:06.955393+08:00",
       "datetime": "2026-07-14",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "ENG-ARG-2026-07-15",
