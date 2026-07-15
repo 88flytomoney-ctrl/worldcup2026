@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14T17:36:16.143024+08:00",
+  "lastUpdated": "2026-07-15T14:13:08.774442+08:00",
   "source": "foxsports",
   "matchCount": 120,
   "matches": [
@@ -2868,20 +2868,16 @@
       "group": "",
       "date": "2026-07-14",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 0,
+      "score2": 2,
+      "winner": "team2",
       "team1_zh": "法國",
       "team1_flag": "🇫🇷",
       "team2_zh": "西班牙",
       "team2_flag": "🇪🇸",
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "麥巴比",
-      "predicted_first_scorer_team": "France",
-      "predicted_confidence": 0.75,
-      "predicted_at": "2026-07-12T14:32:06.955393+08:00",
       "datetime": "2026-07-14",
+      "predicted_at": "2026-07-12T14:32:06.955393+08:00",
       "is_past": true
     },
     {
@@ -2907,7 +2903,7 @@
       "predicted_confidence": 0.72,
       "predicted_at": "2026-07-12T14:32:07.839614+08:00",
       "datetime": "2026-07-15",
-      "is_past": false
+      "is_past": true
     },
     {
       "id": "W101-W102-2026-07-19",
