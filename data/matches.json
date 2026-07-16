@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-16T14:16:59.952384+08:00",
+  "lastUpdated": "2026-07-16T17:36:16.535760+08:00",
   "source": "foxsports",
   "matchCount": 121,
   "matches": [
@@ -2922,13 +2922,13 @@
       "team1_flag": "🇫🇷",
       "team2_zh": "英格蘭",
       "team2_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "datetime": "2026-07-18",
-      "is_past": false,
       "predicted_score": "2-1",
       "predicted_first_scorer": "麥巴比",
       "predicted_first_scorer_team": "France",
       "predicted_confidence": 0.65,
-      "predicted_at": "2026-07-16T14:17:02.230684+08:00"
+      "predicted_at": "2026-07-16T14:17:02.230684+08:00",
+      "datetime": "2026-07-18",
+      "is_past": false
     },
     {
       "id": "W101-W102-2026-07-19",
@@ -2982,6 +2982,5 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-07-16T14:17:02.730858+08:00"
+  ]
 }
