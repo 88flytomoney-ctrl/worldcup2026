@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-15T17:36:24.040117+08:00",
+  "lastUpdated": "2026-07-16T14:16:59.952384+08:00",
   "source": "foxsports",
-  "matchCount": 120,
+  "matchCount": 121,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-11",
@@ -2906,6 +2906,31 @@
       "is_past": true
     },
     {
+      "id": "FRA-ENG-2026-07-18",
+      "team1": "France",
+      "team2": "England",
+      "abbr1": "FRA",
+      "abbr2": "ENG",
+      "group": "",
+      "date": "2026-07-18",
+      "kickoff_time": "",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "法國",
+      "team1_flag": "🇫🇷",
+      "team2_zh": "英格蘭",
+      "team2_flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "datetime": "2026-07-18",
+      "is_past": false,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "麥巴比",
+      "predicted_first_scorer_team": "France",
+      "predicted_confidence": 0.65,
+      "predicted_at": "2026-07-16T14:17:02.230684+08:00"
+    },
+    {
       "id": "W101-W102-2026-07-19",
       "team1": "W101",
       "team2": "W102",
@@ -2957,5 +2982,6 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ]
+  ],
+  "lastPredictedAt": "2026-07-16T14:17:02.730858+08:00"
 }
