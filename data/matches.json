@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-18T23:31:15.802359+08:00",
+  "lastUpdated": "2026-07-19T14:29:29.858083+08:00",
   "source": "foxsports",
-  "matchCount": 121,
+  "matchCount": 122,
   "matches": [
     {
       "id": "MEX-RSA-2026-06-11",
@@ -2931,6 +2931,31 @@
       "is_past": true
     },
     {
+      "id": "ESP-ARG-2026-07-19",
+      "team1": "Spain",
+      "team2": "Argentina",
+      "abbr1": "ESP",
+      "abbr2": "ARG",
+      "group": "",
+      "date": "2026-07-19",
+      "kickoff_time": "",
+      "status": "pregame",
+      "score1": null,
+      "score2": null,
+      "winner": "",
+      "team1_zh": "西班牙",
+      "team1_flag": "🇪🇸",
+      "team2_zh": "阿根廷",
+      "team2_flag": "🇦🇷",
+      "datetime": "2026-07-19",
+      "is_past": true,
+      "predicted_score": "2-1",
+      "predicted_first_scorer": "首位破門球員待定",
+      "predicted_first_scorer_team": "Spain",
+      "predicted_confidence": 0.75,
+      "predicted_at": "2026-07-19T14:29:32.443769+08:00"
+    },
+    {
       "id": "W101-W102-2026-07-19",
       "team1": "W101",
       "team2": "W102",
@@ -2948,7 +2973,7 @@
       "team2_zh": "W102",
       "team2_flag": "🏳️",
       "datetime": "2026-07-19",
-      "is_past": false,
+      "is_past": true,
       "predicted_score": "2-1",
       "predicted_first_scorer": "張翔城",
       "predicted_first_scorer_team": "W101",
@@ -2974,7 +2999,7 @@
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
       "datetime": "2026-07-19T03:00:00+08:00",
-      "is_past": false,
+      "is_past": true,
       "is_knockout": true,
       "predicted_score": "2-1",
       "predicted_first_scorer": "首位破門球員待定",
@@ -2982,5 +3007,6 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ]
+  ],
+  "lastPredictedAt": "2026-07-19T14:29:32.943939+08:00"
 }
