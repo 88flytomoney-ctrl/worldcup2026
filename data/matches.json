@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T14:29:29.858083+08:00",
+  "lastUpdated": "2026-07-19T23:31:11.691532+08:00",
   "source": "foxsports",
   "matchCount": 122,
   "matches": [
@@ -2947,13 +2947,13 @@
       "team1_flag": "🇪🇸",
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
-      "datetime": "2026-07-19",
-      "is_past": true,
       "predicted_score": "2-1",
       "predicted_first_scorer": "首位破門球員待定",
       "predicted_first_scorer_team": "Spain",
       "predicted_confidence": 0.75,
-      "predicted_at": "2026-07-19T14:29:32.443769+08:00"
+      "predicted_at": "2026-07-19T14:29:32.443769+08:00",
+      "datetime": "2026-07-19",
+      "is_past": true
     },
     {
       "id": "W101-W102-2026-07-19",
@@ -3007,6 +3007,5 @@
       "predicted_confidence": 0.75,
       "predicted_at": "2026-07-09T15:36:23.039782+08:00"
     }
-  ],
-  "lastPredictedAt": "2026-07-19T14:29:32.943939+08:00"
+  ]
 }
