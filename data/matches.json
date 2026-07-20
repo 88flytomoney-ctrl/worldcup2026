@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T23:31:11.691532+08:00",
+  "lastUpdated": "2026-07-20T14:44:39.071715+08:00",
   "source": "foxsports",
   "matchCount": 122,
   "matches": [
@@ -2939,20 +2939,16 @@
       "group": "",
       "date": "2026-07-19",
       "kickoff_time": "",
-      "status": "pregame",
-      "score1": null,
-      "score2": null,
-      "winner": "",
+      "status": "final",
+      "score1": 1,
+      "score2": 0,
+      "winner": "team1",
       "team1_zh": "西班牙",
       "team1_flag": "🇪🇸",
       "team2_zh": "阿根廷",
       "team2_flag": "🇦🇷",
-      "predicted_score": "2-1",
-      "predicted_first_scorer": "首位破門球員待定",
-      "predicted_first_scorer_team": "Spain",
-      "predicted_confidence": 0.75,
-      "predicted_at": "2026-07-19T14:29:32.443769+08:00",
       "datetime": "2026-07-19",
+      "predicted_at": "2026-07-19T14:29:32.443769+08:00",
       "is_past": true
     },
     {
